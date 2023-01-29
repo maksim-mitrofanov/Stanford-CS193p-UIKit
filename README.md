@@ -1,19 +1,8 @@
-# CS193p-UIKit
-
-Stanford's CS193p course, Developing Applications for iOS, explains the fundamentals of how to build applications for iPhone and iPad using UIKit.
+# CS193p-UIKit-Lecture-2
 
 <p align="center">
-  <img src="https://miro.medium.com/max/1200/1*UlybzoOkP5X87QLW7e7Hwg.png" title="hover text">
+  <img src="https://github.com/maksim-mitrofanov/CS193p-UIKit/blob/Lecture-2-Class-Code/Lecture_2_Slide_1.png" title="hover text">
+  <img src="https://github.com/maksim-mitrofanov/CS193p-UIKit/blob/Lecture-2-Class-Code/Lecture_2_Slide_2.png" title="hover text">
+  <img src="https://github.com/maksim-mitrofanov/CS193p-UIKit/blob/Lecture-2-Class-Code/Lecture_2_Slide_3.png" title="hover text">
+  <img src="https://github.com/maksim-mitrofanov/CS193p-UIKit/blob/Lecture-2-Class-Code/Lecture_2_Slide_4.png" title="hover text">
 </p>
-
-## Lecture 1
-| Assignment | Branch Link |
-| ----- | ----- |
-| Lecture code | [Link](https://github.com/maksim-mitrofanov/CS193p-UIKit/tree/Lecture-1-Branch) |
-
-## Lecture 2
-| Assignment | Branch Link |
-| ----- | ----- |
-| Lecture code | [Link]() |
-| Assignment code | [Link]() |
-
