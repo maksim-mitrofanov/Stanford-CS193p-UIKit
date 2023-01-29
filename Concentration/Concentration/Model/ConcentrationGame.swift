@@ -9,16 +9,28 @@ import Foundation
 
 class ConcentrationGame {
     var cards = [FlipCard]()
+    var currentScore = 0
+    var flipCount = 0
     
     var indexOfTheOneAndOnlyFaceUpCard: Int?
     
     func chooseCard(at index: Int) {
         if !cards[index].isFaceUp, !cards[index].isMatched {
             if let faceUpCardIndex = indexOfTheOneAndOnlyFaceUpCard {
+                //Cards are matching
                 if cards[index].identifier == cards[faceUpCardIndex].identifier {
                     cards[index].isMatched = true
                     cards[faceUpCardIndex].isMatched = true
+                    currentScore += 2
                 }
+                
+                //Cards are not matching
+                else {
+                    if cards[index].wasMismatched { currentScore -= 1 }
+                    cards[index].wasMismatched = true
+                    cards[faceUpCardIndex].wasMismatched = true
+                }
+                
                 indexOfTheOneAndOnlyFaceUpCard = nil
             }
             else {
@@ -29,6 +41,7 @@ class ConcentrationGame {
             }
         }
         
+        flipCount += 1
         cards[index].isFaceUp = true
     }
     
@@ -37,5 +50,6 @@ class ConcentrationGame {
             let card = FlipCard()
             cards += [card, card]
         }
+        cards.shuffle()
     }
 }

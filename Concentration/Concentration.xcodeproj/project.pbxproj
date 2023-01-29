@@ -15,6 +15,7 @@
 		4C24BF7F2986727C0070A90C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C24BF7D2986727C0070A90C /* LaunchScreen.storyboard */; };
 		4C681CED2986AE5B00FAAD65 /* FlipCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C681CEC2986AE5B00FAAD65 /* FlipCard.swift */; };
 		4C681CEF2986AEF200FAAD65 /* ConcentrationGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C681CEE2986AEF200FAAD65 /* ConcentrationGame.swift */; };
+		4C681CF12986C10100FAAD65 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C681CF02986C10100FAAD65 /* Theme.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		4C24BF802986727C0070A90C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4C681CEC2986AE5B00FAAD65 /* FlipCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlipCard.swift; sourceTree = "<group>"; };
 		4C681CEE2986AEF200FAAD65 /* ConcentrationGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcentrationGame.swift; sourceTree = "<group>"; };
+		4C681CF02986C10100FAAD65 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 			children = (
 				4C681CEC2986AE5B00FAAD65 /* FlipCard.swift */,
 				4C681CEE2986AEF200FAAD65 /* ConcentrationGame.swift */,
+				4C681CF02986C10100FAAD65 /* Theme.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -163,6 +166,7 @@
 				4C681CED2986AE5B00FAAD65 /* FlipCard.swift in Sources */,
 				4C24BF772986727B0070A90C /* ViewController.swift in Sources */,
 				4C681CEF2986AEF200FAAD65 /* ConcentrationGame.swift in Sources */,
+				4C681CF12986C10100FAAD65 /* Theme.swift in Sources */,
 				4C24BF732986727B0070A90C /* AppDelegate.swift in Sources */,
 				4C24BF752986727B0070A90C /* SceneDelegate.swift in Sources */,
 			);

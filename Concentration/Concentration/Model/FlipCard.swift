@@ -10,6 +10,7 @@ import Foundation
 struct FlipCard {
     var isFaceUp: Bool = false
     var isMatched: Bool = false
+    var wasMismatched: Bool = false
     var identifier: Int
     
     static var identifierFactory = 0
