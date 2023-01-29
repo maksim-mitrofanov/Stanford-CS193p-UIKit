@@ -1,4 +1,4 @@
-# CS193p-UIKit!
+# CS193p-UIKit-Lecture-1
 
 <p align="center">
   <img src="https://github.com/maksim-mitrofanov/CS193p-UIKit/blob/Lecture-1-Branch/Lecture_1_Slide_2.png" title="hover text">
