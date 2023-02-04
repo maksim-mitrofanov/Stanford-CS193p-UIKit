@@ -8,9 +8,31 @@
 import Foundation
 
 class ConcentrationGame {
-    var cards = [FlipCard]()
+    private(set) var cards = [FlipCard]()
     
-    var indexOfTheOneAndOnlyFaceUpCard: Int?
+    private var indexOfTheOneAndOnlyFaceUpCard: Int? {
+        get {
+            var faceUpCardIndices = [Int]()
+            for cardIndex in cards.indices {
+                if cards[cardIndex].isFaceUp {
+                    faceUpCardIndices.append(cardIndex)
+                }
+            }
+            
+            if faceUpCardIndices.count == 1 { return faceUpCardIndices[0] }
+            else { return nil }
+        }
+        
+        set {
+            if let newValue = newValue {
+                for flipIndex in cards.indices {
+                    cards[flipIndex].isFaceUp = false
+                }
+                cards[newValue].isFaceUp = true
+            }
+        }
+    }
+    
     
     func chooseCard(at index: Int) {
         if !cards[index].isFaceUp, !cards[index].isMatched {
@@ -27,9 +49,8 @@ class ConcentrationGame {
                 }
                 indexOfTheOneAndOnlyFaceUpCard = index
             }
+            cards[index].isFaceUp = true
         }
-        
-        cards[index].isFaceUp = true
     }
     
     init(numberOfPairsOfCards: Int) {

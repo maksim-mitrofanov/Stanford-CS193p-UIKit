@@ -9,9 +9,9 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    lazy var game = ConcentrationGame(numberOfPairsOfCards: (concentrationCards.count + 1) / 2)
+    private lazy var game = ConcentrationGame(numberOfPairsOfCards: (concentrationCards.count + 1) / 2)
     
-    var flipCount = 0 {
+    private(set) var flipCount = 0 {
         didSet {
             flipCountLabel.text = "Flip Count: \(flipCount)"
         }
@@ -27,7 +27,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
     }
     
-    func flipCard(sender: UIButton) {
+    private func flipCard(sender: UIButton) {
         if let cardIndex = concentrationCards.firstIndex(of: sender) {
             flipCount += 1
             game.chooseCard(at: cardIndex)
@@ -35,14 +35,14 @@ class ViewController: UIViewController {
         }
     }
     
-    func updateViewFromModel() {
+    private func updateViewFromModel() {
         for index in concentrationCards.indices {
             let cardData = game.cards[index]
             updateAppearanceForCardAt(index: index, with: cardData)
         }
     }
     
-    func updateAppearanceForCardAt(index: Int, with cardData: FlipCard) {
+    private func updateAppearanceForCardAt(index: Int, with cardData: FlipCard) {
         if cardData.isFaceUp {
             concentrationCards[index].setTitle(emoji(for: cardData), for: .normal)
             concentrationCards[index].backgroundColor = .white
@@ -54,15 +54,30 @@ class ViewController: UIViewController {
         }
     }
     
-    var heroEmojis = ["🧑‍🚀", "🧑‍⚖️", "🦸🏻‍♂️", "🦹‍♀️", "🥷", "🧙‍♂️", "🧝‍♀️", "🧌", "🧛‍♀️", "🧟‍♂️", "🧞‍♂️"]
-    var emojiDictionary = [Int:String]()
+    private var heroEmojis = ["🧑‍🚀", "🧑‍⚖️", "🦸🏻‍♂️", "🦹‍♀️", "🥷", "🧙‍♂️", "🧝‍♀️", "🧌", "🧛‍♀️", "🧟‍♂️", "🧞‍♂️"]
+    private var emojiDictionary = [Int:String]()
     
-    func emoji(for card: FlipCard) -> String {
+    private func emoji(for card: FlipCard) -> String {
         if emojiDictionary[card.identifier] == nil, heroEmojis.count > 0 {
-            let randomElementIndex = Int(arc4random_uniform(UInt32(heroEmojis.count)))
+            let randomElementIndex = heroEmojis.count.arc4random
             emojiDictionary[card.identifier] = heroEmojis.remove(at: randomElementIndex)
         }
         return emojiDictionary[card.identifier] ?? "😶‍🌫️"
     }
 }
 
+extension Int {
+    var arc4random: Int {
+        if self > 0 {
+            return Int(arc4random_uniform(UInt32(self)))
+        }
+        
+        else if self < 0 {
+            return -Int(arc4random_uniform(UInt32(self)))
+        }
+        
+        else {
+            return self
+        }
+    }
+}
