@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct FlipCard {
+struct FlipCard: Hashable {
     var isFaceUp: Bool = false
     var isMatched: Bool = false
     var identifier: Int

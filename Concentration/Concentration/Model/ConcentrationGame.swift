@@ -7,20 +7,12 @@
 
 import Foundation
 
-class ConcentrationGame {
+struct ConcentrationGame {
     private(set) var cards = [FlipCard]()
     
     private var indexOfTheOneAndOnlyFaceUpCard: Int? {
         get {
-            var faceUpCardIndices = [Int]()
-            for cardIndex in cards.indices {
-                if cards[cardIndex].isFaceUp {
-                    faceUpCardIndices.append(cardIndex)
-                }
-            }
-            
-            if faceUpCardIndices.count == 1 { return faceUpCardIndices[0] }
-            else { return nil }
+            cards.indices.filter { cards[$0].isFaceUp }.oneAndOnly
         }
         
         set {
@@ -34,7 +26,7 @@ class ConcentrationGame {
     }
     
     
-    func chooseCard(at index: Int) {
+    mutating func chooseCard(at index: Int) {
         if !cards[index].isFaceUp, !cards[index].isMatched {
             if let faceUpCardIndex = indexOfTheOneAndOnlyFaceUpCard {
                 if cards[index].identifier == cards[faceUpCardIndex].identifier {
@@ -58,5 +50,11 @@ class ConcentrationGame {
             let card = FlipCard()
             cards += [card, card]
         }
+    }
+}
+
+extension Collection {
+    var oneAndOnly: Element? {
+        return count == 1 ? first : nil
     }
 }

@@ -13,11 +13,15 @@ class ViewController: UIViewController {
     
     private(set) var flipCount = 0 {
         didSet {
-            flipCountLabel.text = "Flip Count: \(flipCount)"
+            setAttributedLabel()
         }
     }
     
-    @IBOutlet weak var flipCountLabel: UILabel!
+    @IBOutlet weak var flipCountLabel: UILabel! {
+        didSet {
+            setAttributedLabel()
+        }
+    }
     @IBOutlet var concentrationCards: [UIButton]!
     @IBAction func cardPressed(_ sender: UIButton) { flipCard(sender: sender) }
     
@@ -63,6 +67,16 @@ class ViewController: UIViewController {
             emojiDictionary[card.identifier] = heroEmojis.remove(at: randomElementIndex)
         }
         return emojiDictionary[card.identifier] ?? "😶‍🌫️"
+    }
+    
+    private func setAttributedLabel() {
+        let attributes: [NSAttributedString.Key : Any] = [
+            .strokeWidth : 5.0,
+            .strokeColor : UIColor.orange
+        ]
+        
+        let attributedTitle = NSAttributedString(string: "Flips: \(flipCount)", attributes: attributes)
+        flipCountLabel.attributedText = attributedTitle
     }
 }
 
