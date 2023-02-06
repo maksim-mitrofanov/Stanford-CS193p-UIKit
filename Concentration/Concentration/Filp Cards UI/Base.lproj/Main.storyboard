@@ -256,14 +256,6 @@
                         <outletCollection property="concentrationCards" destination="D5y-l7-yXD" collectionClass="NSMutableArray" id="M32-3a-TZN"/>
                         <outletCollection property="concentrationCards" destination="4eD-Qx-aWf" collectionClass="NSMutableArray" id="XRa-Xw-yP5"/>
                         <outletCollection property="concentrationCards" destination="MKT-Us-A1L" collectionClass="NSMutableArray" id="hxM-QZ-aDn"/>
-                        <outletCollection property="concentrationCards" destination="TZN-jm-3ZE" collectionClass="NSMutableArray" id="694-Pk-ODq"/>
-                        <outletCollection property="concentrationCards" destination="mJR-Y6-BAb" collectionClass="NSMutableArray" id="Iaz-L9-daY"/>
-                        <outletCollection property="concentrationCards" destination="pw1-FD-pVC" collectionClass="NSMutableArray" id="Li9-7Y-rnu"/>
-                        <outletCollection property="concentrationCards" destination="ePi-xe-ZBd" collectionClass="NSMutableArray" id="wYd-D7-xjf"/>
-                        <outletCollection property="concentrationCards" destination="fyz-0I-6ED" collectionClass="NSMutableArray" id="ebX-hL-GHF"/>
-                        <outletCollection property="concentrationCards" destination="Wiv-yg-7MC" collectionClass="NSMutableArray" id="p30-Yi-xx2"/>
-                        <outletCollection property="concentrationCards" destination="TAx-SH-UJQ" collectionClass="NSMutableArray" id="QiI-6T-xnF"/>
-                        <outletCollection property="concentrationCards" destination="AzX-5L-nNh" collectionClass="NSMutableArray" id="kQ8-Pi-szv"/>
                         <outletCollection property="concentrationCards" destination="CW0-jp-EJb" collectionClass="NSMutableArray" id="j8M-Gs-Set"/>
                         <outletCollection property="concentrationCards" destination="FPX-aA-YZH" collectionClass="NSMutableArray" id="yaE-vQ-3sJ"/>
                         <outletCollection property="concentrationCards" destination="TwJ-Mf-bLJ" collectionClass="NSMutableArray" id="pLK-Dh-vnL"/>
@@ -272,6 +264,14 @@
                         <outletCollection property="concentrationCards" destination="QEP-iW-vPO" collectionClass="NSMutableArray" id="Vvj-Ud-cbr"/>
                         <outletCollection property="concentrationCards" destination="De5-BC-vro" collectionClass="NSMutableArray" id="Ozh-eL-dIy"/>
                         <outletCollection property="concentrationCards" destination="Rm6-3L-Che" collectionClass="NSMutableArray" id="qDl-cY-JwR"/>
+                        <outletCollection property="concentrationCards" destination="mJR-Y6-BAb" collectionClass="NSMutableArray" id="PN9-kf-QjS"/>
+                        <outletCollection property="concentrationCards" destination="ePi-xe-ZBd" collectionClass="NSMutableArray" id="cmh-bv-7lR"/>
+                        <outletCollection property="concentrationCards" destination="pw1-FD-pVC" collectionClass="NSMutableArray" id="0db-wh-A0o"/>
+                        <outletCollection property="concentrationCards" destination="TZN-jm-3ZE" collectionClass="NSMutableArray" id="5KA-Tt-WdL"/>
+                        <outletCollection property="concentrationCards" destination="Wiv-yg-7MC" collectionClass="NSMutableArray" id="XfA-UG-hUB"/>
+                        <outletCollection property="concentrationCards" destination="AzX-5L-nNh" collectionClass="NSMutableArray" id="cGd-Ej-WSV"/>
+                        <outletCollection property="concentrationCards" destination="fyz-0I-6ED" collectionClass="NSMutableArray" id="6fQ-Fo-wgD"/>
+                        <outletCollection property="concentrationCards" destination="TAx-SH-UJQ" collectionClass="NSMutableArray" id="BRh-SB-g86"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
