@@ -8,8 +8,6 @@
 import Foundation
 
 struct SetCard {
-    var isFaceUp: Bool = false
-    var isMatched: Bool = false
     let symbol: GameSymbol
     let symbolCount: SymbolCount
     let fillStyle: FillStyle

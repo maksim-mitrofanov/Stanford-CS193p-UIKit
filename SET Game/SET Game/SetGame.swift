@@ -8,21 +8,29 @@
 import Foundation
 
 struct SetGame {
-    
-    private var allCards = [SetCard]()
+    private var cardsInTheDeck = [SetCard]()
     var displayedCards = [SetCard]()
     
     init() {
-        allCards = SetGame.getAllPossibleCards()
-        
-        print(allCards.count)
+        cardsInTheDeck = SetGame.getAllPossibleCards()
+        setDisplayedCards()
     }
-    
-    func addMoreCards() {
+}
+
+extension SetGame {
+    mutating func addMoreCards() {
         if displayedCards.count <= 21 {
             for _ in 1...3 {
-                
+                let randomIndex = cardsInTheDeck.count.arc4random
+                let poppedCard = cardsInTheDeck.remove(at: randomIndex)
+                displayedCards.append(poppedCard)
             }
+        }
+    }
+    
+    private mutating func setDisplayedCards() {
+        for _ in 1...4 {
+            addMoreCards()
         }
     }
 }
@@ -46,17 +54,17 @@ extension SetGame {
 }
 
 extension Int {
-    var randomValueUpToSelf: Int {
+    var arc4random: Int {
         if self > 0 {
-            
+            return Int(arc4random_uniform(UInt32(self)))
         }
         
         else if self < 0 {
-            
+            return -Int(arc4random_uniform(UInt32(self)))
         }
         
         else {
-            return 0
+            return self
         }
     }
 }
