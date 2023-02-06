@@ -28,23 +28,23 @@ was chosen was one of the 3 matching cards, then no card should be selected (sin
 the selected card was either replaced or is no longer visible in the UI).
 9. When the Deal 3 More Cards button is pressed either a) replace the selected cards if
 they are a match or b) add 3 cards to the game.
-10.The Deal 3 More Cards button should be disabled if there are a) no more cards in the
+10. The Deal 3 More Cards button should be disabled if there are a) no more cards in the
 Set deck or b) no more room in the UI to fit 3 more cards (note that there is always
 room for 3 more cards if the 3 currently-selected cards are a match since you replace
 them).
-11.Instead of drawing the Set cards in the classic form (we’ll do that next week), we’ll use
+11. Instead of drawing the Set cards in the classic form (we’ll do that next week), we’ll use
 these three characters ▲ ● ■ and use attributes in NSAttributedString to draw them
 appropriately (i.e. colors and shading). That way your cards can just be UIButtons.
 See the Hints for some suggestions for how to show the various Set cards.
-12.Use a method that takes a closure as an argument as a meaningful part of your
+12. Use a method that takes a closure as an argument as a meaningful part of your
 solution. You cannot use one that was shown in lecture.
-13.Use an enum as a meaningful part of your solution.
-14.Add a sensible extension to some data structure as a meaningful part of your
+13. Use an enum as a meaningful part of your solution.
+14. Add a sensible extension to some data structure as a meaningful part of your
 solution. You cannot use one that was shown in lecture.
-15.Your UI should be nicely laid out and look good (at least in portrait mode, preferably
+15. Your UI should be nicely laid out and look good (at least in portrait mode, preferably
 in landscape as well, though not required) on any iPhone 7 or later device. This
 means you’ll need to do some simple Autolayout with stack views.
-16.Like you did for Concentration, you must have a New Game button and show the
+16. Like you did for Concentration, you must have a New Game button and show the
 Score in the UI. It is up to you how you want to score your Set game. For example,
 you could give 3 points for a match and -5 for a mismatch and maybe even -1 for a
 deselection. Perhaps fewer points are scored depending on how many cards are on
