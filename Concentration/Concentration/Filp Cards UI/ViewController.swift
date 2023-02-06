@@ -16,6 +16,7 @@ class ViewController: UIViewController {
     @IBOutlet var concentrationCards: [UIButton]!
     @IBAction func cardPressed(_ sender: UIButton) { flipCard(sender: sender) }
     
+    @IBOutlet weak var newGameButton: UIButton!
     @IBAction func newGameButtonPressed(_ sender: Any) {
         startNewGame()
     }
@@ -24,6 +25,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         startNewGame()
+    }
+    
+    func addRoundedCornersToButtons() {
+        concentrationCards.forEach { $0.layer.cornerRadius = 12 }
     }
     
     func flipCard(sender: UIButton) {
@@ -83,6 +88,8 @@ class ViewController: UIViewController {
         }
         game = ConcentrationGame(numberOfPairsOfCards: (concentrationCards.count + 1) / 2)
         updateViewFromModel()
+        addRoundedCornersToButtons()
+        newGameButton.layer.cornerRadius = 12
     }
 }
 

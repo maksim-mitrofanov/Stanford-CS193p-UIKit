@@ -39,10 +39,9 @@ class ConcentrationGame {
                 }
                 indexOfTheOneAndOnlyFaceUpCard = index
             }
+            flipCount += 1
+            cards[index].isFaceUp = true
         }
-        
-        flipCount += 1
-        cards[index].isFaceUp = true
     }
     
     init(numberOfPairsOfCards: Int) {
