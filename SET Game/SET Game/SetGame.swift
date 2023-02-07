@@ -15,6 +15,15 @@ struct SetGame {
         cardsInTheDeck = SetGame.getAllPossibleCards()
         setDisplayedCards()
     }
+    
+    func matchCardsAt(indices: [Int]) {
+        assert(indices.count == 3, "SetGame.matchCardsAt(indices:) indices count != 3")
+        
+        let firstCard = displayedCards[indices[0]]
+        let secondCard = displayedCards[indices[1]]
+        let thirdCard = displayedCards[indices[2]]
+
+    }
 }
 
 extension SetGame {

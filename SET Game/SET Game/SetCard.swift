@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct SetCard {
+struct SetCard: Equatable {
     let symbol: GameSymbol
     let symbolCount: SymbolCount
     let fillStyle: FillStyle
