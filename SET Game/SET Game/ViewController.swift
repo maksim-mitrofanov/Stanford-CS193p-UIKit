@@ -11,6 +11,7 @@ class ViewController: UIViewController {
     @IBOutlet private weak var currentScoreLabel: UILabel!
     @IBOutlet private weak var showMoreCardsButton: UIButton!
     @IBOutlet private weak var matchStatusLabel: UILabel!
+    @IBOutlet private weak var cardsLeftLabel: UILabel!
     @IBOutlet private weak var startNewGameButton: UIButton!
     @IBOutlet private weak var extraButton: UIButton!
     @IBOutlet private var cardsOnScreen: [UIButton]!
@@ -56,6 +57,7 @@ extension ViewController {
         for index in game.displayedCards.indices {
             updateCardAppearance(at: index)
         }
+        cardsLeftLabel.text = "Cards: \(game.cardsLeftCount)"
     }
     
     private func updateCardAppearance(at index: Int) {
@@ -73,7 +75,22 @@ extension ViewController {
             }
             
             else if selectedCardsIndices.count < 3 && !selectedCardsIndices.contains(selectedCardIndex) {
+                matchStatusLabel.isHidden = true
                 selectedCardsIndices.append(selectedCardIndex)
+                if selectedCardsIndices.count == 3 {
+                    let selectedCardsAreMatching = game.checkCardsForMatching(at: selectedCardsIndices)
+                    switch selectedCardsAreMatching {
+                    case true:
+                        matchStatusLabel.text = "Match: ✅"
+                        game.replaceCards(at: selectedCardsIndices)
+                        matchStatusLabel.isHidden = false
+                        updateGameUIFromModel()
+                    case false:
+                        matchStatusLabel.text = "Match: ❌"
+                        //Handle mismatch
+                    }
+                    selectedCardsIndices.removeAll()
+                }
             }
             
             else {
@@ -119,6 +136,9 @@ extension ViewController {
         //Setting corner radius for top labels
         matchStatusLabel.layer.cornerRadius = 8
         currentScoreLabel.layer.cornerRadius = 8
+        
+        //Setting corner radius for cards left label
+        cardsLeftLabel.layer.cornerRadius = 8
     }
     
 }
