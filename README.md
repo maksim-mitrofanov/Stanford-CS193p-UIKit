@@ -16,7 +16,7 @@ Stanford's CS193p course, Developing Applications for iOS, explains the fundamen
 | Assignment | Branch Link |
 | ----- | ----- |
 | Lecture slides | [Link](https://github.com/maksim-mitrofanov/CS193p-UIKit/blob/main/Lecture-2.md) |
-| Assignment code | [Adding more features to an existing app: Concentration](https://github.com/maksim-mitrofanov/CS193p-UIKit/tree/Assignment-1) |
+| Assignment code | [Concentration Game](https://github.com/maksim-mitrofanov/CS193p-UIKit/tree/Assignment-1) |
 
 ## Lecture 3
 | Assignment | Branch Link |
@@ -34,5 +34,5 @@ Stanford's CS193p course, Developing Applications for iOS, explains the fundamen
 | Assignment | Branch Link |
 | ----- | ----- |
 | Lecture slides | [Link](https://github.com/maksim-mitrofanov/CS193p-UIKit/blob/main/Lecture-5.md) |
-| Assignment code | [First App From Scartch: SET Game](https://github.com/maksim-mitrofanov/CS193p-UIKit/tree/Assignment-2) |
+| Assignment code | [SET Game](https://github.com/maksim-mitrofanov/CS193p-UIKit/tree/Assignment-2) |
 
