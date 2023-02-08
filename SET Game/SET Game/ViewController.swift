@@ -37,76 +37,34 @@ class ViewController: UIViewController {
         updateGameUIFromModel()
     }
     
-    private var game = SetGame() {
-        didSet {
-            selectedCardsIndices.removeAll()
-        }
-    }
-    private var selectedCardsIndices: [Int] = [] {
-        didSet {
-            updateSelectedCardsAppearance()
-        }
-    }
+    private var game = SetGame()
 }
 
 extension ViewController {
-    private func updateGameUIFromModel() {
-        showMoreCardsButton.isEnabled = game.displayedCards.count < 24
-        
-        cardsOnScreen.forEach { $0.alpha = 0 }
-        for index in game.displayedCards.indices {
-            updateCardAppearance(at: index)
+    private func handleSelection(of sender: UIButton) {
+        if let selectedCardIndex = cardsOnScreen.firstIndex(of: sender) {
+            game.selectCard(at: selectedCardIndex)
+            updateGameUIFromModel()
         }
-        cardsLeftLabel.text = "Cards: \(game.cardsLeftCount)"
+        
+        if !game.status.isEmpty {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                self.game.replaceSelectedCards()
+                self.updateGameUIFromModel()
+            }
+        }
     }
     
-    private func updateCardAppearance(at index: Int) {
+    private func updateCardDisplayedValue(at index: Int) {
         cardsOnScreen[index].alpha = 1
         let attributedTitle = SetGameTheme.getAttributedTitle(for: game.displayedCards[index])
         cardsOnScreen[index].setAttributedTitle(attributedTitle, for: .normal)
     }
     
-    //Needs refactoring
-    private func handleSelection(of sender: UIButton) {
-        if let selectedCardIndex = cardsOnScreen.firstIndex(of: sender) {
-            if selectedCardsIndices.count == 3 {
-                selectedCardsIndices.removeAll()
-                selectedCardsIndices.append(selectedCardIndex)
-            }
-            
-            else if selectedCardsIndices.count < 3 && !selectedCardsIndices.contains(selectedCardIndex) {
-                matchStatusLabel.isHidden = true
-                selectedCardsIndices.append(selectedCardIndex)
-                if selectedCardsIndices.count == 3 {
-                    let selectedCardsAreMatching = game.checkCardsForMatching(at: selectedCardsIndices)
-                    switch selectedCardsAreMatching {
-                    case true:
-                        matchStatusLabel.text = "Match: ✅"
-                        game.replaceCards(at: selectedCardsIndices)
-                        matchStatusLabel.isHidden = false
-                        updateGameUIFromModel()
-                    case false:
-                        matchStatusLabel.text = "Match: ❌"
-                        //Handle mismatch
-                    }
-                    selectedCardsIndices.removeAll()
-                }
-            }
-            
-            else {
-                if let indexToRemove = selectedCardsIndices.firstIndex(of: selectedCardIndex) {
-                    selectedCardsIndices.remove(at: indexToRemove)
-                }
-            }
-            
-            updateSelectedCardsAppearance()
-        }
-    }
-    
     private func updateSelectedCardsAppearance() {
         cardsOnScreen.forEach { $0.layer.borderColor = UIColor.clear.cgColor }
         
-        for index in selectedCardsIndices {
+        for index in game.selectedCardIndices {
             cardsOnScreen[index].layer.borderColor = UIColor.black.cgColor
             cardsOnScreen[index].layer.borderWidth = 3
         }
@@ -141,6 +99,25 @@ extension ViewController {
         cardsLeftLabel.layer.cornerRadius = 8
     }
     
+    private func updateGameUIFromModel() {
+        //Updating labels
+        cardsLeftLabel.text = "Cards: \(game.cardsLeftCount)"
+        currentScoreLabel.text = "Score: \(game.score)"
+        
+        //Updating controls
+        showMoreCardsButton.isEnabled = game.displayedCards.count < 24
+        
+        //Resetting cards displayed values
+        cardsOnScreen.forEach { $0.alpha = 0 }
+        game.displayedCards.indices.forEach { updateCardDisplayedValue(at: $0) }
+    
+        //Updating selected cards
+        updateSelectedCardsAppearance()
+        
+        //Updating matchLabel
+        matchStatusLabel.text = game.status
+        matchStatusLabel.isHidden = game.status.isEmpty
+    }
 }
 
 extension UIView {

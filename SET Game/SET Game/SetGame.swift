@@ -8,8 +8,13 @@
 import Foundation
 
 struct SetGame {
-    private var cardsInTheDeck = [SetCard]()
     var displayedCards = [SetCard]()
+    var status: String = ""
+    var score: Int = 0
+    
+    private(set) var selectedCardIndices = [Int]()
+    private var cardsInTheDeck = [SetCard]()
+    
     var cardsLeftCount: Int {
         cardsInTheDeck.count
     }
@@ -19,7 +24,63 @@ struct SetGame {
         setDisplayedCards()
     }
     
-    func checkCardsForMatching(at indices: [Int]) -> Bool {
+    mutating func selectCard(at index: Int) {
+        //Deselection
+        if selectedCardIndices.count < 3 && selectedCardIndices.contains(where: { $0 == index }) {
+            selectedCardIndices.removeAll(where: { $0 == index })
+            score -= 1
+        }
+        
+        //Selection
+        else if selectedCardIndices.count < 3 {
+            selectedCardIndices.append(index)
+            if selectedCardIndices.count == 3 {
+                let areMatching = checkCardsForMatching(at: selectedCardIndices)
+                score += areMatching ? 5 : -1
+                status = areMatching ? "Match: ✅" : "Match: ❌"
+            }
+        }
+        
+        //New Set
+        else if selectedCardIndices.count == 3 {
+            selectedCardIndices.removeAll()
+            selectedCardIndices.append(index)
+        }
+        
+        if selectedCardIndices.count < 3 { status.removeAll() }
+    }
+    
+    mutating func replaceSelectedCards() {
+        for index in selectedCardIndices {
+            if cardsInTheDeck.count > 0 {
+                let randomCardIndex = cardsInTheDeck.count.arc4random
+                displayedCards[index] = cardsInTheDeck.remove(at: randomCardIndex)
+            }
+        }
+        
+        selectedCardIndices.removeAll()
+        status.removeAll()
+    }
+    
+    mutating func addMoreCards() {
+        if displayedCards.count <= 21 {
+            for _ in 1...3 {
+                let randomIndex = cardsInTheDeck.count.arc4random
+                let poppedCard = cardsInTheDeck.remove(at: randomIndex)
+                displayedCards.append(poppedCard)
+            }
+        }
+    }
+}
+
+extension SetGame {
+    private mutating func setDisplayedCards() {
+        for _ in 1...4 {
+            addMoreCards()
+        }
+    }
+    
+    private func checkCardsForMatching(at indices: [Int]) -> Bool {
         assert(indices.count == 3, "SetGame.matchCardsAt(indices:) indices count != 3")
         
         let firstCard = displayedCards[indices[0]]
@@ -85,36 +146,8 @@ struct SetGame {
             return allHaveSameColors || allHaveUniqueColors
         }()
         
-        let cardsAreMatching = [matchByColor, matchBySymbolCount, matchByFillStyle, matchByColor].allSatisfy { $0 == true }
+        let cardsAreMatching = [matchBySymbol, matchBySymbolCount, matchByFillStyle, matchByColor].allSatisfy { $0 == true }
         return cardsAreMatching
-    }
-    
-    mutating func replaceCards(at indices: [Int]) {
-        for index in indices {
-            if cardsInTheDeck.count > 0 {
-                let randomCardIndex = cardsInTheDeck.count.arc4random
-                displayedCards[index] = cardsInTheDeck.remove(at: randomCardIndex)
-            }
-        }
-        print("Cards in the deck count: \(cardsInTheDeck.count)")
-    }
-}
-
-extension SetGame {
-    mutating func addMoreCards() {
-        if displayedCards.count <= 21 {
-            for _ in 1...3 {
-                let randomIndex = cardsInTheDeck.count.arc4random
-                let poppedCard = cardsInTheDeck.remove(at: randomIndex)
-                displayedCards.append(poppedCard)
-            }
-        }
-    }
-    
-    private mutating func setDisplayedCards() {
-        for _ in 1...4 {
-            addMoreCards()
-        }
     }
 }
 
