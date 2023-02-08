@@ -50,3 +50,7 @@ you could give 3 points for a match and -5 for a mismatch and maybe even -1 for 
 deselection. Perhaps fewer points are scored depending on how many cards are on
 the table (i.e. how many times Deal 3 More Cards has been touched). Whatever you
 think best evaluates how well the player is playing.
+
+
+https://user-images.githubusercontent.com/87092187/217503717-98cd3c70-38c5-44b7-be7b-cca63fbbd7ad.mp4
+
