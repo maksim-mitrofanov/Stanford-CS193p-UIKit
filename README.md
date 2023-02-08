@@ -10,7 +10,7 @@ Stanford's CS193p course, Developing Applications for iOS, explains the fundamen
 | Assignment | Branch Link |
 | ----- | ----- |
 | Lecture slides | [Link](https://github.com/maksim-mitrofanov/CS193p-UIKit/blob/main/Lecture-1.md) |
-| Assignment code | Add code from the lecture |
+| Assignment code | Lecture code |
 
 ## Lecture 2
 | Assignment | Branch Link |
@@ -22,13 +22,13 @@ Stanford's CS193p course, Developing Applications for iOS, explains the fundamen
 | Assignment | Branch Link |
 | ----- | ----- |
 | Lecture slides | [Link](https://github.com/maksim-mitrofanov/CS193p-UIKit/blob/main/Lecture-3.md) |
-| Assignment code | Add code from the lecture |
+| Assignment code | Lecture code |
 
 ## Lecture 4
 | Assignment | Branch Link |
 | ----- | ----- |
 | Lecture slides | [Link](https://github.com/maksim-mitrofanov/CS193p-UIKit/blob/main/Lecture-4.md) |
-| Assignment code | Add code from the lecture |
+| Assignment code | Lecture code |
 
 ## Lecture 5
 | Assignment | Branch Link |
