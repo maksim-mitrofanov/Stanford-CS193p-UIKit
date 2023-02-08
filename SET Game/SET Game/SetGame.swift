@@ -11,6 +11,9 @@ struct SetGame {
     var displayedCards = [SetCard]()
     var status: String = ""
     var score: Int = 0
+    private var hasMatched: Bool {
+        status == "Match: ✅"
+    }
     
     private(set) var selectedCardIndices = [Int]()
     private var cardsInTheDeck = [SetCard]()
@@ -51,10 +54,12 @@ struct SetGame {
     }
     
     mutating func replaceSelectedCards() {
-        for index in selectedCardIndices {
-            if cardsInTheDeck.count > 0 {
-                let randomCardIndex = cardsInTheDeck.count.arc4random
-                displayedCards[index] = cardsInTheDeck.remove(at: randomCardIndex)
+        if hasMatched {
+            for index in selectedCardIndices {
+                if cardsInTheDeck.count > 0 {
+                    let randomCardIndex = cardsInTheDeck.count.arc4random
+                    displayedCards[index] = cardsInTheDeck.remove(at: randomCardIndex)
+                }
             }
         }
         
