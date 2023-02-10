@@ -16,6 +16,7 @@
 		4C5ECFBF29917C900047EBE7 /* SetGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5ECFBE29917C900047EBE7 /* SetGame.swift */; };
 		4C5ECFC129917CB70047EBE7 /* SetCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5ECFC029917CB70047EBE7 /* SetCard.swift */; };
 		4CCF69BA29924CF800697FAE /* SetGameTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCF69B929924CF800697FAE /* SetGameTheme.swift */; };
+		4CD3C8732996680900D2A70F /* SetCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD3C8722996680900D2A70F /* SetCardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		4C5ECFBE29917C900047EBE7 /* SetGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetGame.swift; sourceTree = "<group>"; };
 		4C5ECFC029917CB70047EBE7 /* SetCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetCard.swift; sourceTree = "<group>"; };
 		4CCF69B929924CF800697FAE /* SetGameTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetGameTheme.swift; sourceTree = "<group>"; };
+		4CD3C8722996680900D2A70F /* SetCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetCardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 				4C5ECFB529916B090047EBE7 /* LaunchScreen.storyboard */,
 				4C5ECFB329916B090047EBE7 /* Assets.xcassets */,
 				4C5ECFB829916B090047EBE7 /* Info.plist */,
+				4CD3C8722996680900D2A70F /* SetCardView.swift */,
 			);
 			path = "SET Game";
 			sourceTree = "<group>";
@@ -149,6 +152,7 @@
 			files = (
 				4CCF69BA29924CF800697FAE /* SetGameTheme.swift in Sources */,
 				4C5ECFC129917CB70047EBE7 /* SetCard.swift in Sources */,
+				4CD3C8732996680900D2A70F /* SetCardView.swift in Sources */,
 				4C5ECFAF29916B080047EBE7 /* ViewController.swift in Sources */,
 				4C5ECFAB29916B080047EBE7 /* AppDelegate.swift in Sources */,
 				4C5ECFBF29917C900047EBE7 /* SetGame.swift in Sources */,
