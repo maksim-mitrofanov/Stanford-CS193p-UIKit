@@ -40,5 +40,5 @@ Stanford's CS193p course, Developing Applications for iOS, explains the fundamen
 | Assignment | Branch Link |
 | ----- | ----- |
 | Lecture slides | [Link](https://github.com/maksim-mitrofanov/CS193p-UIKit/blob/main/Lecture-6.md) |
-| Assignment code | [Graphical SET Game](https://github.com/maksim-mitrofanov/CS193p-UIKit/tree/Assignment-3) |
+| Assignment code | [Extending SET Game](https://github.com/maksim-mitrofanov/CS193p-UIKit/tree/Assignment-3) |
 
