@@ -9,36 +9,29 @@ Stanford's CS193p course, Developing Applications for iOS, explains the fundamen
 ## Lecture 1
 | Assignment | Branch Link |
 | ----- | ----- |
-| Lecture slides | [Link](https://github.com/maksim-mitrofanov/CS193p-UIKit/blob/main/Lecture-1.md) |
+| Lecture slides | [Link](https://github.com/maksim-mitrofanov/CS193p-UIKit/blob/main/Lecture%20Slides/Lecture%201%20Slides.pdf) |
 | Assignment code | Lecture code |
 
 ## Lecture 2
 | Assignment | Branch Link |
 | ----- | ----- |
-| Lecture slides | [Link](https://github.com/maksim-mitrofanov/CS193p-UIKit/blob/main/Lecture-2.md) |
+| Lecture slides | [Link]https://github.com/maksim-mitrofanov/CS193p-UIKit/blob/main/Lecture%20Slides/Lecture%202%20Slides.pdf) |
 | Assignment code | [Concentration Game](https://github.com/maksim-mitrofanov/CS193p-UIKit/tree/Assignment-1) |
 
 ## Lecture 3
 | Assignment | Branch Link |
 | ----- | ----- |
-| Lecture slides | [Link](https://github.com/maksim-mitrofanov/CS193p-UIKit/blob/main/Lecture-3.md) |
+| Lecture slides | [Link](https://github.com/maksim-mitrofanov/CS193p-UIKit/blob/main/Lecture%20Slides/Lecture%203%20Slides.pdf) |
 | Assignment code | Lecture code |
 
 ## Lecture 4
 | Assignment | Branch Link |
 | ----- | ----- |
-| Lecture slides | [Link](https://github.com/maksim-mitrofanov/CS193p-UIKit/blob/main/Lecture-4.md) |
-| Assignment code | Lecture code |
+| Lecture slides | [Link](https://github.com/maksim-mitrofanov/CS193p-UIKit/blob/main/Lecture%20Slides/Lecture%204%20Slides.pdf) |
+| Assignment code |[SET Game](https://github.com/maksim-mitrofanov/CS193p-UIKit/tree/Assignment-2) |
 
 ## Lecture 5
 | Assignment | Branch Link |
 | ----- | ----- |
-| Lecture slides | [Link](https://github.com/maksim-mitrofanov/CS193p-UIKit/blob/main/Lecture-5.md) |
-| Assignment code | [SET Game](https://github.com/maksim-mitrofanov/CS193p-UIKit/tree/Assignment-2) |
-
-## Lecture 6
-| Assignment | Branch Link |
-| ----- | ----- |
-| Lecture slides | [Link](https://github.com/maksim-mitrofanov/CS193p-UIKit/blob/main/Lecture-6.md) |
-| Assignment code | [Extending SET Game](https://github.com/maksim-mitrofanov/CS193p-UIKit/tree/Assignment-3) |
-
+| Lecture slides | [Link](https://github.com/maksim-mitrofanov/CS193p-UIKit/blob/main/Lecture%20Slides/Lecture%205%20Slides.pdf) |
+| Assignment code | None |
