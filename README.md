@@ -15,7 +15,7 @@ Stanford's CS193p course, Developing Applications for iOS, explains the fundamen
 ## Lecture 2
 | Assignment | Branch Link |
 | ----- | ----- |
-| Lecture slides | [Link]https://github.com/maksim-mitrofanov/CS193p-UIKit/blob/main/Lecture%20Slides/Lecture%202%20Slides.pdf) |
+| Lecture slides | [Link](https://github.com/maksim-mitrofanov/CS193p-UIKit/blob/main/Lecture%20Slides/Lecture%202%20Slides.pdf) |
 | Assignment code | [Concentration Game](https://github.com/maksim-mitrofanov/CS193p-UIKit/tree/Assignment-1) |
 
 ## Lecture 3
