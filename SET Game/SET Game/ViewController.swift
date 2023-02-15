@@ -13,7 +13,8 @@ class ViewController: UIViewController {
     @IBOutlet private weak var matchStatusLabel: UILabel!
     @IBOutlet private weak var cardsLeftLabel: UILabel!
     @IBOutlet private weak var startNewGameButton: UIButton!
-    
+    @IBOutlet private weak var extraButton: UIButton!
+    @IBOutlet private var cardsOnScreen: [UIButton]!
         
     @IBAction private func showMoreCardsTapped(_ sender: UIButton) {
         game.addMoreCards()
@@ -41,7 +42,11 @@ class ViewController: UIViewController {
 
 extension ViewController {
     private func handleSelection(of sender: UIButton) {
-        //Timer
+        if let selectedCardIndex = cardsOnScreen.firstIndex(of: sender) {
+            game.selectCard(at: selectedCardIndex)
+            updateGameUIFromModel()
+        }
+        
         if !game.status.isEmpty {
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 self.game.replaceSelectedCards()
@@ -49,13 +54,20 @@ extension ViewController {
             }
         }
     }
-
+    
     private func updateCardDisplayedValue(at index: Int) {
-       
+        cardsOnScreen[index].alpha = 1
+        let attributedTitle = SetGameTheme.getAttributedTitle(for: game.displayedCards[index])
+        cardsOnScreen[index].setAttributedTitle(attributedTitle, for: .normal)
     }
-
+    
     private func updateSelectedCardsAppearance() {
+        cardsOnScreen.forEach { $0.layer.borderColor = UIColor.clear.cgColor }
         
+        for index in game.selectedCardIndices {
+            cardsOnScreen[index].layer.borderColor = UIColor.black.cgColor
+            cardsOnScreen[index].layer.borderWidth = 3
+        }
     }
 }
 
@@ -66,6 +78,13 @@ extension ViewController {
 
 extension ViewController {
     private func setDefaultAppearanceForUI() {
+        //Hiding extra button
+        extraButton.alpha = 0
+        
+        //Setting corner radius and shadow for cards
+        cardsOnScreen.forEach { $0.layer.cornerRadius = 8 }
+        cardsOnScreen.forEach { $0.setDefaultShadow() }
+        
         //Setting corner radius and shadow for bottom buttons
         showMoreCardsButton.layer.cornerRadius = 12
         startNewGameButton.layer.cornerRadius = 12
@@ -89,6 +108,7 @@ extension ViewController {
         showMoreCardsButton.isEnabled = game.displayedCards.count < 24
         
         //Resetting cards displayed values
+        cardsOnScreen.forEach { $0.alpha = 0 }
         game.displayedCards.indices.forEach { updateCardDisplayedValue(at: $0) }
     
         //Updating selected cards
