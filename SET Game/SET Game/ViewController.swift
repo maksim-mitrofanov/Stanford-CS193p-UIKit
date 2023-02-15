@@ -38,19 +38,22 @@ class ViewController: UIViewController {
     }
     
     private var game = SetGame()
+    private var canSelect: Bool = true
 }
 
 extension ViewController {
     private func handleSelection(of sender: UIButton) {
-        if let selectedCardIndex = cardsOnScreen.firstIndex(of: sender) {
+        if canSelect, let selectedCardIndex = cardsOnScreen.firstIndex(of: sender) {
             game.selectCard(at: selectedCardIndex)
             updateGameUIFromModel()
         }
         
         if !game.status.isEmpty {
+            canSelect = false
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 self.game.replaceSelectedCards()
                 self.updateGameUIFromModel()
+                self.canSelect = true
             }
         }
     }
