@@ -13,9 +13,8 @@ class ViewController: UIViewController {
     @IBOutlet private weak var matchStatusLabel: UILabel!
     @IBOutlet private weak var cardsLeftLabel: UILabel!
     @IBOutlet private weak var startNewGameButton: UIButton!
-    @IBOutlet private weak var extraButton: UIButton!
-    @IBOutlet private var cardsOnScreen: [UIButton]!
-        
+    @IBOutlet weak var cardsStackView: UIStackView!
+    
     @IBAction private func showMoreCardsTapped(_ sender: UIButton) {
         game.addMoreCards()
         updateGameUIFromModel()
@@ -43,34 +42,23 @@ class ViewController: UIViewController {
 
 extension ViewController {
     private func handleSelection(of sender: UIButton) {
-        if canSelect, let selectedCardIndex = cardsOnScreen.firstIndex(of: sender) {
-            game.selectCard(at: selectedCardIndex)
-            updateGameUIFromModel()
-        }
-        
-        if !game.status.isEmpty {
-            canSelect = false
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                self.game.replaceSelectedCards()
-                self.updateGameUIFromModel()
-                self.canSelect = true
-            }
-        }
+        //Timer
+//        if !(game.currentGameStatus == .unmatched) {
+//            canSelect = false
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+//                self.game.replaceSelectedCards()
+//                self.updateGameUIFromModel()
+//                self.canSelect = true
+//            }
+//        }
     }
     
     private func updateCardDisplayedValue(at index: Int) {
-        cardsOnScreen[index].alpha = 1
-        let attributedTitle = SetGameTheme.getAttributedTitle(for: game.displayedCards[index])
-        cardsOnScreen[index].setAttributedTitle(attributedTitle, for: .normal)
+        
     }
     
     private func updateSelectedCardsAppearance() {
-        cardsOnScreen.forEach { $0.layer.borderColor = UIColor.clear.cgColor }
         
-        for index in game.selectedCardIndices {
-            cardsOnScreen[index].layer.borderColor = UIColor.black.cgColor
-            cardsOnScreen[index].layer.borderWidth = 3
-        }
     }
 }
 
@@ -81,18 +69,9 @@ extension ViewController {
 
 extension ViewController {
     private func setDefaultAppearanceForUI() {
-        //Hiding extra button
-        extraButton.alpha = 0
-        
-        //Setting corner radius and shadow for cards
-        cardsOnScreen.forEach { $0.layer.cornerRadius = 8 }
-        cardsOnScreen.forEach { $0.setDefaultShadow() }
-        
         //Setting corner radius and shadow for bottom buttons
         showMoreCardsButton.layer.cornerRadius = 12
         startNewGameButton.layer.cornerRadius = 12
-        showMoreCardsButton.setDefaultShadow()
-        startNewGameButton.setDefaultShadow()
         
         //Setting corner radius for top labels
         matchStatusLabel.layer.cornerRadius = 8
@@ -105,30 +84,74 @@ extension ViewController {
     private func updateGameUIFromModel() {
         //Updating labels
         cardsLeftLabel.text = "Cards: \(game.cardsLeftCount)"
-        currentScoreLabel.text = "Score: \(game.score)"
+        currentScoreLabel.text = "Score: \(game.currentGameScore)"
         
         //Updating controls
-        showMoreCardsButton.isEnabled = game.displayedCards.count < 24
+        showMoreCardsButton.isEnabled = game.canDealMoreCards
         
         //Resetting cards displayed values
-        cardsOnScreen.forEach { $0.alpha = 0 }
         game.displayedCards.indices.forEach { updateCardDisplayedValue(at: $0) }
     
         //Updating selected cards
         updateSelectedCardsAppearance()
         
         //Updating matchLabel
-        matchStatusLabel.text = game.status
-        matchStatusLabel.isHidden = game.status.isEmpty
+        matchStatusLabel.text = game.currentGameStatus.rawValue
+        matchStatusLabel.isHidden = game.currentGameStatus == .unmatched
+        if !game.hasStarted {
+            matchStatusLabel.isHidden = false
+        }
+        
+        //Updating cards
+        addCardsFromModelToUI()
     }
-}
+    
+    private func addCardsFromModelToUI() {
+        print("Cards on Screen Count: \(game.displayedCards.count)")
+        var minimumCardsOnOneRowCount: Int {
+            if game.displayedCards.count < 18 {
+                return 4
+            } else if game.displayedCards.count < 27 {
+                return 5
+            } else if game.displayedCards.count < 39 {
+                return 6
+            } else if game.displayedCards.count < 57 {
+                return 7
+            } else {
+                return 8
+            }
+        }
+        
+        let extraCardsCount = game.displayedCards.count % minimumCardsOnOneRowCount
+        let rowsCount = {
+            if extraCardsCount == 0 {
+                return game.displayedCards.count / minimumCardsOnOneRowCount
+            } else {
+                return game.displayedCards.count / minimumCardsOnOneRowCount + 1
+            }
+        }()
+        
+        cardsStackView.subviews.forEach({ $0.removeFromSuperview() })
 
-extension UIView {
-    func setDefaultShadow() {
-        self.layer.masksToBounds = false
-        self.layer.shadowColor = UIColor.black.cgColor
-        self.layer.shadowOpacity = 0.3
-        self.layer.shadowOffset = CGSize(width: 2, height: 2)
-        self.layer.shadowRadius = 2
+        for stackIndex in 0..<rowsCount {
+            let stackView = UIStackView()
+            stackView.axis = .horizontal
+            stackView.distribution = .fillEqually
+            stackView.backgroundColor = .clear
+            stackView.spacing = 6
+            cardsStackView.spacing = 10
+            cardsStackView.addArrangedSubview(stackView)
+            
+            for cardInStackIndex in 0..<minimumCardsOnOneRowCount {
+                let card = CardView()
+                let cardTotalIndex = stackIndex * minimumCardsOnOneRowCount + cardInStackIndex
+                if game.displayedCards.count > cardTotalIndex {
+                    card.setup(for: game.displayedCards[cardTotalIndex], isSelected: true)
+                } else {
+                    card.alpha = 0
+                }
+                stackView.addArrangedSubview(card)
+            }
+        }
     }
 }

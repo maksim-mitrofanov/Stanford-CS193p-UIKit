@@ -8,18 +8,20 @@
 import Foundation
 
 struct SetGame {
-    var displayedCards = [SetCard]()
-    var status: String = ""
-    var score: Int = 0
-    private var hasMatched: Bool {
-        status == "Match: ✅"
-    }
-    
     private(set) var selectedCardIndices = [Int]()
     private var cardsInTheDeck = [SetCard]()
+        
+    var displayedCards = [SetCard]()
+    var currentGameStatus: SetGameStatus = .unmatched
+    var currentGameScore: Int = 0
+    var hasStarted: Bool = false
     
     var cardsLeftCount: Int {
-        cardsInTheDeck.count
+        return cardsInTheDeck.count
+    }
+    
+    var canDealMoreCards: Bool {
+        return cardsInTheDeck.count >= 3
     }
     
     init() {
@@ -28,10 +30,11 @@ struct SetGame {
     }
     
     mutating func selectCard(at index: Int) {
+        hasStarted = true
         //Deselection
         if selectedCardIndices.count < 3 && selectedCardIndices.contains(where: { $0 == index }) {
             selectedCardIndices.removeAll(where: { $0 == index })
-            score -= 1
+            currentGameScore -= 1
         }
         
         //Selection
@@ -39,8 +42,8 @@ struct SetGame {
             selectedCardIndices.append(index)
             if selectedCardIndices.count == 3 {
                 let areMatching = checkCardsForMatching(at: selectedCardIndices)
-                score += areMatching ? 5 : -1
-                status = areMatching ? "Match: ✅" : "Match: ❌"
+                currentGameScore += areMatching ? 5 : -1
+                currentGameStatus = areMatching ? .matched : .mismatched
             }
         }
         
@@ -50,11 +53,11 @@ struct SetGame {
             selectedCardIndices.append(index)
         }
         
-        if selectedCardIndices.count < 3 { status.removeAll() }
+        if selectedCardIndices.count < 3 { currentGameStatus = .unmatched }
     }
     
     mutating func replaceSelectedCards() {
-        if hasMatched {
+        if currentGameStatus == .matched {
             for index in selectedCardIndices {
                 if cardsInTheDeck.count > 0 {
                     let randomCardIndex = cardsInTheDeck.count.arc4random
@@ -64,11 +67,11 @@ struct SetGame {
         }
         
         selectedCardIndices.removeAll()
-        status.removeAll()
+        currentGameStatus = .unmatched
     }
     
     mutating func addMoreCards() {
-        if displayedCards.count <= 21 {
+        if canDealMoreCards {
             for _ in 1...3 {
                 let randomIndex = cardsInTheDeck.count.arc4random
                 let poppedCard = cardsInTheDeck.remove(at: randomIndex)
@@ -79,12 +82,19 @@ struct SetGame {
 }
 
 extension SetGame {
+    enum SetGameStatus: String {
+        case matched = "Match: ✅"
+        case mismatched = "Match: ❌"
+        case unmatched = "Match: ❓"
+    }
+}
+
+extension SetGame {
     private mutating func setDisplayedCards() {
         for _ in 1...4 {
             addMoreCards()
         }
     }
-    
     private func checkCardsForMatching(at indices: [Int]) -> Bool {
         assert(indices.count == 3, "SetGame.matchCardsAt(indices:) indices count != 3")
         
