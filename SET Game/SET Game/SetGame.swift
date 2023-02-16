@@ -9,9 +9,9 @@ import Foundation
 
 struct SetGame {
     private(set) var selectedCardIndices = [Int]()
-    private var cardsInTheDeck = [SetCard]()
+    private var cardsInTheDeck = [SetCardData]()
         
-    var displayedCards = [SetCard]()
+    var displayedCards = [SetCardData]()
     var currentGameStatus: SetGameStatus = .unmatched
     var currentGameScore: Int = 0
     var hasStarted: Bool = false
@@ -129,19 +129,19 @@ extension SetGame {
         
         //MARK: -All Different Properties
         let allHaveUniqueSymbols: Bool = {
-            Set(SetCard.GameSymbol.allCases) == Set([firstCard.symbol, secondCard.symbol, thirdCard.symbol])
+            Set(SetCardData.GameSymbol.allCases) == Set([firstCard.symbol, secondCard.symbol, thirdCard.symbol])
         }()
         
         let allHaveUniqueColors: Bool = {
-            Set(SetCard.SymbolColor.allCases) == Set([firstCard.color, secondCard.color, thirdCard.color])
+            Set(SetCardData.SymbolColor.allCases) == Set([firstCard.color, secondCard.color, thirdCard.color])
         }()
         
         let allHaveUniqueSymbolCount: Bool = {
-            Set(SetCard.SymbolCount.allCases) == Set([firstCard.symbolCount, secondCard.symbolCount, thirdCard.symbolCount])
+            Set(SetCardData.SymbolCount.allCases) == Set([firstCard.symbolCount, secondCard.symbolCount, thirdCard.symbolCount])
         }()
         
         let allHaveUniqueFillStyle: Bool = {
-            Set(SetCard.FillStyle.allCases) == Set([firstCard.fillStyle, secondCard.fillStyle, thirdCard.fillStyle])
+            Set(SetCardData.FillStyle.allCases) == Set([firstCard.fillStyle, secondCard.fillStyle, thirdCard.fillStyle])
         }()
         
         //MARK: -Check for matching
@@ -167,14 +167,14 @@ extension SetGame {
 }
 
 extension SetGame {
-    static func getAllPossibleCards() -> [SetCard] {
-        var cards = [SetCard]()
+    static func getAllPossibleCards() -> [SetCardData] {
+        var cards = [SetCardData]()
         
-        for symbol in SetCard.GameSymbol.allCases {
-            for fillStyle in SetCard.FillStyle.allCases {
-                for symbolCount in SetCard.SymbolCount.allCases {
-                    for symbolColor in SetCard.SymbolColor.allCases {
-                        cards.append(SetCard(symbol: symbol, symbolCount: symbolCount, fillStyle: fillStyle, color: symbolColor))
+        for symbol in SetCardData.GameSymbol.allCases {
+            for fillStyle in SetCardData.FillStyle.allCases {
+                for symbolCount in SetCardData.SymbolCount.allCases {
+                    for symbolColor in SetCardData.SymbolColor.allCases {
+                        cards.append(SetCardData(symbol: symbol, symbolCount: symbolCount, fillStyle: fillStyle, color: symbolColor))
                     }
                 }
             }

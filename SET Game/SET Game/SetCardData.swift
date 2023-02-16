@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct SetCard: Equatable {
+struct SetCardData: Equatable {
     let symbol: GameSymbol
     let symbolCount: SymbolCount
     let fillStyle: FillStyle
@@ -16,18 +16,18 @@ struct SetCard: Equatable {
     private let id: Int
 }
 
-extension SetCard {
+extension SetCardData {
     init(symbol: GameSymbol, symbolCount: SymbolCount, fillStyle: FillStyle, color: SymbolColor) {
         self.symbol = symbol
         self.symbolCount = symbolCount
         self.fillStyle = fillStyle
         self.color = color
-        self.id = SetCard.getNewID()
+        self.id = SetCardData.getNewID()
     }
 }
 
 
-extension SetCard {
+extension SetCardData {
     enum FillStyle: CaseIterable {
         case filled, outlined, striped
     }
@@ -47,7 +47,7 @@ extension SetCard {
     }
 }
 
-extension SetCard {
+extension SetCardData {
     static var idFactory: Int = 0
     static func getNewID() -> Int {
         idFactory += 1

@@ -1,5 +1,5 @@
 //
-//  CardView.swift
+//  SetCardView.swift
 //  SET Game
 //
 //  Created by Максим Митрофанов on 16.02.2023.
@@ -7,9 +7,12 @@
 
 import UIKit
 
-class CardView: UIView {
+class SetCardView: UIView {
     @IBOutlet var contentView: UIView!
     @IBOutlet private weak var mainButton: UIButton!
+    private var cardData: SetCardData?
+    
+    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -21,7 +24,8 @@ class CardView: UIView {
         setup()
     }
     
-    func setup(for cardData: SetCard, isSelected: Bool) {
+    func setup(for cardData: SetCardData, isSelected: Bool = false) {
+        mainButton.isEnabled = false
         let attributedTitle = SetGameTheme.getAttributedTitle(for: cardData)
         mainButton.setAttributedTitle(attributedTitle, for: .normal)
         
@@ -30,10 +34,17 @@ class CardView: UIView {
             mainButton.layer.borderWidth = 3
         }
         setupShadowsAndCornerRadius()
+        self.cardData = cardData
     }
     
+    func getCardData() -> SetCardData? {
+        return cardData
+    }
+    
+    
+    
     private func setup() {
-        Bundle.main.loadNibNamed("CardView", owner: self)
+        Bundle.main.loadNibNamed("SetCardView", owner: self)
         addSubview(contentView)
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]

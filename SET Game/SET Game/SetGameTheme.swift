@@ -8,7 +8,7 @@
 import UIKit
 
 struct SetGameTheme {
-    private static func getBaseColor(for card: SetCard) -> UIColor {
+    private static func getBaseColor(for card: SetCardData) -> UIColor {
         let cardColor: UIColor = {
             switch card.color {
             case .red: return UIColor.red
@@ -20,7 +20,7 @@ struct SetGameTheme {
         return cardColor
     }
     
-    private static func getForegroundColor(for card: SetCard) -> UIColor {
+    private static func getForegroundColor(for card: SetCardData) -> UIColor {
         let cardColor = getBaseColor(for: card)
         let colorWithOpacity: UIColor = {
             switch card.fillStyle {
@@ -33,7 +33,7 @@ struct SetGameTheme {
         return colorWithOpacity
     }
     
-    private static func getStrokeColor(for card: SetCard) -> UIColor {
+    private static func getStrokeColor(for card: SetCardData) -> UIColor {
         let cardColor = getBaseColor(for: card)
         
         let strokeColor: UIColor = {
@@ -47,7 +47,7 @@ struct SetGameTheme {
         return strokeColor
     }
     
-    private static func getTitle(for card: SetCard) -> String {
+    private static func getTitle(for card: SetCardData) -> String {
         let cardTitle: String = {
             switch card.symbol {
             case .circle: return String(repeating: "●", count: card.symbolCount.rawValue)
@@ -59,7 +59,7 @@ struct SetGameTheme {
         return cardTitle
     }
     
-    static func getAttributedTitle(for card: SetCard) -> NSMutableAttributedString {
+    static func getAttributedTitle(for card: SetCardData) -> NSMutableAttributedString {
         let cardTitle = SetGameTheme.getTitle(for: card)
         let cardTitleAttributes: [NSAttributedString.Key : Any] = [
             .strokeColor : SetGameTheme.getStrokeColor(for: card),
