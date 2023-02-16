@@ -16,9 +16,14 @@ Adding more functionality and refactoring an app that was made in [Assignment-2]
 11. Your game must work properly and look good in both Landscape and Portrait orientations on all iPhones and iPads. It should efficiently use all the space available to it in all circumstances. 
 
 ## Things to Learn
-1. Creating a custom UIView with a draw(CGRect) method
+1. Creating a custom UIView with a draw(CGRect) method (ommited)
 2. Gestures
 3. Understanding the UIView hierarchy
 4. Creating UIViews in code (rather than in Interface Builder)
 5. Drawing with Core Graphics and UIBezierPath 
+
+## Demo
+https://user-images.githubusercontent.com/87092187/219384076-c9c160b9-9742-4d70-bce3-c8fbd5daec37.mp4
+
+
 
