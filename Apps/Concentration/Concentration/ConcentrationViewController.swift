@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  ConcentrationViewController.swift
 //  Concentration
 //
 //  Created by Максим Митрофанов on 29.01.2023.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ConcentrationViewController: UIViewController {
     
     private lazy var game = ConcentrationGame(numberOfPairsOfCards: (concentrationCards.count + 1) / 2)
     
@@ -29,6 +29,10 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        concentrationCards.forEach {
+            $0.backgroundColor = UIColor(named: "CardBackgroundColor")
+            $0.layer.cornerRadius = 8
+        }
     }
     
     private func flipCard(sender: UIButton) {
@@ -40,9 +44,11 @@ class ViewController: UIViewController {
     }
     
     private func updateViewFromModel() {
-        for index in concentrationCards.indices {
-            let cardData = game.cards[index]
-            updateAppearanceForCardAt(index: index, with: cardData)
+        if concentrationCards != nil {
+            for index in concentrationCards.indices {
+                let cardData = game.cards[index]
+                updateAppearanceForCardAt(index: index, with: cardData)
+            }
         }
     }
     
@@ -50,29 +56,39 @@ class ViewController: UIViewController {
         if cardData.isFaceUp {
             concentrationCards[index].setTitle(emoji(for: cardData), for: .normal)
             concentrationCards[index].backgroundColor = .white
+            concentrationCards[index].layer.borderWidth = 3
+            concentrationCards[index].layer.borderColor = UIColor.black.withAlphaComponent(0.5).cgColor
         }
         
         else {
             concentrationCards[index].setTitle("", for: .normal)
-            concentrationCards[index].backgroundColor = cardData.isMatched ? .clear : UIColor.systemOrange
+            concentrationCards[index].backgroundColor = cardData.isMatched ? .clear : UIColor(named: "CardBackgroundColor")
+            concentrationCards[index].layer.borderColor = UIColor.black.withAlphaComponent(0).cgColor
+
         }
     }
     
-    private var heroEmojis = ["🧑‍🚀", "🧑‍⚖️", "🦸🏻‍♂️", "🦹‍♀️", "🥷", "🧙‍♂️", "🧝‍♀️", "🧌", "🧛‍♀️", "🧟‍♂️", "🧞‍♂️"]
+    var theme: [String]? {
+        didSet {
+            currentThemeEmojis = theme ?? []
+            emojiDictionary = [:]
+        }
+    }
+    private var currentThemeEmojis = ["🧑‍🚀", "🧑‍⚖️", "🦸🏻‍♂️", "🦹‍♀️", "🥷", "🧙‍♂️", "🧝‍♀️", "🧌", "🧛‍♀️", "🧟‍♂️", "🧞‍♂️"]
     private var emojiDictionary = [Int:String]()
     
     private func emoji(for card: FlipCard) -> String {
-        if emojiDictionary[card.identifier] == nil, heroEmojis.count > 0 {
-            let randomElementIndex = heroEmojis.count.arc4random
-            emojiDictionary[card.identifier] = heroEmojis.remove(at: randomElementIndex)
+        if emojiDictionary[card.identifier] == nil, currentThemeEmojis.count > 0 {
+            let randomElementIndex = currentThemeEmojis.count.arc4random
+            emojiDictionary[card.identifier] = currentThemeEmojis.remove(at: randomElementIndex)
         }
-        return emojiDictionary[card.identifier] ?? "😶‍🌫️"
+        return emojiDictionary[card.identifier] ?? "❌"
     }
     
     private func setAttributedLabel() {
         let attributes: [NSAttributedString.Key : Any] = [
             .strokeWidth : 5.0,
-            .strokeColor : UIColor.orange
+            .strokeColor : UIColor.black
         ]
         
         let attributedTitle = NSAttributedString(string: "Flips: \(flipCount)", attributes: attributes)

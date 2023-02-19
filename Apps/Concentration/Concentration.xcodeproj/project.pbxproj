@@ -9,10 +9,11 @@
 /* Begin PBXBuildFile section */
 		4C24BF732986727B0070A90C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C24BF722986727B0070A90C /* AppDelegate.swift */; };
 		4C24BF752986727B0070A90C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C24BF742986727B0070A90C /* SceneDelegate.swift */; };
-		4C24BF772986727B0070A90C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C24BF762986727B0070A90C /* ViewController.swift */; };
+		4C24BF772986727B0070A90C /* ConcentrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C24BF762986727B0070A90C /* ConcentrationViewController.swift */; };
 		4C24BF7A2986727B0070A90C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C24BF782986727B0070A90C /* Main.storyboard */; };
 		4C24BF7C2986727C0070A90C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C24BF7B2986727C0070A90C /* Assets.xcassets */; };
 		4C24BF7F2986727C0070A90C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C24BF7D2986727C0070A90C /* LaunchScreen.storyboard */; };
+		4C29D17D29A0FD2B001D1F55 /* ConcentrationThemeChooserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C29D17C29A0FD2B001D1F55 /* ConcentrationThemeChooserViewController.swift */; };
 		4C681CED2986AE5B00FAAD65 /* FlipCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C681CEC2986AE5B00FAAD65 /* FlipCard.swift */; };
 		4C681CEF2986AEF200FAAD65 /* ConcentrationGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C681CEE2986AEF200FAAD65 /* ConcentrationGame.swift */; };
 /* End PBXBuildFile section */
@@ -21,11 +22,12 @@
 		4C24BF6F2986727B0070A90C /* Concentration.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Concentration.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C24BF722986727B0070A90C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4C24BF742986727B0070A90C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		4C24BF762986727B0070A90C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4C24BF762986727B0070A90C /* ConcentrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcentrationViewController.swift; sourceTree = "<group>"; };
 		4C24BF792986727B0070A90C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4C24BF7B2986727C0070A90C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4C24BF7E2986727C0070A90C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4C24BF802986727C0070A90C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4C29D17C29A0FD2B001D1F55 /* ConcentrationThemeChooserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcentrationThemeChooserViewController.swift; sourceTree = "<group>"; };
 		4C681CEC2986AE5B00FAAD65 /* FlipCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlipCard.swift; sourceTree = "<group>"; };
 		4C681CEE2986AEF200FAAD65 /* ConcentrationGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcentrationGame.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -60,33 +62,18 @@
 		4C24BF712986727B0070A90C /* Concentration */ = {
 			isa = PBXGroup;
 			children = (
-				4C681CEB2986AE5000FAAD65 /* Model */,
-				4C24BF86298673FA0070A90C /* Filp Cards UI */,
+				4C681CEC2986AE5B00FAAD65 /* FlipCard.swift */,
+				4C681CEE2986AEF200FAAD65 /* ConcentrationGame.swift */,
+				4C24BF762986727B0070A90C /* ConcentrationViewController.swift */,
+				4C29D17C29A0FD2B001D1F55 /* ConcentrationThemeChooserViewController.swift */,
 				4C24BF722986727B0070A90C /* AppDelegate.swift */,
 				4C24BF742986727B0070A90C /* SceneDelegate.swift */,
 				4C24BF7B2986727C0070A90C /* Assets.xcassets */,
+				4C24BF782986727B0070A90C /* Main.storyboard */,
 				4C24BF7D2986727C0070A90C /* LaunchScreen.storyboard */,
 				4C24BF802986727C0070A90C /* Info.plist */,
 			);
 			path = Concentration;
-			sourceTree = "<group>";
-		};
-		4C24BF86298673FA0070A90C /* Filp Cards UI */ = {
-			isa = PBXGroup;
-			children = (
-				4C24BF782986727B0070A90C /* Main.storyboard */,
-				4C24BF762986727B0070A90C /* ViewController.swift */,
-			);
-			path = "Filp Cards UI";
-			sourceTree = "<group>";
-		};
-		4C681CEB2986AE5000FAAD65 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				4C681CEC2986AE5B00FAAD65 /* FlipCard.swift */,
-				4C681CEE2986AEF200FAAD65 /* ConcentrationGame.swift */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -161,9 +148,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C681CED2986AE5B00FAAD65 /* FlipCard.swift in Sources */,
-				4C24BF772986727B0070A90C /* ViewController.swift in Sources */,
+				4C24BF772986727B0070A90C /* ConcentrationViewController.swift in Sources */,
 				4C681CEF2986AEF200FAAD65 /* ConcentrationGame.swift in Sources */,
 				4C24BF732986727B0070A90C /* AppDelegate.swift in Sources */,
+				4C29D17D29A0FD2B001D1F55 /* ConcentrationThemeChooserViewController.swift in Sources */,
 				4C24BF752986727B0070A90C /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
