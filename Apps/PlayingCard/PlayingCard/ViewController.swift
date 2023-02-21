@@ -41,7 +41,7 @@ class ViewController: UIViewController {
         playingCards.forEach { $0.isFaceUp = false }
         
         var cardOptions = [PlayingCard]()
-        for optionIndex in 0..<playingCards.count {
+        for optionIndex in 0..<(playingCards.count / 2) + 1 {
             cardOptions.append(game.cards[optionIndex])
             cardOptions.append(game.cards[optionIndex])
         }
