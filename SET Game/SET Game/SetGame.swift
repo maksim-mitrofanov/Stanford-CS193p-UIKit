@@ -25,7 +25,7 @@ struct SetGame {
     }
     
     init() {
-        cardsInTheDeck = SetGame.getAllPossibleCards()
+        cardsInTheDeck = SetGame.getDebugCards()
         setDisplayedCards()
     }
     
@@ -178,7 +178,6 @@ extension SetGame {
     static func getAllPossibleCards() -> [SetCardData] {
         var cards = [SetCardData]()
         
-        //Gives all possible cards (81 cards)
         for symbol in SetCardData.GameSymbol.allCases {
             for fillStyle in SetCardData.FillStyle.allCases {
                 for symbolCount in SetCardData.SymbolCount.allCases {
@@ -189,14 +188,19 @@ extension SetGame {
             }
         }
         
-        //Debug (27 cards)
-//        for symbol in SetCardData.GameSymbol.allCases {
-//            for fillStyle in SetCardData.FillStyle.allCases {
-//                for symbolCount in SetCardData.SymbolCount.allCases {
-//                    cards.append(SetCardData(symbol: symbol, symbolCount: symbolCount, fillStyle: fillStyle, color: .purple))
-//                }
-//            }
-//        }
+        return cards
+    }
+    
+    static func getDebugCards() -> [SetCardData] {
+        var cards = [SetCardData]()
+
+        for symbol in SetCardData.GameSymbol.allCases {
+            for symbolCount in SetCardData.SymbolCount.allCases {
+                for symbolColor in SetCardData.SymbolColor.allCases {
+                    cards.append(SetCardData(symbol: symbol, symbolCount: symbolCount, fillStyle: .striped, color: symbolColor))
+                }
+            }
+        }
         
         return cards
     }

@@ -94,7 +94,6 @@
 		4C5ECFA929916B080047EBE7 /* SET Game */ = {
 			isa = PBXGroup;
 			children = (
-				4C9397F5299E31DF000107CD /* Card View */,
 				4C5ECFAA29916B080047EBE7 /* AppDelegate.swift */,
 				4C5ECFAC29916B080047EBE7 /* SceneDelegate.swift */,
 				4C5ECFAE29916B080047EBE7 /* ViewController.swift */,
@@ -103,6 +102,7 @@
 				4C5ECFC029917CB70047EBE7 /* SetCardData.swift */,
 				4C5ECFB029916B080047EBE7 /* Main.storyboard */,
 				4C5ECFB529916B090047EBE7 /* LaunchScreen.storyboard */,
+				4C9397F5299E31DF000107CD /* Card View */,
 				4C671A7F299D476B004BBF02 /* Set Logo */,
 				4C5ECFB329916B090047EBE7 /* Assets.xcassets */,
 				4C5ECFB829916B090047EBE7 /* Info.plist */,

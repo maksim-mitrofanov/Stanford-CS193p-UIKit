@@ -23,6 +23,7 @@ class ViewController: UIViewController {
     
     @IBAction private func startNewGameTapped(_ sender: UIButton) {
         game = SetGame()
+        cardsStackView.subviews.forEach { $0.removeFromSuperview() }
         updateGameAppearance()
     }
     
@@ -59,11 +60,24 @@ extension ViewController {
     }
     
     private func updateDisplayedCardsAppearance() {
-        print("Updating Displayed Cards Appearance")
-        cardsStackView.subviews.forEach({ $0.removeFromSuperview() })
-       
-        for cardIndices in cardIndicesForEachRow {
-            addHorizontalStackViewOfCards(withIndices: cardIndices)
+        if cardsStackView.subviews.count == totalRowsOfCardsCount - 1 {
+            if let indices = cardIndicesForEachRow.last {
+                UIView.transition(with: cardsStackView, duration: 1, options: [.transitionFlipFromLeft]) {
+                    self.addHorizontalStackViewOfCards(withIndices: indices)
+                }
+            }
+            
+        } else if cardsStackView.subviews.count == 0 {
+            UIView.transition(with: cardsStackView, duration: 1, options: [.transitionFlipFromTop]) {
+                for cardIndices in self.cardIndicesForEachRow {
+                    self.addHorizontalStackViewOfCards(withIndices: cardIndices)
+                }
+            }
+        }
+        
+        else {
+            updateSelectedAndReplacedCardsAppearance()
+            print("UpdateSelectedAndReplacedCardsAppearance\n")
         }
     }
     
@@ -89,8 +103,12 @@ extension ViewController {
                 UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.5, delay: 0) {
                     self.matchStatusLabel.alpha = isMatchLabelHidden ? 0 : 1
                     self.matchStatusLabel.transform = CGAffineTransform.identity.scaledBy(x: 0.5, y: 0.5)
+                }
+                
+                UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.5, delay: 0) {
                     self.matchStatusLabel.isHidden = true
                 }
+                
             } else {
                 UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.5, delay: 0) {
                     self.matchStatusLabel.alpha = isMatchLabelHidden ? 0 : 1
@@ -111,21 +129,7 @@ extension ViewController {
 //Cards UI
 private extension ViewController {
     var cardCountInOneRow: Int {
-        let displayedCardsCount = game.displayedCards.count
-        
-        if displayedCardsCount < 15 {
-            let numberAsDouble = game.displayedCards.count / 3
-            return Int(numberAsDouble)
-        } else if displayedCardsCount < 30 {
-            let numberAsDouble = game.displayedCards.count / 5
-            return Int(numberAsDouble)
-        } else if displayedCardsCount < 50 {
-            let numberAsDouble = game.displayedCards.count / 7
-            return Int(numberAsDouble)
-        } else {
-            let numberAsDouble = game.displayedCards.count / 8
-            return Int(numberAsDouble)
-        }
+        return 3
     }
     
     var totalRowsOfCardsCount: Int {
@@ -167,7 +171,7 @@ private extension ViewController {
             let card = SetCardView()
             if game.displayedCards.indices.contains(cardIndex) {
                 let cardData = game.displayedCards[cardIndex]
-                card.setup(for: cardData, isSelected: game.selectedCardIndices.contains(cardIndex))
+                card.setup(for: cardData, isSelected: self.game.selectedCardIndices.contains(cardIndex))
                 
                 //Adding tap gesture to card
                 let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapCard(_:)))
@@ -176,6 +180,29 @@ private extension ViewController {
                 card.alpha = 0
             }
             stackView.addArrangedSubview(card)
+        }
+    }
+    
+    func updateSelectedAndReplacedCardsAppearance() {
+        let stackViewIndices = cardsStackView.subviews.indices
+        let cardIndicesForEachRow = cardIndicesForEachRow
+        
+        for stackViewIndex in stackViewIndices {
+            for subviewIndex in cardsStackView.subviews[stackViewIndex].subviews.indices {
+                if let cardSubView = cardsStackView.subviews[stackViewIndex].subviews[subviewIndex] as? SetCardView {
+                    let cardDataIndex = cardIndicesForEachRow[stackViewIndex][subviewIndex]
+                    let cardDataFromModel = game.displayedCards[cardDataIndex]
+                    let isCardSelected = game.selectedCardIndices.contains(cardDataIndex)
+                                        
+                    if cardSubView.cardData != cardDataFromModel || cardSubView.isSelected != isCardSelected {
+                        cardSubView.setup(for: game.displayedCards[cardDataIndex], isSelected: self.game.selectedCardIndices.contains(cardDataIndex))
+                        
+                        UIView.transition(with: cardsStackView.subviews[stackViewIndex].subviews[subviewIndex], duration: 0.5, options: [.transitionCrossDissolve], animations: {
+                            self.cardsStackView.subviews[stackViewIndex].insertSubview(cardSubView, at: subviewIndex)
+                        })
+                    }
+                }
+            }
         }
     }
 }

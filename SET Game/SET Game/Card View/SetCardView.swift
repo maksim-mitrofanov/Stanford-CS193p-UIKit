@@ -10,8 +10,8 @@ import UIKit
 class SetCardView: UIView {
     @IBOutlet var contentView: UIView!
     @IBOutlet private weak var mainButton: UIButton!
-    private var cardData: SetCardData?
-    
+    private(set) var cardData: SetCardData?
+    private(set) var isSelected: Bool = false    
     
     
     override init(frame: CGRect) {
@@ -32,9 +32,13 @@ class SetCardView: UIView {
         if isSelected {
             mainButton.layer.borderColor = UIColor.black.cgColor
             mainButton.layer.borderWidth = 3
+        } else {
+            mainButton.layer.borderColor = UIColor.clear.cgColor
         }
+        
         setupShadowsAndCornerRadius()
         self.cardData = cardData
+        self.isSelected = isSelected
     }
     
     func getCardData() -> SetCardData? {
@@ -51,11 +55,11 @@ class SetCardView: UIView {
     }
     
     private func setupShadowsAndCornerRadius() {
-        mainButton.layer.cornerRadius = 8
+        mainButton.layer.cornerRadius = 14
         contentView.layer.masksToBounds = false
         contentView.layer.shadowColor = UIColor.black.cgColor
         contentView.layer.shadowOpacity = 0.3
-        contentView.layer.shadowOffset = CGSize(width: 2, height: 2)
-        contentView.layer.shadowRadius = 2
+        contentView.layer.shadowOffset = CGSize(width: 4, height: 4)
+        contentView.layer.shadowRadius = 4
     }
 }
