@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  SetGameViewController.swift
 //  SET Game
 //
 //  Created by Максим Митрофанов on 06.02.2023.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class SetGameViewController: UIViewController {
     @IBOutlet private weak var currentScoreLabel: UILabel!
     @IBOutlet private weak var showMoreCardsButton: UIButton!
     @IBOutlet private weak var matchStatusLabel: UILabel!
@@ -37,7 +37,7 @@ class ViewController: UIViewController {
 }
 
 //Programmatic UI
-extension ViewController {
+extension SetGameViewController {
     private func setupDefaultAppearance() {
         showMoreCardsButton.layer.cornerRadius = 8
         startNewGameButton.layer.cornerRadius = 8
@@ -127,7 +127,7 @@ extension ViewController {
 }
 
 //Cards UI
-private extension ViewController {
+private extension SetGameViewController {
     var cardCountInOneRow: Int {
         return 3
     }
@@ -208,7 +208,7 @@ private extension ViewController {
 }
 
 //objc methods
-extension ViewController {
+extension SetGameViewController {
     @objc func didTapCard(_ sender: UITapGestureRecognizer) {
         guard let cardView = sender.view as? SetCardView else { return }
         if let cardData = cardView.getCardData() {
