@@ -13,23 +13,22 @@ class ViewController: UIViewController {
     @IBOutlet private weak var matchStatusLabel: UILabel!
     @IBOutlet private weak var cardsLeftLabel: UILabel!
     @IBOutlet private weak var startNewGameButton: UIButton!
-    @IBOutlet weak var cardsStackView: UIStackView!
+    @IBOutlet private weak var cardsStackView: UIStackView!
+    @IBOutlet private weak var bottomButtonsStackView: UIStackView!
     
     @IBAction private func showMoreCardsTapped(_ sender: UIButton) {
         game.addMoreCards()
-        updateGameUIFromModel()
+        updateGameAppearance()
     }
     
     @IBAction private func startNewGameTapped(_ sender: UIButton) {
         game = SetGame()
-        updateGameUIFromModel()
+        updateGameAppearance()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setDefaultAppearanceForUI()
-        updateGameUIFromModel()
-        cardsStackView.backgroundColor = .clear
+        setupDefaultAppearance()
     }
     
     private var game = SetGame()
@@ -37,40 +36,30 @@ class ViewController: UIViewController {
 }
 
 //Programmatic UI
-private extension ViewController {
-    func setDefaultAppearanceForUI() {
-        //Setting corner radius and shadow for bottom buttons
-        showMoreCardsButton.layer.cornerRadius = 12
-        startNewGameButton.layer.cornerRadius = 12
+extension ViewController {
+    private func setupDefaultAppearance() {
+        showMoreCardsButton.layer.cornerRadius = 8
+        startNewGameButton.layer.cornerRadius = 8
         
-        //Setting corner radius for top labels
         matchStatusLabel.layer.cornerRadius = 8
         currentScoreLabel.layer.cornerRadius = 8
         
-        //Setting corner radius for cards left label
         cardsLeftLabel.layer.cornerRadius = 8
+        cardsStackView.backgroundColor = .clear
+        
+        updateLabelsAndControlsAppearance()
+        updateDisplayedCardsAppearance()
     }
     
-    func updateGameUIFromModel() {
-        //Updating labels
+    private func updateLabelsAndControlsAppearance() {
         cardsLeftLabel.text = "Cards: \(game.cardsLeftCount)"
         currentScoreLabel.text = "Score: \(game.currentGameScore)"
         
-        //Updating controls
         showMoreCardsButton.isEnabled = game.canDealMoreCards
-        
-        //Updating matchLabel
-        matchStatusLabel.text = game.currentGameStatus.rawValue
-        matchStatusLabel.isHidden = game.currentGameStatus == .unmatched
-        if !game.hasStarted {
-            matchStatusLabel.isHidden = false
-        }
-        
-        //Updating cards
-        updateDisplayedCardsFromModel()
     }
     
-    func updateDisplayedCardsFromModel() {
+    private func updateDisplayedCardsAppearance() {
+        print("Updating Displayed Cards Appearance")
         cardsStackView.subviews.forEach({ $0.removeFromSuperview() })
        
         for cardIndices in cardIndicesForEachRow {
@@ -78,10 +67,56 @@ private extension ViewController {
         }
     }
     
+    private func updateMatchStatusLabelAppearance() {
+        //Flip when state changes
+        if matchStatusLabel.text != game.currentGameStatus.rawValue {
+            if game.currentGameStatus != .unmatched {
+                matchStatusLabel.text = game.currentGameStatus.rawValue
+            } else {
+                UIView.transition(with: matchStatusLabel, duration: 1, options: [.transitionFlipFromTop]) {
+                    self.matchStatusLabel.text = self.game.currentGameStatus.rawValue
+                }
+            }
+        }
+        
+        //Scaling and opacity
+        if game.selectedCardIndices.count == 1 || game.selectedCardIndices.count == 3 {
+            let isMatchLabelHidden: Bool = {
+                return game.selectedCardIndices.count > 0 && game.selectedCardIndices.count < 3
+            }()
+            
+            if game.currentGameStatus == .unmatched {
+                UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.5, delay: 0) {
+                    self.matchStatusLabel.alpha = isMatchLabelHidden ? 0 : 1
+                    self.matchStatusLabel.transform = CGAffineTransform.identity.scaledBy(x: 0.5, y: 0.5)
+                    self.matchStatusLabel.isHidden = true
+                }
+            } else {
+                UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.5, delay: 0) {
+                    self.matchStatusLabel.alpha = isMatchLabelHidden ? 0 : 1
+                    self.matchStatusLabel.transform = CGAffineTransform.identity.scaledBy(x: 1, y: 1)
+                    self.matchStatusLabel.isHidden = false
+                }
+            }
+        }
+    }
+    
+    private func updateGameAppearance() {
+        updateLabelsAndControlsAppearance()
+        updateDisplayedCardsAppearance()
+        updateMatchStatusLabelAppearance()
+    }
+}
+
+//Cards UI
+private extension ViewController {
     var cardCountInOneRow: Int {
         let displayedCardsCount = game.displayedCards.count
         
-        if displayedCardsCount < 30 {
+        if displayedCardsCount < 15 {
+            let numberAsDouble = game.displayedCards.count / 3
+            return Int(numberAsDouble)
+        } else if displayedCardsCount < 30 {
             let numberAsDouble = game.displayedCards.count / 5
             return Int(numberAsDouble)
         } else if displayedCardsCount < 50 {
@@ -143,23 +178,26 @@ private extension ViewController {
             stackView.addArrangedSubview(card)
         }
     }
-    
+}
+
+//objc methods
+extension ViewController {
     @objc func didTapCard(_ sender: UITapGestureRecognizer) {
         guard let cardView = sender.view as? SetCardView else { return }
         if let cardData = cardView.getCardData() {
             guard let indexOfSender = game.displayedCards.firstIndex(of: cardData) else { return }
-            game.selectCard(at: indexOfSender)
-            updateGameUIFromModel()
+            self.game.selectCard(at: indexOfSender)
             
             //Timer
             if !(game.currentGameStatus == .unmatched) {
                 canSelect = false
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                     self.game.replaceSelectedCards()
-                    self.updateGameUIFromModel()
+                    self.updateGameAppearance()
                     self.canSelect = true
                 }
             }
         }
+        updateGameAppearance()
     }
 }

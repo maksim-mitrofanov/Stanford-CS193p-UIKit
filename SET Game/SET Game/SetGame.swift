@@ -58,10 +58,18 @@ struct SetGame {
     
     mutating func replaceSelectedCards() {
         if currentGameStatus == .matched {
-            for index in selectedCardIndices {
-                if cardsInTheDeck.count > 0 {
+            if cardsInTheDeck.count > 0 {
+                for index in selectedCardIndices {
                     let randomCardIndex = cardsInTheDeck.count.arc4random
                     displayedCards[index] = cardsInTheDeck.remove(at: randomCardIndex)
+                }
+            }
+            else {
+                while selectedCardIndices.count > 0 {
+                    print(selectedCardIndices[0])
+                    displayedCards.remove(at: selectedCardIndices[0])
+                    selectedCardIndices.remove(at: 0)
+                    if selectedCardIndices.count > 0, selectedCardIndices[0] > 0 { selectedCardIndices[0] -= 1 }
                 }
             }
         }
@@ -170,6 +178,7 @@ extension SetGame {
     static func getAllPossibleCards() -> [SetCardData] {
         var cards = [SetCardData]()
         
+        //Gives all possible cards (81 cards)
         for symbol in SetCardData.GameSymbol.allCases {
             for fillStyle in SetCardData.FillStyle.allCases {
                 for symbolCount in SetCardData.SymbolCount.allCases {
@@ -179,6 +188,15 @@ extension SetGame {
                 }
             }
         }
+        
+        //Debug (27 cards)
+//        for symbol in SetCardData.GameSymbol.allCases {
+//            for fillStyle in SetCardData.FillStyle.allCases {
+//                for symbolCount in SetCardData.SymbolCount.allCases {
+//                    cards.append(SetCardData(symbol: symbol, symbolCount: symbolCount, fillStyle: fillStyle, color: .purple))
+//                }
+//            }
+//        }
         
         return cards
     }
