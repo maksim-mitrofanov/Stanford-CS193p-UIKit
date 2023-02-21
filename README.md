@@ -2,7 +2,7 @@
 
 ## Objectective
 Adding more functionality and refactoring an app that was made in [Assignment-3](https://github.com/maksim-mitrofanov/CS193p-UIKit/tree/Assignment-2).
-In this assignment you will add animation to your Set game and combine your first three assignments into one.
+<br>In this assignment you will add animation to your Set game and combine your first three assignments into one.
 
 1. Your application should continue to play a solo game of Set as required by Assignment 3 (with the caveats below).
 2. You must animate the following actions in your set game:
