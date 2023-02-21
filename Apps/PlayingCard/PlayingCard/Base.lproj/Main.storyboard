@@ -16,32 +16,163 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6vi-0n-nKg" customClass="PlayingCardView" customModule="PlayingCard" customModuleProvider="target">
-                                <rect key="frame" x="20" y="156" width="353" height="565"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="ZAK-an-ZSX">
+                                <rect key="frame" x="20" y="168" width="353" height="541"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="yrg-KX-aEu">
+                                        <rect key="frame" x="0.0" y="0.0" width="353" height="167"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fYF-y6-TFg" customClass="PlayingCardView" customModule="PlayingCard" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="104.33333333333333" height="167"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="fYF-y6-TFg" secondAttribute="height" multiplier="5:8" id="fRe-1w-pqE"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="rank" value="10"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="suit" value="❤️"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="csR-AF-uKd" customClass="PlayingCardView" customModule="PlayingCard" customModuleProvider="target">
+                                                <rect key="frame" x="124.33333333333334" y="0.0" width="104.33333333333334" height="167"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="csR-AF-uKd" secondAttribute="height" multiplier="5:8" id="FlG-Qe-Y5k"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="rank" value="10"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="suit" value="❤️"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9iv-Q7-hdq" customClass="PlayingCardView" customModule="PlayingCard" customModuleProvider="target">
+                                                <rect key="frame" x="248.66666666666671" y="0.0" width="104.33333333333334" height="167"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="9iv-Q7-hdq" secondAttribute="height" multiplier="5:8" id="mS8-IX-TFp"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="rank" value="10"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="suit" value="❤️"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="csR-AF-uKd" firstAttribute="width" secondItem="csR-AF-uKd" secondAttribute="height" multiplier="5:8" id="2jM-b6-GQn"/>
+                                            <constraint firstItem="9iv-Q7-hdq" firstAttribute="width" secondItem="9iv-Q7-hdq" secondAttribute="height" multiplier="5:8" id="M0o-pZ-PAc"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="EJf-VD-Sja">
+                                        <rect key="frame" x="0.0" y="187" width="353" height="167"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kLK-o7-KYC" customClass="PlayingCardView" customModule="PlayingCard" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="104.33333333333333" height="167"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="kLK-o7-KYC" secondAttribute="height" multiplier="5:8" id="Ati-jc-XAc"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="rank" value="10"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="suit" value="❤️"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JxI-Um-PHu" customClass="PlayingCardView" customModule="PlayingCard" customModuleProvider="target">
+                                                <rect key="frame" x="124.33333333333334" y="0.0" width="104.33333333333334" height="167"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="JxI-Um-PHu" secondAttribute="height" multiplier="5:8" id="K3P-u2-xsi"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="rank" value="10"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="suit" value="❤️"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uku-mO-8S3" customClass="PlayingCardView" customModule="PlayingCard" customModuleProvider="target">
+                                                <rect key="frame" x="248.66666666666671" y="0.0" width="104.33333333333334" height="167"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="uku-mO-8S3" secondAttribute="height" multiplier="5:8" id="CbK-3w-9Lc"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="rank" value="10"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="suit" value="❤️"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="JxI-Um-PHu" firstAttribute="width" secondItem="JxI-Um-PHu" secondAttribute="height" multiplier="5:8" id="6Kt-ya-aK4"/>
+                                            <constraint firstItem="uku-mO-8S3" firstAttribute="width" secondItem="uku-mO-8S3" secondAttribute="height" multiplier="5:8" id="UQg-2X-cyW"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="ehz-dw-fpm">
+                                        <rect key="frame" x="0.0" y="374" width="353" height="167"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uMO-gs-28W" customClass="PlayingCardView" customModule="PlayingCard" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="104.33333333333333" height="167"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="uMO-gs-28W" secondAttribute="height" multiplier="5:8" id="86x-30-oMi"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="rank" value="10"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="suit" value="❤️"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zxG-ob-rgr" customClass="PlayingCardView" customModule="PlayingCard" customModuleProvider="target">
+                                                <rect key="frame" x="124.33333333333334" y="0.0" width="104.33333333333334" height="167"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="zxG-ob-rgr" secondAttribute="height" multiplier="5:8" id="iib-fe-AHy"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="rank" value="10"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="suit" value="❤️"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L1f-e9-YjX" customClass="PlayingCardView" customModule="PlayingCard" customModuleProvider="target">
+                                                <rect key="frame" x="248.66666666666671" y="0.0" width="104.33333333333334" height="167"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="L1f-e9-YjX" secondAttribute="height" multiplier="5:8" id="Z30-bt-F8W"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="rank" value="10"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="suit" value="❤️"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="zxG-ob-rgr" firstAttribute="width" secondItem="zxG-ob-rgr" secondAttribute="height" multiplier="5:8" id="5iq-DY-Onz"/>
+                                            <constraint firstItem="L1f-e9-YjX" firstAttribute="width" secondItem="L1f-e9-YjX" secondAttribute="height" multiplier="5:8" id="Bej-Eb-d6h"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="6vi-0n-nKg" secondAttribute="height" multiplier="5:8" id="Mda-La-v1K"/>
-                                    <constraint firstAttribute="width" priority="750" constant="500" id="V5W-h8-fef"/>
+                                    <constraint firstAttribute="height" priority="750" constant="600" id="4TE-7v-1a8"/>
+                                    <constraint firstAttribute="width" priority="750" constant="500" id="5YQ-4k-jj9"/>
                                 </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="rank" value="5"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="suit" value="❤️"/>
-                                </userDefinedRuntimeAttributes>
-                            </view>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                        <color key="backgroundColor" systemColor="systemYellowColor"/>
                         <constraints>
-                            <constraint firstItem="6vi-0n-nKg" firstAttribute="top" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="C1l-cg-lV9"/>
-                            <constraint firstItem="6vi-0n-nKg" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Iyi-cV-jM6"/>
-                            <constraint firstItem="6vi-0n-nKg" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="Q2v-XI-1hx"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="6vi-0n-nKg" secondAttribute="bottom" constant="16" id="TgX-Zi-sOm"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="6vi-0n-nKg" secondAttribute="trailing" constant="20" id="ezf-xP-5Qn"/>
-                            <constraint firstItem="6vi-0n-nKg" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="lE7-ba-R8U"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="ZAK-an-ZSX" secondAttribute="bottom" constant="20" id="0jB-St-G0r"/>
+                            <constraint firstItem="ZAK-an-ZSX" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="5B9-Ds-bxi"/>
+                            <constraint firstItem="ZAK-an-ZSX" firstAttribute="top" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="YFQ-FJ-m7F"/>
+                            <constraint firstItem="ZAK-an-ZSX" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="b8M-e9-BfS"/>
+                            <constraint firstItem="ZAK-an-ZSX" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="bWM-rP-6KY"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ZAK-an-ZSX" secondAttribute="trailing" constant="20" id="hJy-v2-CYo"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="playingCard" destination="6vi-0n-nKg" id="IiO-wM-T95"/>
+                        <outletCollection property="playingCards" destination="fYF-y6-TFg" collectionClass="NSMutableArray" id="SI6-A3-bSk"/>
+                        <outletCollection property="playingCards" destination="csR-AF-uKd" collectionClass="NSMutableArray" id="Omh-cR-IwA"/>
+                        <outletCollection property="playingCards" destination="9iv-Q7-hdq" collectionClass="NSMutableArray" id="TdY-c9-wBe"/>
+                        <outletCollection property="playingCards" destination="kLK-o7-KYC" collectionClass="NSMutableArray" id="A1K-i6-e1l"/>
+                        <outletCollection property="playingCards" destination="JxI-Um-PHu" collectionClass="NSMutableArray" id="fqW-q9-pPG"/>
+                        <outletCollection property="playingCards" destination="uku-mO-8S3" collectionClass="NSMutableArray" id="LgD-jt-37s"/>
+                        <outletCollection property="playingCards" destination="uMO-gs-28W" collectionClass="NSMutableArray" id="Tqs-e7-n9P"/>
+                        <outletCollection property="playingCards" destination="zxG-ob-rgr" collectionClass="NSMutableArray" id="0NO-pV-rZY"/>
+                        <outletCollection property="playingCards" destination="L1f-e9-YjX" collectionClass="NSMutableArray" id="Jf6-lM-XYJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -50,8 +181,8 @@
         </scene>
     </scenes>
     <resources>
-        <systemColor name="systemIndigoColor">
-            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

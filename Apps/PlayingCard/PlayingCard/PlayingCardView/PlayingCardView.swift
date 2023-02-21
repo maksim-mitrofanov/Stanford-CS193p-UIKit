@@ -29,16 +29,16 @@ import UIKit
     }
     
     
-    private var isUpsideDown: Bool = false {
+    var isFaceUp: Bool = false {
         didSet {
-            if isUpsideDown {
-                topLeadingLabel.alpha = 0
-                bottomTrailingLabel.alpha = 0
-                cardBackground.alpha = 1
-            } else {
+            if isFaceUp {
                 topLeadingLabel.alpha = 1
                 bottomTrailingLabel.alpha = 1
                 cardBackground.alpha = 0
+            } else {
+                topLeadingLabel.alpha = 0
+                bottomTrailingLabel.alpha = 0
+                cardBackground.alpha = 1
             }
         }
     }
@@ -54,14 +54,13 @@ import UIKit
         loadNibFile()
         setup()
     }
-    
-    func setup() {
-        isUpsideDown = false
-        contentView.layer.cornerRadius = 32
         
+    private func setup() {
+        isFaceUp = false
+        contentView.layer.cornerRadius = contentView.bounds.height / 10
+        topLeadingLabel.font = UIFont.systemFont(ofSize: contentView.bounds.height / 8)
+        bottomTrailingLabel.font = UIFont.systemFont(ofSize: contentView.bounds.height / 8)
         bottomTrailingLabel.transform = CGAffineTransform.identity.rotated(by: CGFloat.pi)
-        
-        setupGestures()
     }
     
     private func loadNibFile() {
@@ -70,32 +69,5 @@ import UIKit
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         contentView.clipsToBounds = true
-    }
-    
-    private func setupGestures() {
-        let zoomGesture = UIPinchGestureRecognizer(target: self, action: #selector(zoomInCard(_:)))
-        contentView.addGestureRecognizer(zoomGesture)
-        
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(flipCard(_:)))
-        contentView.addGestureRecognizer(tapGesture)
-    }
-    
-    @objc private func flipCard(_ sender: UITapGestureRecognizer) {
-        isUpsideDown.toggle()
-    }
-    
-    @objc private func zoomInCard(_ sender: UIPinchGestureRecognizer) {
-        switch sender.state {
-        case .changed:
-            print("Scaled to: \(sender.scale)")
-            if let superview = superview {
-                contentView.frame = CGRect(x: 0, y: 0, width: contentView.frame.width * sender.scale, height: contentView.frame.height * sender.scale)
-                topLeadingLabel.contentScaleFactor = sender.scale
-                sender.scale = 1.0
-            }
-        case .ended:
-            print("")
-        default: return
-        }
     }
 }

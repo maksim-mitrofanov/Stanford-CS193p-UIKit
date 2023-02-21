@@ -66,9 +66,9 @@
 			children = (
 				4C4D51C0299823DE0052CEFB /* AppDelegate.swift */,
 				4C4D51C2299823DE0052CEFB /* SceneDelegate.swift */,
-				4C4D51C4299823DE0052CEFB /* ViewController.swift */,
 				4C4D51D42998240F0052CEFB /* PlayingCard.swift */,
 				4C4D51D629982BB80052CEFB /* PlayingCardDeck.swift */,
+				4C4D51C4299823DE0052CEFB /* ViewController.swift */,
 				4C4D51C6299823DE0052CEFB /* Main.storyboard */,
 				4C4D51CB299823DF0052CEFB /* LaunchScreen.storyboard */,
 				4CFFCAA9299ECB320094C6B4 /* PlayingCardView */,

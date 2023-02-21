@@ -28,6 +28,10 @@ struct PlayingCardDeck {
             return nil
         }
     }
+    
+    mutating func shuffleCards() {
+        cards.shuffle()
+    }
 }
 extension Int {
     var arc4random: Int {
