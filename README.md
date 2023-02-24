@@ -46,19 +46,16 @@ Stanford's CS193p course, Developing Applications for iOS, explains the fundamen
 | Assignment | Branch Link |
 | ----- | ----- |
 | Lecture slides | [Link](https://github.com/maksim-mitrofanov/CS193p-UIKit/blob/main/Lecture%20Slides/Lecture%207%20Slides.pdf)|
-| Lecture code demo | [Link](https://github.com/maksim-mitrofanov/CS193p-UIKit/tree/main/Lecture%20Demos/Lecture%207%20Demos)  |
 | Assignment | Lecture Code|
 
 ## Lecture 8
 | Assignment | Branch Link |
 | ----- | ----- |
 | Lecture slides | [Link](https://github.com/maksim-mitrofanov/CS193p-UIKit/blob/main/Lecture%20Slides/Lecture%208%20Slides.pdf)|
-| Lecture code Demo | [Link](https://github.com/maksim-mitrofanov/CS193p-UIKit/tree/main/Lecture%20Demos/Lecture%208%20Demos)|
 | Assignment | [Assignment 4](https://github.com/maksim-mitrofanov/CS193p-UIKit/tree/Assignment-4) |
 
 ## Lecture 9
 | Assignment | Branch Link |
 | ----- | ----- |
 | Lecture slides | [Link](https://github.com/maksim-mitrofanov/CS193p-UIKit/blob/main/Lecture%20Slides/Lecture%209%20Slides.pdf)|
-| Lecture code Demo | [Link](https://github.com/maksim-mitrofanov/CS193p-UIKit/blob/main/Lecture%20Demos/Lecture%209%20Demos/CS193p%20Lecture%209%20Demo.mp4)|
 | Assignment | Lecture Code |
