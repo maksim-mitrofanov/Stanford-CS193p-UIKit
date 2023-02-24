@@ -20,10 +20,8 @@ Stanford's CS193p course, Developing Applications for iOS, explains the fundamen
 | Lecture 9 | View Controller Lifecycle and Scroll View             | [Link](https://github.com/maksim-mitrofanov/CS193p-UIKit/blob/main/Lecture%20Slides/Lecture%209%20Slides.pdf)        |                                                                                          | ✅       |
 
 
-
-## Lecture Demo
+## Lecture Demos
 | Lecture 7 | Lecture 8 | Lecture 9 |
 | :----:    | :----:    | :----:    |
 | <video src="https://user-images.githubusercontent.com/87092187/221263989-f70c2ab2-678b-4488-bbd0-34e039f8ab19.mov2"/>  |  <video src="https://user-images.githubusercontent.com/87092187/221263076-c424cb81-361e-48ba-9599-51136cb1bfa2.mov"/>  | <video src="https://user-images.githubusercontent.com/87092187/221262925-a32fb34d-e11c-4a43-9057-7af2a95c56f8.mov"/>
-
 
