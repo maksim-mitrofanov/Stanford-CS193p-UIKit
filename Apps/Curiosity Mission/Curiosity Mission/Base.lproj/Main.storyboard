@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5fF-XD-Vlt">
-    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <device id="retina6_12" orientation="landscape" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -14,17 +15,20 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Curiosity_Mission" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="769"/>
+                        <rect key="frame" x="0.0" y="0.0" width="852" height="327"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Mars-Full-1024x1024" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wJH-xs-Egv">
-                                <rect key="frame" x="0.0" y="80" width="393" height="689"/>
+                                <rect key="frame" x="0.0" y="80" width="852" height="247"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MARS AWAITS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4xw-Gr-C8h">
-                                <rect key="frame" x="77.666666666666671" y="139" width="237.66666666666663" height="48"/>
+                                <rect key="frame" x="20" y="74" width="812" height="41"/>
                                 <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="35"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="heightClass=compact">
+                                    <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="30"/>
+                                </variation>
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -32,14 +36,32 @@
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="wJH-xs-Egv" secondAttribute="bottom" id="3HI-lH-RQP"/>
                             <constraint firstItem="wJH-xs-Egv" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="80" id="ACr-Hf-uZ4"/>
+                            <constraint firstItem="4xw-Gr-C8h" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="JTw-YZ-ONu"/>
                             <constraint firstItem="wJH-xs-Egv" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="VTn-K1-Wxc"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4xw-Gr-C8h" secondAttribute="trailing" constant="20" id="VbL-II-BxZ"/>
                             <constraint firstAttribute="trailing" secondItem="wJH-xs-Egv" secondAttribute="trailing" id="W8k-xQ-Uo9"/>
-                            <constraint firstItem="4xw-Gr-C8h" firstAttribute="centerX" secondItem="wJH-xs-Egv" secondAttribute="centerX" id="mAc-BC-lxo"/>
-                            <constraint firstItem="4xw-Gr-C8h" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="80" id="oVH-9w-ZRw"/>
+                            <constraint firstItem="4xw-Gr-C8h" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="80" id="dQa-Gi-vbf"/>
+                            <constraint firstItem="4xw-Gr-C8h" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="15" id="oVH-9w-ZRw"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="dQa-Gi-vbf"/>
+                                <exclude reference="oVH-9w-ZRw"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact">
+                            <mask key="constraints">
+                                <include reference="oVH-9w-ZRw"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular">
+                            <mask key="constraints">
+                                <include reference="dQa-Gi-vbf"/>
+                            </mask>
+                        </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" id="Rga-LD-fnI">
-                        <imageReference key="image" image="house" catalog="system" symbolScale="medium" renderingMode="hierarchical-single">
+                        <imageReference key="image" image="house" catalog="system" symbolScale="large" renderingMode="hierarchical-single">
                             <hierarchicalColors>
                                 <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color systemColor="secondaryLabelColor"/>
@@ -50,44 +72,211 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1043.5114503816794" y="-2.1126760563380285"/>
+            <point key="canvasLocation" x="891" y="938"/>
         </scene>
-        <!--View Controller-->
+        <!--Photo Selector View Controller-->
         <scene sceneID="KgH-0j-joQ">
             <objects>
-                <viewController id="x5w-zf-BFE" sceneMemberID="viewController">
+                <viewController id="x5w-zf-BFE" customClass="PhotoSelectorViewController" customModule="Curiosity_Mission" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Mvy-5B-d7l">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="769"/>
+                        <rect key="frame" x="0.0" y="0.0" width="852" height="393"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1mD-2c-82V">
-                                <rect key="frame" x="156" y="367" width="81" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Photo 1"/>
-                                <connections>
-                                    <segue destination="aaK-e5-Qsb" kind="show" id="Up0-X7-IDE"/>
-                                </connections>
-                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOCAL IMAGES" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V1U-YA-mEr">
+                                <rect key="frame" x="20" y="59" width="812" height="41"/>
+                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="35"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=compact">
+                                    <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="30"/>
+                                </variation>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ryH-Wl-s8j">
+                                <rect key="frame" x="287.66666666666663" y="220" width="276.66666666666663" height="119"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="TGp-wh-LX7">
+                                        <rect key="frame" x="0.0" y="0.0" width="131.33333333333334" height="119"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aX2-61-gq2">
+                                                <rect key="frame" x="0.0" y="0.0" width="131.33333333333334" height="52.666666666666664"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="aX2-61-gq2" secondAttribute="height" multiplier="5:1" id="wPf-uE-WYa"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <size key="titleShadowOffset" width="2" height="2"/>
+                                                <state key="normal" title="Postcard">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <variation key="default">
+                                                    <mask key="constraints">
+                                                        <exclude reference="wPf-uE-WYa"/>
+                                                    </mask>
+                                                </variation>
+                                                <variation key="heightClass=regular-widthClass=compact">
+                                                    <mask key="constraints">
+                                                        <include reference="wPf-uE-WYa"/>
+                                                    </mask>
+                                                </variation>
+                                                <connections>
+                                                    <segue destination="aaK-e5-Qsb" kind="show" identifier="Postcard" id="AXc-SZ-unU"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kqx-rk-Apg">
+                                                <rect key="frame" x="0.0" y="66.666666666666686" width="131.33333333333334" height="52.333333333333343"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="Selfie">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <segue destination="aaK-e5-Qsb" kind="show" identifier="Selfie" id="n0h-5i-P8W"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8sI-pR-XPA">
+                                                <rect key="frame" x="0.0" y="119" width="131.33333333333334" height="0.0"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="Rocks">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <variation key="heightClass=compact" hidden="YES"/>
+                                                <connections>
+                                                    <segue destination="aaK-e5-Qsb" kind="show" identifier="Rocks" id="xne-Vy-tye"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1mD-2c-82V">
+                                                <rect key="frame" x="0.0" y="119" width="131.33333333333334" height="0.0"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="Brush">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <variation key="heightClass=compact" hidden="YES"/>
+                                                <connections>
+                                                    <segue destination="aaK-e5-Qsb" kind="show" identifier="Brush" id="2q1-eU-Hyd"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <variation key="heightClass=regular-widthClass=compact" spacing="16"/>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="754-uv-kqx">
+                                        <rect key="frame" x="145.33333333333331" y="0.0" width="131.33333333333331" height="119"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A2C-IA-evV">
+                                                <rect key="frame" x="0.0" y="0.0" width="131.33333333333334" height="52.666666666666664"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="A2C-IA-evV" secondAttribute="height" multiplier="5:2" id="Jmo-z4-6Uz"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="Rocks">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <segue destination="aaK-e5-Qsb" kind="show" identifier="Rocks" id="O9x-Sg-03E"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1b7-6i-OsS">
+                                                <rect key="frame" x="0.0" y="66.666666666666686" width="131.33333333333334" height="52.333333333333343"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="Brush">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <segue destination="aaK-e5-Qsb" kind="show" identifier="Brush" id="ErH-fe-IVF"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <variation key="heightClass=regular-widthClass=compact" hidden="YES"/>
+                                    </stackView>
+                                </subviews>
+                                <variation key="heightClass=compact" spacing="14"/>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="bSp-b4-fss"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="bSp-b4-fss" firstAttribute="bottom" secondItem="ryH-Wl-s8j" secondAttribute="bottom" constant="20" id="05v-kj-72v"/>
+                            <constraint firstItem="ryH-Wl-s8j" firstAttribute="top" secondItem="V1U-YA-mEr" secondAttribute="bottom" constant="120" id="36L-KM-Kzp"/>
+                            <constraint firstItem="ryH-Wl-s8j" firstAttribute="leading" secondItem="bSp-b4-fss" secondAttribute="leading" constant="80" id="9Tn-p7-fs3"/>
+                            <constraint firstItem="V1U-YA-mEr" firstAttribute="top" secondItem="bSp-b4-fss" secondAttribute="top" constant="60" id="AB8-mL-4iN"/>
+                            <constraint firstItem="bSp-b4-fss" firstAttribute="trailing" secondItem="V1U-YA-mEr" secondAttribute="trailing" constant="20" id="AhQ-Em-Gac"/>
+                            <constraint firstItem="bSp-b4-fss" firstAttribute="trailing" secondItem="V1U-YA-mEr" secondAttribute="trailing" constant="20" id="Dip-z8-YGW"/>
+                            <constraint firstItem="V1U-YA-mEr" firstAttribute="leading" secondItem="bSp-b4-fss" secondAttribute="leading" constant="20" id="HWb-Tr-6Cg"/>
+                            <constraint firstItem="ryH-Wl-s8j" firstAttribute="centerX" secondItem="Mvy-5B-d7l" secondAttribute="centerX" id="RGS-wm-nPH"/>
+                            <constraint firstItem="V1U-YA-mEr" firstAttribute="leading" secondItem="bSp-b4-fss" secondAttribute="leading" constant="20" id="SFa-TK-EV7"/>
+                            <constraint firstItem="V1U-YA-mEr" firstAttribute="top" secondItem="bSp-b4-fss" secondAttribute="top" id="TfX-DM-p7b"/>
+                            <constraint firstItem="bSp-b4-fss" firstAttribute="trailing" secondItem="ryH-Wl-s8j" secondAttribute="trailing" constant="80" id="iQW-Dp-wA8"/>
+                            <constraint firstItem="bSp-b4-fss" firstAttribute="bottom" secondItem="ryH-Wl-s8j" secondAttribute="bottom" constant="80" id="tMB-BH-l6y"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="05v-kj-72v"/>
+                                <exclude reference="AhQ-Em-Gac"/>
+                                <exclude reference="Dip-z8-YGW"/>
+                                <exclude reference="iQW-Dp-wA8"/>
+                                <exclude reference="tMB-BH-l6y"/>
+                                <exclude reference="AB8-mL-4iN"/>
+                                <exclude reference="HWb-Tr-6Cg"/>
+                                <exclude reference="SFa-TK-EV7"/>
+                                <exclude reference="TfX-DM-p7b"/>
+                                <exclude reference="36L-KM-Kzp"/>
+                                <exclude reference="9Tn-p7-fs3"/>
+                                <exclude reference="RGS-wm-nPH"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact">
+                            <mask key="constraints">
+                                <include reference="05v-kj-72v"/>
+                                <include reference="Dip-z8-YGW"/>
+                                <include reference="HWb-Tr-6Cg"/>
+                                <include reference="TfX-DM-p7b"/>
+                                <include reference="36L-KM-Kzp"/>
+                                <include reference="RGS-wm-nPH"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular">
+                            <mask key="constraints">
+                                <include reference="AB8-mL-4iN"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="AhQ-Em-Gac"/>
+                                <include reference="iQW-Dp-wA8"/>
+                                <include reference="tMB-BH-l6y"/>
+                                <include reference="SFa-TK-EV7"/>
+                                <include reference="9Tn-p7-fs3"/>
+                            </mask>
+                        </variation>
                     </view>
-                    <navigationItem key="navigationItem" id="7rM-3b-wGs"/>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="7rM-3b-wGs"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mX0-uy-jdY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-516.79389312977094" y="772.53521126760563"/>
+            <point key="canvasLocation" x="-762" y="1815"/>
         </scene>
         <!--Local Photos-->
         <scene sceneID="Qb6-fL-CwS">
             <objects>
-                <viewController hidesBottomBarWhenPushed="YES" id="aaK-e5-Qsb" customClass="ProgrammaticScrollViewViewController" customModule="Curiosity_Mission" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="aaK-e5-Qsb" customClass="PhotoPresenterViewController" customModule="Curiosity_Mission" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uFR-BQ-kyA">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="852" height="393"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QGc-Cf-cHh">
+                            <scrollView verifyAmbiguity="off" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" placeholderIntrinsicWidth="1000" placeholderIntrinsicHeight="1000" translatesAutoresizingMaskIntoConstraints="NO" id="QGc-Cf-cHh">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="769"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <viewLayoutGuide key="contentLayoutGuide" id="yuJ-y3-Kpw"/>
@@ -119,31 +308,173 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="srt-cE-bgN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="495.41984732824426" y="848.59154929577471"/>
+            <point key="canvasLocation" x="-762" y="2720"/>
         </scene>
-        <!--Network-->
+        <!--View Controller-->
         <scene sceneID="jB9-8y-j8B">
             <objects>
                 <viewController id="x9A-kr-jjK" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zHp-9O-cWt">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="769"/>
+                        <rect key="frame" x="0.0" y="0.0" width="852" height="327"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SERVER IMAGES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4tx-fN-WN4">
+                                <rect key="frame" x="20" y="59" width="812" height="40"/>
+                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="35"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=compact">
+                                    <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="30"/>
+                                </variation>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="3Qt-cf-aAp">
+                                <rect key="frame" x="326.66666666666669" y="219" width="199.00000000000006" height="88"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="6Fd-6h-2Jn">
+                                        <rect key="frame" x="0.0" y="0.0" width="92.333333333333329" height="88"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Q8-kO-0RR">
+                                                <rect key="frame" x="0.0" y="0.0" width="92.333333333333329" height="37"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="0Q8-kO-0RR" secondAttribute="height" multiplier="5:1" id="qmb-RJ-PTn"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <size key="titleShadowOffset" width="2" height="2"/>
+                                                <state key="normal" title="Postcard">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <variation key="default">
+                                                    <mask key="constraints">
+                                                        <exclude reference="qmb-RJ-PTn"/>
+                                                    </mask>
+                                                </variation>
+                                                <variation key="heightClass=regular-widthClass=compact">
+                                                    <mask key="constraints">
+                                                        <include reference="qmb-RJ-PTn"/>
+                                                    </mask>
+                                                </variation>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="THr-iO-Lp9">
+                                                <rect key="frame" x="0.0" y="51" width="92.333333333333329" height="37"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="Selfie">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9pE-PW-K17">
+                                                <rect key="frame" x="0.0" y="88" width="92.333333333333329" height="0.0"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="Rocks">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <variation key="heightClass=compact" hidden="YES"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nx1-FN-QJU">
+                                                <rect key="frame" x="0.0" y="88" width="92.333333333333329" height="0.0"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="Brush">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <variation key="heightClass=compact" hidden="YES"/>
+                                            </button>
+                                        </subviews>
+                                        <variation key="heightClass=regular-widthClass=compact" spacing="16"/>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="TvF-IY-IDz">
+                                        <rect key="frame" x="106.33333333333331" y="0.0" width="92.666666666666686" height="88"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hj6-hw-niw">
+                                                <rect key="frame" x="0.0" y="0.0" width="92.666666666666671" height="37"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="hj6-hw-niw" secondAttribute="height" multiplier="5:2" id="OPr-yr-lnx"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="Rocks">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sWt-aF-spj">
+                                                <rect key="frame" x="0.0" y="51" width="92.666666666666671" height="37"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="Brush">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                            </button>
+                                        </subviews>
+                                        <variation key="heightClass=regular-widthClass=compact" hidden="YES"/>
+                                    </stackView>
+                                </subviews>
+                                <variation key="heightClass=compact" spacing="14"/>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="0hj-Qc-cW1"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="4tx-fN-WN4" firstAttribute="leading" secondItem="0hj-Qc-cW1" secondAttribute="leading" constant="20" id="ADG-uZ-WPp"/>
+                            <constraint firstItem="3Qt-cf-aAp" firstAttribute="centerX" secondItem="0hj-Qc-cW1" secondAttribute="centerX" id="FVV-RO-id9"/>
+                            <constraint firstItem="0hj-Qc-cW1" firstAttribute="bottom" secondItem="3Qt-cf-aAp" secondAttribute="bottom" constant="20" id="Gz8-Os-AY2"/>
+                            <constraint firstItem="0hj-Qc-cW1" firstAttribute="trailing" secondItem="4tx-fN-WN4" secondAttribute="trailing" constant="20" id="Xpj-Xk-Tgf"/>
+                            <constraint firstItem="4tx-fN-WN4" firstAttribute="leading" secondItem="0hj-Qc-cW1" secondAttribute="leading" constant="20" id="cOZ-VV-Is8"/>
+                            <constraint firstItem="4tx-fN-WN4" firstAttribute="top" secondItem="0hj-Qc-cW1" secondAttribute="top" constant="60" id="fX8-JN-AJ2"/>
+                            <constraint firstItem="3Qt-cf-aAp" firstAttribute="top" secondItem="4tx-fN-WN4" secondAttribute="bottom" constant="120" id="oHN-Gt-fe4"/>
+                            <constraint firstItem="4tx-fN-WN4" firstAttribute="top" secondItem="0hj-Qc-cW1" secondAttribute="top" id="p3Q-ZG-7Cs"/>
+                            <constraint firstItem="0hj-Qc-cW1" firstAttribute="trailing" secondItem="4tx-fN-WN4" secondAttribute="trailing" constant="20" id="tC5-y3-Xbt"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Gz8-Os-AY2"/>
+                                <exclude reference="Xpj-Xk-Tgf"/>
+                                <exclude reference="tC5-y3-Xbt"/>
+                                <exclude reference="ADG-uZ-WPp"/>
+                                <exclude reference="cOZ-VV-Is8"/>
+                                <exclude reference="fX8-JN-AJ2"/>
+                                <exclude reference="p3Q-ZG-7Cs"/>
+                                <exclude reference="FVV-RO-id9"/>
+                                <exclude reference="oHN-Gt-fe4"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact">
+                            <mask key="constraints">
+                                <include reference="Gz8-Os-AY2"/>
+                                <include reference="Xpj-Xk-Tgf"/>
+                                <include reference="cOZ-VV-Is8"/>
+                                <exclude reference="fX8-JN-AJ2"/>
+                                <include reference="p3Q-ZG-7Cs"/>
+                                <include reference="FVV-RO-id9"/>
+                                <include reference="oHN-Gt-fe4"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular">
+                            <mask key="constraints">
+                                <include reference="fX8-JN-AJ2"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="tC5-y3-Xbt"/>
+                                <include reference="ADG-uZ-WPp"/>
+                            </mask>
+                        </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Network" badgeValue="3" id="zGg-tR-0mM">
-                        <imageReference key="image" image="globe" catalog="system" symbolScale="medium" renderingMode="hierarchical-single" variableValue="1">
-                            <hierarchicalColors>
-                                <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color systemColor="secondaryLabelColor"/>
-                                <color systemColor="tertiaryLabelColor"/>
-                            </hierarchicalColors>
-                        </imageReference>
-                    </tabBarItem>
+                    <navigationItem key="navigationItem" id="52N-hL-Af8"/>
+                    <nil key="simulatedTopBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QXX-jd-1yN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2229.770992366412" y="877.46478873239437"/>
+            <point key="canvasLocation" x="-2" y="1815"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="gjA-zw-czE">
@@ -151,6 +482,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="5fF-XD-Vlt" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" translucent="NO" id="s3b-nR-gtp">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -158,7 +490,7 @@
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="IFh-Gz-8Sh"/>
                         <segue destination="tcr-GP-2yX" kind="relationship" relationship="viewControllers" id="jIY-QG-g0C"/>
-                        <segue destination="x9A-kr-jjK" kind="relationship" relationship="viewControllers" id="DQ5-BN-0xx"/>
+                        <segue destination="2ZD-Sd-oo8" kind="relationship" relationship="viewControllers" id="DQ5-BN-0xx"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DHr-im-pj0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -170,7 +502,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="tcr-GP-2yX" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Local" id="AFw-9b-AkR">
-                        <imageReference key="image" image="externaldrive" catalog="system" symbolScale="medium" renderingMode="hierarchical-single">
+                        <imageReference key="image" image="externaldrive" catalog="system" symbolScale="large" renderingMode="hierarchical-single">
                             <hierarchicalColors>
                                 <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color systemColor="secondaryLabelColor"/>
@@ -180,7 +512,7 @@
                     </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ukh-S6-rO6">
-                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <rect key="frame" x="0.0" y="59" width="852" height="32"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -190,9 +522,81 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p29-Zg-UCV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1443.5114503816794" y="772.53521126760563"/>
+            <point key="canvasLocation" x="-762" y="938"/>
+        </scene>
+        <!--Network-->
+        <scene sceneID="YcY-Pf-ga6">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2ZD-Sd-oo8" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Network" badgeValue="3" id="zGg-tR-0mM">
+                        <imageReference key="image" image="globe" catalog="system" symbolScale="large" renderingMode="hierarchical-single" variableValue="1">
+                            <hierarchicalColors>
+                                <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color systemColor="secondaryLabelColor"/>
+                                <color systemColor="tertiaryLabelColor"/>
+                            </hierarchicalColors>
+                        </imageReference>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="crf-y6-mYd">
+                        <rect key="frame" x="0.0" y="59" width="852" height="32"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="x9A-kr-jjK" kind="relationship" relationship="rootViewController" id="guh-rh-1Dw"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rrv-py-6IB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2.2900763358778624" y="938.73239436619724"/>
+        </scene>
+        <!--Local Photos-->
+        <scene sceneID="DOw-Bq-2Kk">
+            <objects>
+                <viewController hidesBottomBarWhenPushed="YES" id="b8i-LT-Qng" customClass="PhotoPresenterViewController" customModule="Curiosity_Mission" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="b4p-HD-lQa">
+                        <rect key="frame" x="0.0" y="0.0" width="852" height="393"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView verifyAmbiguity="off" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" placeholderIntrinsicWidth="1000" placeholderIntrinsicHeight="1000" translatesAutoresizingMaskIntoConstraints="NO" id="WLv-kZ-wXC">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="769"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <viewLayoutGuide key="contentLayoutGuide" id="HOF-26-FED"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="KMC-UA-3hZ"/>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="8xN-r2-jJ0"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="WLv-kZ-wXC" secondAttribute="bottom" id="5Z0-c1-1IJ"/>
+                            <constraint firstItem="8xN-r2-jJ0" firstAttribute="trailing" secondItem="WLv-kZ-wXC" secondAttribute="trailing" id="XbJ-wK-apI"/>
+                            <constraint firstItem="WLv-kZ-wXC" firstAttribute="leading" secondItem="8xN-r2-jJ0" secondAttribute="leading" id="ktq-4b-ia0"/>
+                            <constraint firstItem="WLv-kZ-wXC" firstAttribute="top" secondItem="b4p-HD-lQa" secondAttribute="top" id="x3b-TS-es2"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Local Photos" id="7hD-Ag-j8b">
+                        <imageReference key="image" image="externaldrive" catalog="system" symbolScale="medium" renderingMode="hierarchical-single">
+                            <hierarchicalColors>
+                                <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color systemColor="secondaryLabelColor"/>
+                                <color systemColor="tertiaryLabelColor"/>
+                            </hierarchicalColors>
+                        </imageReference>
+                    </tabBarItem>
+                    <navigationItem key="navigationItem" id="E07-24-lqg"/>
+                    <connections>
+                        <outlet property="scrollView" destination="WLv-kZ-wXC" id="GFh-R8-uWp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4mM-Jt-h0C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2" y="2720"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="ErH-fe-IVF"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="Mars-Full-1024x1024" width="1024" height="1024"/>
         <image name="externaldrive" catalog="system" width="128" height="88"/>

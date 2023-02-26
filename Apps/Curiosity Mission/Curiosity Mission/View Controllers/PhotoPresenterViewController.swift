@@ -1,5 +1,5 @@
 //
-//  ProgrammaticScrollViewViewController.swift
+//  PhotoPresenterViewController.swift
 //  Curiosity Mission
 //
 //  Created by Максим Митрофанов on 24.02.2023.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ProgrammaticScrollViewViewController: UIViewController {
+class PhotoPresenterViewController: UIViewController {
     
     @IBOutlet private weak var scrollView: UIScrollView! {
         didSet {
@@ -23,7 +23,7 @@ class ProgrammaticScrollViewViewController: UIViewController {
         set {
             imageView.image = newValue
             imageView.sizeToFit()
-            scrollView.contentSize = imageView.frame.size
+            scrollView?.contentSize = imageView.frame.size
         }
     }
     
@@ -41,6 +41,10 @@ class ProgrammaticScrollViewViewController: UIViewController {
     
     private func fetchImage() {
        displayedImage = UIImage(named: "MarsFromTop")
+    }
+    
+    func setLocalPhoto(to image: UIImage) {
+        displayedImage = image
     }
     
     
@@ -63,7 +67,7 @@ class ProgrammaticScrollViewViewController: UIViewController {
     }
 }
 
-extension ProgrammaticScrollViewViewController: UIScrollViewDelegate {
+extension PhotoPresenterViewController: UIScrollViewDelegate {
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
         return imageView
     }
