@@ -25,7 +25,7 @@ struct SetGame {
     }
     
     init() {
-        cardsInTheDeck = SetGame.getDebugCards()
+        cardsInTheDeck = SetGame.getAllPossibleCards()
         setDisplayedCards()
     }
     

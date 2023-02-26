@@ -54,6 +54,7 @@ class ConcentrationGameViewController: UIViewController {
     
     private func updateAppearanceForCardAt(index: Int, with cardData: ConcentrationCardModel) {
         if cardData.isFaceUp {
+            concentrationCards[index].titleLabel?.font = .systemFont(ofSize: 40)
             let titleNeedsUpdate = concentrationCards[index].currentTitle != emoji(for: cardData)
             let backgroundNeedsUpdate = concentrationCards[index].backgroundColor != .white
             let needsUpdate = titleNeedsUpdate || backgroundNeedsUpdate
