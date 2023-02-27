@@ -16,12 +16,20 @@ class PhotoPresenterViewController: UIViewController {
             scrollView.maximumZoomScale = 0.5
         }
     }
+    
+    @IBOutlet private weak var activityIndicator: UIActivityIndicatorView! {
+        
+    }
+    
     private var imageView = UIImageView()
     
     private var displayedImage: UIImage? {
         get { imageView.image }
         set {
+            scrollView?.isHidden = false
+            activityIndicator?.isHidden = true
             imageView.image = newValue
+            imageView.contentMode = .scaleAspectFill
             imageView.sizeToFit()
             scrollView?.contentSize = imageView.frame.size
         }
@@ -30,6 +38,8 @@ class PhotoPresenterViewController: UIViewController {
     private var imageURL: URL? {
         didSet {
             displayedImage = nil
+            scrollView?.isHidden = true
+            activityIndicator?.isHidden = false
             if view.window != nil {
                 fetchImage()
             }
@@ -37,14 +47,37 @@ class PhotoPresenterViewController: UIViewController {
     }
     
     
+    private func updateDisplayedPhoto() {
+        if imageURL == nil && displayedImage == nil {
+            setDefaultPhoto()
+        } else {
+            fetchImage()
+        }
+    }
     
+    private func setDefaultPhoto() {
+        displayedImage = UIImage(named: "MarsFromTop")
+    }
     
     private func fetchImage() {
-       displayedImage = UIImage(named: "MarsFromTop")
+        if let currentPhotoURL = imageURL {
+            DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+                let urlContents = try? Data(contentsOf: currentPhotoURL)
+                DispatchQueue.main.async {
+                    if let data = urlContents, currentPhotoURL == self?.imageURL {
+                        self?.displayedImage = UIImage(data: data)
+                    }
+                }
+            }
+        }
     }
     
     func setLocalPhoto(to image: UIImage) {
         displayedImage = image
+    }
+    
+    func setPhotoURL(to url: URL) {
+        imageURL = url
     }
     
     
@@ -54,16 +87,12 @@ class PhotoPresenterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         scrollView.delegate = self
-        if displayedImage == nil {
-            fetchImage()
-        }
+        updateDisplayedPhoto()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if imageView.image == nil {
-            fetchImage()
-        }
+        updateDisplayedPhoto()
     }
 }
 
