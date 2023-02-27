@@ -8,4 +8,8 @@ Multithreading and Autolayout
 2. Make concentration UI adopt to portait and landscape orientation (using SizeClasses and varying constraints, vary for traits and viewDidLayoutSubviews) 
 
 ## Demo
-1. Curiosity Mission App "Mars Awaits" label font and top contstraint are changing depending on size class.
+In this homework, I decided to add the functionality from the lecture code to the "Curiosity Mission" app.
+
+1. Top label at each tab ("Mars Awaits, Local Images, Server Images") is changing it's font size and top constraint when the orientation (portrait / landscape) changeds.
+2. The buttons for previewing the images are displayed differently when in portrait (4 rows with 1 button) and landscape (2 rows with 2 buttons).
+3. 
