@@ -12,26 +12,23 @@ class PhotoPresenterViewController: UIViewController {
     @IBOutlet private weak var scrollView: UIScrollView! {
         didSet {
             scrollView.addSubview(imageView)
-            scrollView.minimumZoomScale = 1/10
-            scrollView.maximumZoomScale = 0.5
+            scrollView.minimumZoomScale = 1/30
+            scrollView.maximumZoomScale = 5
         }
     }
     
-    @IBOutlet private weak var activityIndicator: UIActivityIndicatorView! {
-        
-    }
+    @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
     
     private var imageView = UIImageView()
     
     private var displayedImage: UIImage? {
         get { imageView.image }
         set {
-            scrollView?.isHidden = false
-            activityIndicator?.isHidden = true
             imageView.image = newValue
             imageView.contentMode = .scaleAspectFill
             imageView.sizeToFit()
             scrollView?.contentSize = imageView.frame.size
+            activityIndicator?.stopAnimating()
         }
     }
     
@@ -39,7 +36,6 @@ class PhotoPresenterViewController: UIViewController {
         didSet {
             displayedImage = nil
             scrollView?.isHidden = true
-            activityIndicator?.isHidden = false
             if view.window != nil {
                 fetchImage()
             }
@@ -47,10 +43,12 @@ class PhotoPresenterViewController: UIViewController {
     }
     
     
-    private func updateDisplayedPhoto() {
+    private func updateDisplayedPhoto(){
+        activityIndicator.stopAnimating()
+        
         if imageURL == nil && displayedImage == nil {
             setDefaultPhoto()
-        } else {
+        } else if imageURL != nil {
             fetchImage()
         }
     }
@@ -60,6 +58,8 @@ class PhotoPresenterViewController: UIViewController {
     }
     
     private func fetchImage() {
+        activityIndicator.startAnimating()
+        
         if let currentPhotoURL = imageURL {
             DispatchQueue.global(qos: .userInitiated).async { [weak self] in
                 let urlContents = try? Data(contentsOf: currentPhotoURL)
@@ -72,6 +72,8 @@ class PhotoPresenterViewController: UIViewController {
         }
     }
     
+    
+    //MARK: - Public API
     func setLocalPhoto(to image: UIImage) {
         displayedImage = image
     }
