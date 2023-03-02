@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="ipad9_7" orientation="landscape" layout="fullscreen" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -16,21 +17,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="H3N-O0-JMP">
+                                <rect key="frame" x="493.5" y="375.5" width="37" height="37"/>
+                            </activityIndicatorView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z8X-00-qVk" customClass="EmojiArtView" customModule="EmojiArt" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="20" width="1024" height="748"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="H3N-O0-JMP" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="2XA-d8-g7a"/>
                             <constraint firstItem="z8X-00-qVk" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="C8C-gs-2Yu"/>
                             <constraint firstItem="z8X-00-qVk" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Ha4-v8-950"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="z8X-00-qVk" secondAttribute="trailing" id="M1t-8u-LSF"/>
+                            <constraint firstItem="H3N-O0-JMP" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="slv-kj-o08"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="z8X-00-qVk" secondAttribute="bottom" id="uZt-Jw-eDs"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="H3N-O0-JMP" id="vWd-3p-FGn"/>
                         <outlet property="dropZone" destination="8bC-Xf-vdC" id="GLi-WY-zXY"/>
                         <outlet property="emojiArtView" destination="z8X-00-qVk" id="LB4-2R-XLv"/>
                     </connections>
