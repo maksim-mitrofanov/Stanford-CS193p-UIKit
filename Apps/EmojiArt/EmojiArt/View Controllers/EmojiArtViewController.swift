@@ -19,6 +19,10 @@ class EmojiArtViewController: UIViewController {
         setDropInteraction()
     }
     
+    override func viewDidLayoutSubviews() {
+        emojiArtView.redraw()
+    }
+    
     private func setDropInteraction() {
         let drop = UIDropInteraction(delegate: self)
         emojiArtView.addInteraction(drop)
