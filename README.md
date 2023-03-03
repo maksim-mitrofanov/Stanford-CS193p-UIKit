@@ -18,8 +18,8 @@ Stanford's CS193p course, Developing Applications for iOS, explains the fundamen
 | Lecture 7   | Multiple MVC                                          | [Link](https://github.com/maksim-mitrofanov/CS193p-UIKit/blob/main/Lecture%20Slides/Lecture%207%20Slides.pdf)        | Lecture code                                                                             |
 | Lecture 8   | Animation                                             | [Link](https://github.com/maksim-mitrofanov/CS193p-UIKit/blob/main/Lecture%20Slides/Lecture%208%20Slides.pdf)        | [Assignment 4](https://github.com/maksim-mitrofanov/CS193p-UIKit/tree/Assignment-4)      |
 | Lecture 9   | View Controller Lifecycle and Scroll View             | [Link](https://github.com/maksim-mitrofanov/CS193p-UIKit/blob/main/Lecture%20Slides/Lecture%209%20Slides.pdf)        | Lecture code                                                                             |
-| Lecture 10  | Multithreading and Autolayout                         | [Link](https://github.com/maksim-mitrofanov/CS193p-UIKit/blob/main/Lecture%20Slides/Lecture%2010%20Slides.pdf)       | [Lecture code](https://github.com/maksim-mitrofanov/CS193p-UIKit/tree/Lecture-10)        |
-| Lecture 11  | Drag and Drop, Table View, Collection View        | [Link](https://github.com/maksim-mitrofanov/CS193p-UIKit/blob/main/Lecture%20Slides/Lecture%2011%20Slides.pdf)       | [Lecture code](https://github.com/maksim-mitrofanov/CS193p-UIKit/blob/main/Lecture%20Readmes/Lecture11_Readme.md)        |
+| Lecture 10  | Multithreading and Autolayout                         | [Link](https://github.com/maksim-mitrofanov/CS193p-UIKit/blob/main/Lecture%20Slides/Lecture%2010%20Slides.pdf)       | [Curiosity Mission](https://github.com/maksim-mitrofanov/CS193p-UIKit/tree/Lecture-10)        |
+| Lecture 11  | Drag and Drop, Table View, Collection View            | [Link](https://github.com/maksim-mitrofanov/CS193p-UIKit/blob/main/Lecture%20Slides/Lecture%2011%20Slides.pdf)       | [Emoji Art ](https://github.com/maksim-mitrofanov/CS193p-UIKit/blob/main/Lecture%20Readmes/Lecture11_Readme.md)        |
 
 
 <br>
