@@ -9,4 +9,5 @@ Drag and Drop, Table View, Collection View
 3. Crate a Tab View (using splitView). The Tab View should have a "+" button to add a new tab.
 
 ## Demo
+https://user-images.githubusercontent.com/87092187/222472028-e910e18f-f5e1-4f30-a6eb-b8790fff27bd.mov
 
