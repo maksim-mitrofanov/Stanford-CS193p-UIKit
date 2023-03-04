@@ -11,15 +11,50 @@ class EmojiArtView: UIView {
     var imageToDisplay: UIImage? { didSet { setNeedsDisplay() }}
     
     override func draw(_ rect: CGRect) {
-        self.subviews.forEach { $0.removeFromSuperview() }
-        
-        let imageView = UIImageView(image: imageToDisplay)
-        imageView.contentMode = .scaleAspectFit
-        imageView.frame = CGRect(x: 0, y: 0, width: self.bounds.width, height: self.bounds.height)
-        self.addSubview(imageView)
+        imageToDisplay?.draw(in: self.bounds)
     }
     
-    func redraw() {
-        setNeedsDisplay()
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setup()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        setup()
+    }
+    
+    private func setup() {
+        addInteraction(UIDropInteraction(delegate: self))
+    }
+}
+
+extension EmojiArtView: UIDropInteractionDelegate {
+    func dropInteraction(_ interaction: UIDropInteraction, canHandle session: UIDropSession) -> Bool {
+        session.canLoadObjects(ofClass: String.self)
+    }
+    
+    func dropInteraction(_ interaction: UIDropInteraction, sessionDidUpdate session: UIDropSession) -> UIDropProposal {
+        UIDropProposal(operation: .copy)
+    }
+    
+    func dropInteraction(_ interaction: UIDropInteraction, performDrop session: UIDropSession) {
+        session.loadObjects(ofClass: String.self) { itemProviders in
+            let dropPoint = session.location(in: self)
+            
+            for string in itemProviders {
+                self.addLabel(with: string, at: dropPoint)
+            }
+        }
+    }
+    
+    func addLabel(with value: String, at position: CGPoint) {
+        let label = UILabel()
+        label.backgroundColor = .clear
+        label.text = value
+        label.sizeToFit()
+        label.center = position
+        addEmojiArtGestureRecognizers(to: label)
+        addSubview(label)
     }
 }
