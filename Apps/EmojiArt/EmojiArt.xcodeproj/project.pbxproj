@@ -32,6 +32,7 @@
 		4C139E8429AF7D950039A224 /* EmojiArtViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiArtViewController.swift; sourceTree = "<group>"; };
 		4C139E8729AF7DAE0039A224 /* EmojiArtView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiArtView.swift; sourceTree = "<group>"; };
 		4C8E40FC29B0C6D6006C56DD /* ImageFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFetcher.swift; sourceTree = "<group>"; };
+		4CC01FD129B699760000CDAA /* Lecture13_Readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Lecture13_Readme.md; sourceTree = "<group>"; };
 		4CCC4FED29B0EB75006A74AD /* DocumentTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentTableViewController.swift; sourceTree = "<group>"; };
 		4CCC4FF029B0F179006A74AD /* UniqueWithRespectTo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniqueWithRespectTo.swift; sourceTree = "<group>"; };
 		4CD3B48329B36ABD009D2EF0 /* EmojiCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -78,6 +79,7 @@
 				4CCC4FEF29B0F15E006A74AD /* Extensions */,
 				4C139E8129AF7BF80039A224 /* Supporting Files */,
 				4CD3B48729B38523009D2EF0 /* Lecture12_Readme.md */,
+				4CC01FD129B699760000CDAA /* Lecture13_Readme.md */,
 			);
 			path = EmojiArt;
 			sourceTree = "<group>";
