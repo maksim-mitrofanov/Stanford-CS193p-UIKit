@@ -25,14 +25,14 @@ Stanford's CS193p course, Developing Applications for iOS, explains the fundamen
 <br>
 
 ## Assignments
-| Assignment № | Topic                          | Description                | Finished Project |
-| :----:       | :----:                         | :----:                     | :----:           |
-| Assignment 1 |                                |                            |                  |
-| Assignment 2 |                                |                            |                  |
-| Assignment 3 |                                |                            |                  |
-| Assignment 4 |                                |                            |                  |
-| Assignment 5 |                                |                            |                  |
-| Assignment 6 |                                |                            |                  |
+| Assignment                                                                                                                                                                       | Finished Project                                                                                 |
+| :----                                                                                                                                                                            | :----                                                                                            |
+| [Assignment 1](https://github.com/maksim-mitrofanov/CS193p-UIKit/blob/main/Programming%20Assignments/Programming%20Project%201_%20Concentration.pdf)                             | [Concentration](https://github.com/maksim-mitrofanov/CS193p-UIKit/tree/Assignment-1)             |
+| [Assignment 2](https://github.com/maksim-mitrofanov/CS193p-UIKit/blob/main/Programming%20Assignments/Programming%20Project%202_%20Set.pdf)                                       | [Set](https://github.com/maksim-mitrofanov/CS193p-UIKit/tree/Assignment-2)                       |
+| [Assignment 3](https://github.com/maksim-mitrofanov/CS193p-UIKit/blob/main/Programming%20Assignments/Programming%20Project%203_%20Graphical%20Set.pdf)                           | [Graphical Set](https://github.com/maksim-mitrofanov/CS193p-UIKit/tree/Assignment-3)             |    
+| [Assignment 4](https://github.com/maksim-mitrofanov/CS193p-UIKit/blob/main/Programming%20Assignments/Programming%20Project%204_%20Animated%20Set.pdf)                            | [Animated Set](https://github.com/maksim-mitrofanov/CS193p-UIKit/tree/Assignment-4)              |
+| [Assignment 5](https://github.com/maksim-mitrofanov/CS193p-UIKit/blob/main/Programming%20Assignments/Programming%20Project%205_%20Image%20Gallery.pdf)                           | [Image Gallery](https://github.com/maksim-mitrofanov/CS193p-UIKit/tree/Assignment-5)             |
+| [Assignment 6](https://github.com/maksim-mitrofanov/CS193p-UIKit/blob/main/Programming%20Assignments/Programming%20Project%206_%20Persistent%20Image%20Gallery.pdf)              | [Persistent Image Gallery](https://github.com/maksim-mitrofanov/CS193p-UIKit/tree/Assignment-6)  |
 
 
 
