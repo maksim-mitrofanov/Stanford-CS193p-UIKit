@@ -24,6 +24,20 @@ Stanford's CS193p course, Developing Applications for iOS, explains the fundamen
 
 <br>
 
+## Assignments
+| Assignment № | Topic                          | Description                | Finished Project |
+| :----:       | :----:                         | :----:                     | :----:           |
+| Assignment 1 |                                |                            |                  |
+| Assignment 2 |                                |                            |                  |
+| Assignment 3 |                                |                            |                  |
+| Assignment 4 |                                |                            |                  |
+| Assignment 5 |                                |                            |                  |
+| Assignment 6 |                                |                            |                  |
+
+
+
+<br>
+
 ## Lecture Demos
 | Lecture 7 | Lecture 8 | Lecture 9 | Lecture 10 |
 | :----:    | :----:    | :----:    | :----:     |
