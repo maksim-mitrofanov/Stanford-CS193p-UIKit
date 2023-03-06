@@ -21,7 +21,7 @@ Stanford's CS193p course, Developing Applications for iOS, explains the fundamen
 | Lecture 10  | Multithreading and Autolayout                         | [Link](https://github.com/maksim-mitrofanov/CS193p-UIKit/blob/main/Lecture%20Slides/Lecture%2010%20Slides.pdf)       | Lecture code      |
 | Lecture 11  | Drag and Drop, Table View, Collection View            | [Link](https://github.com/maksim-mitrofanov/CS193p-UIKit/blob/main/Lecture%20Slides/Lecture%2011%20Slides.pdf)       | [Lecture code](https://github.com/maksim-mitrofanov/CS193p-UIKit/blob/main/Lecture%20Readmes/Lecture11_Readme.md)      |
 | Lecture 12  | TextField, Drap and Drop, Collection View             | [Link](https://github.com/maksim-mitrofanov/CS193p-UIKit/blob/main/Lecture%20Slides/Lecture%2012%20Slides.pdf)       | [Lecture code](https://github.com/maksim-mitrofanov/CS193p-UIKit/blob/main/Lecture%20Readmes/Lecture12_Readme.md)      |
-| Lecture 13  | Persistence and Documents                             |
+| Lecture 13  | Persistence and Documents                             | [Link](https://github.com/maksim-mitrofanov/CS193p-UIKit/blob/main/Lecture%20Slides/Lecture%2012%20Slides.pdf)       | [Lecture code](https://github.com/maksim-mitrofanov/CS193p-UIKit/blob/main/Lecture%20Readmes/Lecture12_Readme.md))     |
 <br>
 
 ## Assignments
