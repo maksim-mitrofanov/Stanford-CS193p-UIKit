@@ -60,6 +60,15 @@ class EmojiArtViewController: UIViewController {
     }
     
     var emojis = "🐶🐱🐭🐹🐰🦊🐻🐼🐻‍❄️🐨🐯🦁🐮🐷".map { $0.description }
+    private var isAddingEmojis: Bool = false
+    
+    @IBAction private func addEmoji() {
+        if isAddingEmojis { emojis.remove(at: 0) }
+        else { emojis = [" "] + emojis }
+        
+        isAddingEmojis.toggle()
+        emojiCollectionView.reloadSections(IndexSet(integer: 1))
+    }
 }
 
 extension EmojiArtViewController: UIDropInteractionDelegate {
@@ -131,19 +140,60 @@ extension EmojiArtViewController: UIScrollViewDelegate {
 }
 
 extension EmojiArtViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 2
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        emojis.count
+        if section == 0 { return 1 }
+        else { return emojis.count }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "EmojiCell", for: indexPath)
         
-        if let emojiCell = cell as? EmojiCollectionViewCell {
-            emojiCell.mainLabel.text = emojis[indexPath.item].description
-
+        //First cell
+        if indexPath.section == 0 {
+            let addEmojiCell = collectionView.dequeueReusableCell(withReuseIdentifier: "AddEmojiCell", for: indexPath)
+            return addEmojiCell
         }
+        
+        else {
+            //Input Cell
+            if isAddingEmojis && indexPath.item == 0 {
+                let inputCell = collectionView.dequeueReusableCell(withReuseIdentifier: "TextFieldCell", for: indexPath)
+                
+                if let textFieldCell = inputCell as? TextFieldCollectionViewCell {
+                    textFieldCell.resignationHandler = { [weak self, unowned textFieldCell] in
+                        if let text = textFieldCell.textField.text {
+                            self?.emojis.remove(at: 0)
+                            self?.emojis = [text] + self!.emojis
+                            self?.isAddingEmojis = false
+                            self?.emojiCollectionView.reloadData()
+                        }
+                    }
+                }
+                
+                return inputCell
+            }
             
-        return cell
+            //Emoji Cell
+            else {
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "EmojiCell", for: indexPath)
+                
+                if let emojiCell = cell as? EmojiCollectionViewCell {
+                    emojiCell.mainLabel.text = emojis[indexPath.item].description
+                    
+                }
+                
+                return cell
+            }
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if let inputCell = cell as? TextFieldCollectionViewCell {
+            inputCell.textField.becomeFirstResponder()
+        }
     }
 }
 
@@ -158,7 +208,7 @@ extension EmojiArtViewController: UICollectionViewDragDelegate {
     }
     
     private func dragItems(at indexPath: IndexPath) -> [UIDragItem] {
-        if let text = (emojiCollectionView.cellForItem(at: indexPath) as? EmojiCollectionViewCell)?.mainLabel.text {
+        if !isAddingEmojis, let text = (emojiCollectionView.cellForItem(at: indexPath) as? EmojiCollectionViewCell)?.mainLabel.text {
             let dragItem = UIDragItem(itemProvider: NSItemProvider(object: NSAttributedString(string: text)))
             dragItem.localObject = NSAttributedString(string: text)
             return [dragItem]
@@ -218,7 +268,13 @@ extension EmojiArtViewController: UICollectionViewDropDelegate {
     }
     
     func collectionView(_ collectionView: UICollectionView, dropSessionDidUpdate session: UIDropSession, withDestinationIndexPath destinationIndexPath: IndexPath?) -> UICollectionViewDropProposal {
-        let isSelf = (session.localDragSession?.localContext) as? UICollectionView == collectionView
-        return UICollectionViewDropProposal(operation: isSelf ? .move : .copy, intent: .insertAtDestinationIndexPath)
+        if let indexPath = destinationIndexPath, indexPath.section == 1  {
+            let isSelf = (session.localDragSession?.localContext) as? UICollectionView == collectionView
+            return UICollectionViewDropProposal(operation: isSelf ? .move : .copy, intent: .insertAtDestinationIndexPath)
+        }
+        
+        else {
+            return UICollectionViewDropProposal(operation: .cancel)
+        }
     }
 }
