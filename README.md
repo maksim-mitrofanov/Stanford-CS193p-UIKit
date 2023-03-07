@@ -1,10 +1,10 @@
 # CS193p-UIKit
-<br>
-
 Stanford's CS193p course, Developing Applications for iOS, explains the fundamentals of how to build applications for iPhone and iPad using UIKit.
 <p align="center">
   <img src="https://miro.medium.com/max/1200/1*UlybzoOkP5X87QLW7e7Hwg.png" title="hover text">
 </p>
+
+<br>
 
 ## Lectures
 | Lecture     | Topic                                                 | Slides                                                                                                               | Homework          |
