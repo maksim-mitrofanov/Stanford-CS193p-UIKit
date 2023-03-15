@@ -9,50 +9,63 @@ import UIKit
 
 class GalleryTabsViewController: UITableViewController {
     
-    var pinnedGalleries = [String]()
-    var galleries = ["Animals", "Sports", "Programming"]
-    var recentlyDeleted = ["Farm", "Planets"]
-
+    var pinnedGalleries = [ImageGalleryModel]()
+    
+    var galleries = ImageGalleryModel.templates
+    
+    var recentlyDeleted = ImageGalleryModel.templatesTwo
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
+    
     // MARK: - Table view data source
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 3
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 { return pinnedGalleries.count }
         else if section == 1 { return galleries.count }
         else { return recentlyDeleted.count }
     }
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "GalleryCell", for: indexPath)
         
         //Pinned Galleries
         if indexPath.section == 0 {
             var cellConfig = UIListContentConfiguration.cell()
-            cellConfig.text = pinnedGalleries[indexPath.row]
+            cellConfig.text = pinnedGalleries[indexPath.row].name
+            cellConfig.secondaryText = pinnedGalleries[indexPath.row].imageCount.description
+            cell.accessibilityIdentifier = pinnedGalleries[indexPath.row].id
             cell.contentConfiguration = cellConfig
+            cell.accessoryType = .none
+
         }
         
         //Standard Gallery
         else if indexPath.section == 1 {
             var cellConfig = UIListContentConfiguration.cell()
-            cellConfig.text = galleries[indexPath.row]
+            cellConfig.text = galleries[indexPath.row].name
+            cellConfig.secondaryText = galleries[indexPath.row].imageCount.description
+            cell.accessibilityIdentifier = galleries[indexPath.row].id
             cell.contentConfiguration = cellConfig
-        }
+            cell.accessoryType = .detailDisclosureButton
 
+        }
+        
         //Recently deleted
         else {
             var cellConfig = UIListContentConfiguration.cell()
-            cellConfig.text = recentlyDeleted[indexPath.row]
+            cellConfig.text = recentlyDeleted[indexPath.row].name
+            cellConfig.secondaryText = recentlyDeleted[indexPath.row].imageCount.description
+            cell.accessibilityIdentifier = recentlyDeleted[indexPath.row].id
             cell.contentConfiguration = cellConfig
+            cell.accessoryType = .none
         }
-
+        
         return cell
     }
     
@@ -61,12 +74,12 @@ class GalleryTabsViewController: UITableViewController {
         else if section == 1 { return "Your Galleries"}
         else { return "Recently Deleted" }
     }
-
+    
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
-
+    
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete && indexPath.section == 1 {
@@ -99,13 +112,13 @@ class GalleryTabsViewController: UITableViewController {
         else if indexPath.section == 1 { return UISwipeActionsConfiguration(actions: [pinGalleryAction]) }
         else { return nil }
     }
-
+    
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
         let removedItem = galleries.remove(at: fromIndexPath.row)
         galleries.insert(removedItem, at: to.row)
     }
-
+    
     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         if indexPath.section == 1 { return true }
         else { return false }
@@ -117,24 +130,65 @@ class GalleryTabsViewController: UITableViewController {
     }
     
     @IBAction func plusButtonPressed(_ sender: UIBarButtonItem) {
-        galleries.append("New Gallery".madeUnique(withRespectTo: galleries))
+        galleries.append(ImageGalleryModel(name: "New Gallery".madeUnique(withRespectTo: galleries.map { $0.name }), imageCount: 20))
         tableView.insertRows(at: [IndexPath(row: galleries.count - 1, section: 1)], with: .bottom)
+        tableView.cellForRow(at: IndexPath(row: galleries.count - 1, section: 1))?.accessoryType = .detailDisclosureButton
+    }
+    
+    override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
+        performSegue(withIdentifier: "RenameSegue", sender: tableView.cellForRow(at: indexPath))
     }
     
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+        if segue.identifier == "ShowNewGallery" {
+            guard let tableViewCell = sender as? UITableViewCell else { return }
+            guard let senderConfig = tableViewCell.contentConfiguration as? UIListContentConfiguration else { return }
+            guard let accessibilityID = tableViewCell.accessibilityIdentifier else { return }
+            
+            let canDisplayGallery = !recentlyDeleted.contains(where: { $0.id == accessibilityID })
+            
+            guard let navigationVC = segue.destination as? UINavigationController else { return }
+            guard let galleryVC = navigationVC.topViewController as? GalleryCollectionViewController else { return }
+            
+            if canDisplayGallery {
+                let numberOfItemsInGallery = Int(senderConfig.secondaryText ?? "") ?? 0
+                let galleryName = senderConfig.text ?? "Error"
+                let isGalleryPinned = pinnedGalleries.contains(where: { $0.name == galleryName })
+                let adjustedGalleryName = isGalleryPinned ? "Pinned: " + galleryName : galleryName
+                let galleryToDisplay = ImageGalleryModel(name: adjustedGalleryName, imageCount: numberOfItemsInGallery)
+                galleryVC.setupWith(model: galleryToDisplay)
+                galleryVC.navigationItem.title = adjustedGalleryName
+            } else {
+                let galleryToDisplay = ImageGalleryModel(name: "Can't preview deleted gallery", imageCount: 0)
+                galleryVC.setupWith(model: galleryToDisplay)
+                galleryVC.navigationItem.title = galleryToDisplay.name
+            }
+        }
+        
+        else if segue.identifier == "RenameSegue" {
+            guard let renameVC = segue.destination as? RenameGalleryViewController else { return }
+            guard let tableViewCell = sender as? UITableViewCell else { return }
+            guard let senderConfig = tableViewCell.contentConfiguration as? UIListContentConfiguration else { return }
+            guard let accessibilityID = tableViewCell.accessibilityIdentifier else { return }
+            guard let galleryName = senderConfig.text else { return }
+            
+            
+            renameVC.setup(with: galleryName)
+            renameVC.renameAction(handler: { [weak self] (newValue: String) in
+                guard let galleryIndex = self?.galleries.firstIndex(where: { $0.id == accessibilityID }) else { return }
+                self?.galleries[galleryIndex].rename(to: newValue)
+                self?.tableView.reloadData()
+                self?.tableView.cellForRow(at: IndexPath(row: galleryIndex, section: 1))?.accessoryType = .detailDisclosureButton
 
+                self?.performSegue(withIdentifier: "ShowNewGallery", sender: self?.tableView.cellForRow(at: IndexPath(row: galleryIndex, section: 1)))
+            })
+        }
+    }
 }
 
 
+//Swipe Gestures
 extension GalleryTabsViewController {
     private func createRecoverSwipeAction(using indexPath: IndexPath) -> UIContextualAction {
         let action = UIContextualAction(style: .normal, title: nil) { [weak self] (action, view, handler) in
@@ -183,7 +237,7 @@ extension GalleryTabsViewController {
                 }
                 
                 self?.galleries.remove(at: indexPath.row)
-                self?.tableView.deleteRows(at: [indexPath], with: .bottom)
+                self?.tableView.deleteRows(at: [indexPath], with: .automatic)
                 
             }
         }
@@ -209,7 +263,7 @@ extension GalleryTabsViewController {
                 }
                 
                 self?.pinnedGalleries.remove(at: indexPath.row)
-                self?.tableView.deleteRows(at: [indexPath], with: .top)
+                self?.tableView.deleteRows(at: [indexPath], with: .fade)
             }
         }
         

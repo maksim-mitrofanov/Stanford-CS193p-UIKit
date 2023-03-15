@@ -15,6 +15,9 @@
 		4C67534C29BF344D00638272 /* GalleryTabsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C67534B29BF344D00638272 /* GalleryTabsViewController.swift */; };
 		4C67534F29BF45E700638272 /* ImageGalleryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C67534E29BF45E700638272 /* ImageGalleryModel.swift */; };
 		4C67535229BF46D300638272 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C67535129BF46D300638272 /* Utilities.swift */; };
+		4C67535429BF910900638272 /* GalleryCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C67535329BF910900638272 /* GalleryCollectionViewController.swift */; };
+		4C7AC08829C0F13A0095E53D /* GalleryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7AC08729C0F13A0095E53D /* GalleryCollectionViewCell.swift */; };
+		4C7AC08A29C1CE1A0095E53D /* RenameGalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7AC08929C1CE1A0095E53D /* RenameGalleryViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +31,9 @@
 		4C67534B29BF344D00638272 /* GalleryTabsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryTabsViewController.swift; sourceTree = "<group>"; };
 		4C67534E29BF45E700638272 /* ImageGalleryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGalleryModel.swift; sourceTree = "<group>"; };
 		4C67535129BF46D300638272 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		4C67535329BF910900638272 /* GalleryCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCollectionViewController.swift; sourceTree = "<group>"; };
+		4C7AC08729C0F13A0095E53D /* GalleryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCollectionViewCell.swift; sourceTree = "<group>"; };
+		4C7AC08929C1CE1A0095E53D /* RenameGalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenameGalleryViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,15 +66,16 @@
 		4C67533529BF327B00638272 /* Image Gallery */ = {
 			isa = PBXGroup;
 			children = (
-				4C67535029BF46BA00638272 /* Utilities */,
-				4C67534D29BF45CB00638272 /* Models */,
-				4C67534A29BF341100638272 /* Controllers */,
 				4C67533629BF327B00638272 /* AppDelegate.swift */,
 				4C67533829BF327B00638272 /* SceneDelegate.swift */,
 				4C67533C29BF327B00638272 /* Main.storyboard */,
 				4C67534129BF327B00638272 /* LaunchScreen.storyboard */,
 				4C67533F29BF327B00638272 /* Assets.xcassets */,
 				4C67534429BF327B00638272 /* Info.plist */,
+				4C7AC08629C0F1200095E53D /* Views */,
+				4C67534D29BF45CB00638272 /* Models */,
+				4C67534A29BF341100638272 /* Controllers */,
+				4C67535029BF46BA00638272 /* Utilities */,
 			);
 			path = "Image Gallery";
 			sourceTree = "<group>";
@@ -77,6 +84,8 @@
 			isa = PBXGroup;
 			children = (
 				4C67534B29BF344D00638272 /* GalleryTabsViewController.swift */,
+				4C67535329BF910900638272 /* GalleryCollectionViewController.swift */,
+				4C7AC08929C1CE1A0095E53D /* RenameGalleryViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -95,6 +104,14 @@
 				4C67535129BF46D300638272 /* Utilities.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		4C7AC08629C0F1200095E53D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4C7AC08729C0F13A0095E53D /* GalleryCollectionViewCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -169,9 +186,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C67534C29BF344D00638272 /* GalleryTabsViewController.swift in Sources */,
+				4C7AC08A29C1CE1A0095E53D /* RenameGalleryViewController.swift in Sources */,
+				4C67535429BF910900638272 /* GalleryCollectionViewController.swift in Sources */,
 				4C67533729BF327B00638272 /* AppDelegate.swift in Sources */,
 				4C67534F29BF45E700638272 /* ImageGalleryModel.swift in Sources */,
 				4C67535229BF46D300638272 /* Utilities.swift in Sources */,
+				4C7AC08829C0F13A0095E53D /* GalleryCollectionViewCell.swift in Sources */,
 				4C67533929BF327B00638272 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
