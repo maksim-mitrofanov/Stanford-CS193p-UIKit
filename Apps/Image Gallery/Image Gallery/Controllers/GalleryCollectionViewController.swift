@@ -13,9 +13,7 @@ class GalleryCollectionViewController: UICollectionViewController {
     
     private(set) var dataModel = ImageGalleryModel(name: "Empty", imageCount: 20)
 
-    override func viewDidLoad() {
-       
-    }
+    override func viewDidLoad() {     }
 
     // MARK: UICollectionViewDataSource
 
@@ -29,33 +27,13 @@ class GalleryCollectionViewController: UICollectionViewController {
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellReuseIdentifier, for: indexPath) as? GalleryCollectionViewCell
-        else { fatalError() }
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellReuseIdentifier, for: indexPath)
+        guard let imageCell = cell as? GalleryCollectionViewCell else { fatalError() }
+        guard let imageURL = URL(string: dataModel.imageURLs[indexPath.row]) else { fatalError() }
         
-        fetchImageForCell(at: indexPath)
+        imageCell.setup(with: imageURL)
         
-        return cell
-    }
-    
-    private func fetchImageForCell(at indexPath: IndexPath) {
-        let imageURL = dataModel.imageURLs[indexPath.row]
-        var fetchedImage: UIImage?
-        
-        DispatchQueue.global(qos: .userInitiated).async {
-            if let url = URL(string: imageURL) {
-                let urlContents = try? Data(contentsOf: url)
-                
-                if let imageData = urlContents {
-                    fetchedImage = UIImage(data: imageData)
-                    
-                    DispatchQueue.main.async { [weak self] in
-                        if let imageCell = self?.collectionView.cellForItem(at: indexPath) as? GalleryCollectionViewCell {
-                            imageCell.imageView.image = fetchedImage
-                        }
-                    }
-                }
-            }
-        }
+        return imageCell
     }
 }
 
