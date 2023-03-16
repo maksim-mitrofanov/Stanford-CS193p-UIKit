@@ -13,7 +13,10 @@ class GalleryCollectionViewController: UICollectionViewController {
     
     private(set) var dataModel = ImageGalleryModel(name: "Empty", imageCount: 20)
 
-    override func viewDidLoad() {     }
+    override func viewDidLoad() {
+        collectionView.dragDelegate = self
+        collectionView.dropDelegate = self
+    }
 
     // MARK: UICollectionViewDataSource
 
@@ -62,5 +65,65 @@ extension GalleryCollectionViewController {
     func setupWith(model: ImageGalleryModel) {
         dataModel = model
         collectionView.reloadData()
+    }
+}
+
+extension GalleryCollectionViewController: UICollectionViewDragDelegate {
+    func collectionView(_ collectionView: UICollectionView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
+        session.localContext = collectionView
+        return dragItems(at: indexPath)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, itemsForAddingTo session: UIDragSession, at indexPath: IndexPath, point: CGPoint) -> [UIDragItem] {
+        return []
+    }
+    
+    private func dragItems(at indexPath: IndexPath) -> [UIDragItem] {
+        guard let galleryCell = collectionView.cellForItem(at: indexPath) as? GalleryCollectionViewCell else { return [] }
+        guard let cellStoredURL = galleryCell.imageURL as? NSURL else { return [] }
+        
+        let dragItem = UIDragItem(itemProvider: NSItemProvider(object: cellStoredURL))
+        dragItem.localObject = cellStoredURL
+        return [dragItem]
+    }
+}
+
+extension GalleryCollectionViewController: UICollectionViewDropDelegate {
+    func collectionView(_ collectionView: UICollectionView, performDropWith coordinator: UICollectionViewDropCoordinator) {
+        //Can drop only inside collection view
+        guard let destinationIndexPath = coordinator.destinationIndexPath else { return }
+        
+        //Can drop only one image
+        guard let dropItem = coordinator.items.first else { return }
+        
+        //Local drop (from one indexPath of collectionView to another indexPath)
+        if let sourceIndexPath = dropItem.sourceIndexPath {
+            insertLocalItemAtIndexPath(
+                item: dropItem.dragItem,
+                sourceIndexPath: sourceIndexPath,
+                destinationIndexPath: destinationIndexPath
+            )
+            coordinator.drop(dropItem.dragItem, toItemAt: destinationIndexPath)
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, canHandle session: UIDropSession) -> Bool {
+        return session.canLoadObjects(ofClass: NSURL.self)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, dropSessionDidUpdate session: UIDropSession, withDestinationIndexPath destinationIndexPath: IndexPath?) -> UICollectionViewDropProposal {
+        let sessionContext = session.localDragSession?.localContext as? UICollectionView
+        let isSelf = sessionContext == collectionView
+        return UICollectionViewDropProposal(operation: isSelf ? .move : .copy, intent: .insertAtDestinationIndexPath)
+    }
+    
+    func insertLocalItemAtIndexPath(item: UIDragItem, sourceIndexPath: IndexPath, destinationIndexPath: IndexPath) {
+        guard let imageNSURL = item.localObject as? NSURL else { return }
+        
+        collectionView.performBatchUpdates {
+            dataModel.acceptDrop(of: imageNSURL as URL, from: sourceIndexPath, to: destinationIndexPath)
+            collectionView.deleteItems(at: [sourceIndexPath])
+            collectionView.insertItems(at: [destinationIndexPath])
+        }
     }
 }

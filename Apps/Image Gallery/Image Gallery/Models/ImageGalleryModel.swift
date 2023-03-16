@@ -30,6 +30,10 @@ struct ImageGalleryModel {
     mutating func addNewImage(with url: URL, at indexPath: IndexPath) {
         imageURLs.insert(url.description, at: indexPath.item)
     }
+    
+    mutating func acceptDrop(of url: URL, from: IndexPath, to: IndexPath) {
+        
+    }
 }
 
 extension ImageGalleryModel {
