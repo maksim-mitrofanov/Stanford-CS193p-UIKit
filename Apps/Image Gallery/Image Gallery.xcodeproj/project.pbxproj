@@ -18,6 +18,8 @@
 		4C67535429BF910900638272 /* GalleryCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C67535329BF910900638272 /* GalleryCollectionViewController.swift */; };
 		4C7AC08829C0F13A0095E53D /* GalleryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7AC08729C0F13A0095E53D /* GalleryCollectionViewCell.swift */; };
 		4C7AC08A29C1CE1A0095E53D /* RenameGalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7AC08929C1CE1A0095E53D /* RenameGalleryViewController.swift */; };
+		4C82EF0229C37FB4009C5033 /* ImagePreviewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C82EF0129C37FB4009C5033 /* ImagePreviewer.swift */; };
+		4C82EF0429C3818C009C5033 /* PresenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C82EF0329C3818C009C5033 /* PresenterViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		4C67535329BF910900638272 /* GalleryCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCollectionViewController.swift; sourceTree = "<group>"; };
 		4C7AC08729C0F13A0095E53D /* GalleryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCollectionViewCell.swift; sourceTree = "<group>"; };
 		4C7AC08929C1CE1A0095E53D /* RenameGalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenameGalleryViewController.swift; sourceTree = "<group>"; };
+		4C82EF0129C37FB4009C5033 /* ImagePreviewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePreviewer.swift; sourceTree = "<group>"; };
+		4C82EF0329C3818C009C5033 /* PresenterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresenterViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +90,7 @@
 				4C67534B29BF344D00638272 /* GalleryTabsViewController.swift */,
 				4C67535329BF910900638272 /* GalleryCollectionViewController.swift */,
 				4C7AC08929C1CE1A0095E53D /* RenameGalleryViewController.swift */,
+				4C82EF0329C3818C009C5033 /* PresenterViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -110,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				4C7AC08729C0F13A0095E53D /* GalleryCollectionViewCell.swift */,
+				4C82EF0129C37FB4009C5033 /* ImagePreviewer.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -192,6 +198,8 @@
 				4C67534F29BF45E700638272 /* ImageGalleryModel.swift in Sources */,
 				4C67535229BF46D300638272 /* Utilities.swift in Sources */,
 				4C7AC08829C0F13A0095E53D /* GalleryCollectionViewCell.swift in Sources */,
+				4C82EF0429C3818C009C5033 /* PresenterViewController.swift in Sources */,
+				4C82EF0229C37FB4009C5033 /* ImagePreviewer.swift in Sources */,
 				4C67533929BF327B00638272 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

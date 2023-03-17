@@ -143,7 +143,6 @@ class GalleryTabsViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ShowNewGallery" {
             guard let tableViewCell = sender as? UITableViewCell else { return }
-            guard let senderConfig = tableViewCell.contentConfiguration as? UIListContentConfiguration else { return }
             guard let accessibilityID = tableViewCell.accessibilityIdentifier else { return }
             
             let canDisplayGallery = !recentlyDeleted.contains(where: { $0.id == accessibilityID })
@@ -152,13 +151,19 @@ class GalleryTabsViewController: UITableViewController {
             guard let galleryVC = navigationVC.topViewController as? GalleryCollectionViewController else { return }
             
             if canDisplayGallery {
-                let numberOfItemsInGallery = Int(senderConfig.secondaryText ?? "") ?? 0
-                let galleryName = senderConfig.text ?? "Error"
-                let isGalleryPinned = pinnedGalleries.contains(where: { $0.name == galleryName })
-                let adjustedGalleryName = isGalleryPinned ? "Pinned: " + galleryName : galleryName
-                let galleryToDisplay = ImageGalleryModel(name: adjustedGalleryName, imageCount: numberOfItemsInGallery)
-                galleryVC.setupWith(model: galleryToDisplay)
-                galleryVC.navigationItem.title = adjustedGalleryName
+                let isGalleryPinned = pinnedGalleries.contains(where: { $0.id == accessibilityID })
+                
+                if isGalleryPinned {
+                    guard let galleryData = pinnedGalleries.first(where: { $0.id == accessibilityID }) else { return }
+                    galleryVC.setupWith(model: galleryData)
+                    galleryVC.navigationItem.title = galleryData.name
+                }
+                
+                else {
+                    guard let galleryData = galleries.first(where: { $0.id == accessibilityID }) else { return }
+                    galleryVC.setupWith(model: galleryData)
+                    galleryVC.navigationItem.title = galleryData.name
+                }
             } else {
                 let galleryToDisplay = ImageGalleryModel(name: "Can't preview deleted gallery", imageCount: 0)
                 galleryVC.setupWith(model: galleryToDisplay)

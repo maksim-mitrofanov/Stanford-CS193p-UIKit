@@ -8,7 +8,7 @@
 import UIKit
 
 class GalleryCollectionViewCell: UICollectionViewCell {
-    @IBOutlet private weak var imageView: UIImageView!
+    @IBOutlet private(set) weak var imageView: UIImageView!
     
     var imageURL: URL? { didSet { updateDisplayedImage() }}
     

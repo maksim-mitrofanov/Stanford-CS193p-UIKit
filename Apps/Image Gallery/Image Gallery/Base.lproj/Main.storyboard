@@ -149,6 +149,38 @@
             </objects>
             <point key="canvasLocation" x="1574.6690203000883" y="-284.67741935483872"/>
         </scene>
+        <!--Presenter View Controller-->
+        <scene sceneID="tlM-2j-HDO">
+            <objects>
+                <viewController id="7KH-KC-fEe" customClass="PresenterViewController" customModule="Image_Gallery" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="TTc-j0-QL8">
+                        <rect key="frame" x="0.0" y="0.0" width="812.5" height="744"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iVs-zA-OLk">
+                                <rect key="frame" x="286" y="308" width="240" height="128"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <viewLayoutGuide key="contentLayoutGuide" id="DXT-6G-sHV"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="XtV-Tf-Sty"/>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="e6o-aF-nd2"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="iVs-zA-OLk" firstAttribute="leading" secondItem="e6o-aF-nd2" secondAttribute="leading" id="NgL-tR-YeJ"/>
+                            <constraint firstItem="e6o-aF-nd2" firstAttribute="trailing" secondItem="iVs-zA-OLk" secondAttribute="trailing" id="Y2A-qb-pBv"/>
+                            <constraint firstItem="iVs-zA-OLk" firstAttribute="top" secondItem="e6o-aF-nd2" secondAttribute="top" id="Zb8-U9-S80"/>
+                            <constraint firstItem="e6o-aF-nd2" firstAttribute="bottom" secondItem="iVs-zA-OLk" secondAttribute="bottom" id="mVt-KI-1ap"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="scrollView" destination="iVs-zA-OLk" id="DJv-jf-T5Q"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9lj-YF-3uA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1650.9267431597527" y="704.83870967741939"/>
+        </scene>
         <!--Gallery Collection View Controller-->
         <scene sceneID="bUP-gi-QIH">
             <objects>
@@ -171,8 +203,8 @@
                                     <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="usP-Ic-HiM">
-                                            <rect key="frame" x="53.5" y="54" width="20" height="20"/>
+                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="usP-Ic-HiM">
+                                            <rect key="frame" x="54" y="54" width="20" height="20"/>
                                         </activityIndicatorView>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="um7-gj-MWq">
                                             <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
@@ -192,6 +224,23 @@
                                     <outlet property="imageView" destination="um7-gj-MWq" id="bvQ-rJ-AJc"/>
                                 </connections>
                             </collectionViewCell>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="PlaceholderCell" id="5g3-w3-Hma">
+                                <rect key="frame" x="171" y="0.0" width="128" height="128"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="b2k-6H-Iqd">
+                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="4Iy-Ch-9z5">
+                                            <rect key="frame" x="54" y="54" width="20" height="20"/>
+                                        </activityIndicatorView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="4Iy-Ch-9z5" firstAttribute="centerX" secondItem="b2k-6H-Iqd" secondAttribute="centerX" id="lgK-yU-aNN"/>
+                                        <constraint firstItem="4Iy-Ch-9z5" firstAttribute="centerY" secondItem="b2k-6H-Iqd" secondAttribute="centerY" id="qkU-hr-E7L"/>
+                                    </constraints>
+                                </collectionViewCellContentView>
+                            </collectionViewCell>
                         </cells>
                         <connections>
                             <outlet property="dataSource" destination="tVo-4p-4wh" id="fhb-E2-jvL"/>
@@ -199,6 +248,9 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="ZOT-TC-KPy"/>
+                    <connections>
+                        <segue destination="7KH-KC-fEe" kind="showDetail" identifier="PreviewSelectedImage" id="f9V-Q4-7h6"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XxX-bF-ltM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
