@@ -24,7 +24,7 @@ Stanford's CS193p course, Developing Applications for iOS, explains the fundamen
 | Lecture 13  | Persistence and Documents                             | [Link](https://github.com/maksim-mitrofanov/CS193p-UIKit/blob/main/Lecture%20Slides/Lecture%2012%20Slides.pdf)       | [Lecture code](https://github.com/maksim-mitrofanov/CS193p-UIKit/blob/main/Lecture%20Readmes/Lecture13_Readme.md)      |
 <br>
 
-## Assignments
+## Programming Assignments
 | Assignment                                                                                                                                           | Finished Project                                                                                                              |
 | :----                                                                                                                                                | :----                                                                                                                         |
 | [Assignment 1](https://github.com/maksim-mitrofanov/CS193p-UIKit/blob/main/Assignments/Assignment%201/Concentration.pdf)                             | [Concentration](https://github.com/maksim-mitrofanov/CS193p-UIKit/blob/main/Assignments/Assignment%201/Readme.md)             |
