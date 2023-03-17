@@ -33,12 +33,3 @@ Stanford's CS193p course, Developing Applications for iOS, explains the fundamen
 | [Assignment 4](https://github.com/maksim-mitrofanov/CS193p-UIKit/blob/main/Programming%20Assignments/Programming%20Project%204_%20Animated%20Set.pdf)                            | [Animated Set](https://github.com/maksim-mitrofanov/CS193p-UIKit/tree/Assignment-4)              |
 | [Assignment 5](https://github.com/maksim-mitrofanov/CS193p-UIKit/blob/main/Programming%20Assignments/Programming%20Project%205_%20Image%20Gallery.pdf)                           | [Image Gallery](https://github.com/maksim-mitrofanov/CS193p-UIKit/tree/Assignment-5)             |
 | [Assignment 6](https://github.com/maksim-mitrofanov/CS193p-UIKit/blob/main/Programming%20Assignments/Programming%20Project%206_%20Persistent%20Image%20Gallery.pdf)              | [Persistent Image Gallery](https://github.com/maksim-mitrofanov/CS193p-UIKit/tree/Assignment-6)  |
-
-
-
-<br>
-
-## Lecture Demos
-| Lecture 7 | Lecture 8 | Lecture 9 | Lecture 10 |
-| :----:    | :----:    | :----:    | :----:     |
-| <video src="https://user-images.githubusercontent.com/87092187/221263989-f70c2ab2-678b-4488-bbd0-34e039f8ab19.mov2"/>  |  <video src="https://user-images.githubusercontent.com/87092187/221263076-c424cb81-361e-48ba-9599-51136cb1bfa2.mov"/>  | <video src="https://user-images.githubusercontent.com/87092187/221262925-a32fb34d-e11c-4a43-9057-7af2a95c56f8.mov"/> |<video src="https://user-images.githubusercontent.com/87092187/221931759-d81cb55d-af74-4c87-a60d-f8b4c3ba2eae.mov"> |
