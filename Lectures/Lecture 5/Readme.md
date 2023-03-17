@@ -1,7 +1,7 @@
-#  CS193p-UIKit-Lecture 11
+#  CS193p-UIKit-Lecture 5
 
 ## Lecture Topic
-Drag and Drop, Table View, Collection View
+Drawing
 
 ## Objective 
 1. Crate a new app called EmojiArt.
