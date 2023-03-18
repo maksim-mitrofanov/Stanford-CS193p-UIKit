@@ -15,7 +15,7 @@ The objective of Assignment III: Graphical Set is to gain the experience of buil
 - The game must work properly and look good in both Landscape and Portrait orientations on all iPhones and iPads. It should efficiently use all the available space in all circumstances.
 
 
-## Demo
+## Demo (will be updated)
 
 https://user-images.githubusercontent.com/87092187/226126732-252a417f-01ed-4072-9672-5e7bf3c673fe.mp4
 
