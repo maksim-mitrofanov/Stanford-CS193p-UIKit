@@ -2,7 +2,7 @@
 UIViewPropertyAnimator, UIDynamicAnimator, Timer, Gesture recognizers
 
 ## Objective 
-The objective of the Assignment IV is to add animation to the Set game and combine the first three assignments into one. The assignment must be submitted using the submit script before the deadline. The required tasks include animating the rearrangement of cards, dealing of new cards, discovery of a match, and flipping over of cards. The animation implementation must use UIViewPropertyAnimator, UIDynamicAnimator, and the UIView class method transition(with:...). Additionally, the application must support the theme-choosing MVC and be combined with the Concentration game into a single application using a tab bar controller. The game must work properly and look good in both Landscape and Portrait orientations on all iPhones and iPads.
+The objective of the Assignment IV is to add animation to the Set game and combine the first three assignments into one. The assignment must be submitted using the submit script before the deadline. The required tasks include animating the rearrangement of cards, dealing of new cards, discovery of a match, and flipping over of cards. The animation implementation must use UIViewPropertyAnimator, UIDynamicAnimator, and the UIView class method transition(with:...). Additionally, the application must support the theme-choosing MVC and be combined with the Concentration game into a single application using a tab bar controller.
 
 ## Required Tasks (short)
 - Continue to play a solo game of Set as required by Assignment 3
