@@ -38,7 +38,6 @@
 		4CCC4FF029B0F179006A74AD /* UniqueWithRespectTo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniqueWithRespectTo.swift; sourceTree = "<group>"; };
 		4CD3B48329B36ABD009D2EF0 /* EmojiCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiCollectionViewCell.swift; sourceTree = "<group>"; };
 		4CD3B48529B382E2009D2EF0 /* Gesture Recognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Gesture Recognizer.swift"; sourceTree = "<group>"; };
-		4CD3B48729B38523009D2EF0 /* Lecture12_Readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = Lecture12_Readme.md; path = "../../../Lecture Readmes/Lecture12_Readme.md"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,7 +78,6 @@
 				4C8E40FB29B0C6C6006C56DD /* Utilities */,
 				4CCC4FEF29B0F15E006A74AD /* Extensions */,
 				4C139E8129AF7BF80039A224 /* Supporting Files */,
-				4CD3B48729B38523009D2EF0 /* Lecture12_Readme.md */,
 			);
 			path = EmojiArt;
 			sourceTree = "<group>";
