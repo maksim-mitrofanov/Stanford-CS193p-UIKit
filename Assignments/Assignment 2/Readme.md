@@ -23,3 +23,6 @@ The objective of Assignment II is to create a solo game of Set from scratch usin
 - Include a New Game button and show the Score in the UI, based on your scoring system.
 
 # Demo
+
+https://user-images.githubusercontent.com/87092187/226129172-917e0b8f-6d78-449a-a2c4-dbb24bbf2cc0.mp4
+
