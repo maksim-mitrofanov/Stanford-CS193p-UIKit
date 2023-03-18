@@ -1,4 +1,4 @@
-# Warning! Currently refactoring readmes. Some links may not be available.
+
 
 # CS193p-UIKit
 Stanford's CS193p course, Developing Applications for iOS, explains the fundamentals of how to build applications for iPhone and iPad using UIKit.
@@ -9,6 +9,7 @@ Stanford's CS193p course, Developing Applications for iOS, explains the fundamen
 <br>
 
 ## Lectures
+### (Currently refactoring Lecture Readmes)
 | Lecture     | Topic                                                 | Slides                                                                                                                   | Homework          |
 | :----:      | :---                                                  | :----:                                                                                                                   | :----:            | 
 | Lecture 1   | Introduction                                          | [Link](https://github.com/maksim-mitrofanov/CS193p-UIKit/blob/main/Lectures/Lecture%201/Lecture%201%20Slides.pdf)        | [Lecture code](https://github.com/maksim-mitrofanov/CS193p-UIKit/blob/main/Lectures/Lecture%201/Readme.md)      |

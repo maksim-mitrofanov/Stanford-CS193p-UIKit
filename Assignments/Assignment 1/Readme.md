@@ -15,3 +15,7 @@ The objective of this assignment is to recreate and enhance the Concentration ga
 - Ensure that all new UI components added look good in portrait mode on an iPhone X.
 
 ## Demo
+
+
+https://user-images.githubusercontent.com/87092187/226129659-b5f5c1d4-25bc-49eb-adf0-d796356e775c.mp4
+
