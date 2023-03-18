@@ -12,5 +12,6 @@ TextField, Drag and Drop, Collection View
 - Enable drag from collection view to EmojiArtView
 
 ## Demo
-https://user-images.githubusercontent.com/87092187/222906536-99d5bbf9-10d9-477c-80df-ac15c60730d2.mov
+https://user-images.githubusercontent.com/87092187/226142432-6ef0c4c6-721f-411b-b991-0738cc9c8f5e.mp4
+
 
