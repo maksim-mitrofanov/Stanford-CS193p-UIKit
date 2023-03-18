@@ -1,4 +1,4 @@
-# Assignment 3 Readme
+# Assignment 3 - Graphical Set
 
 ## Objective
 The objective of Assignment III: Graphical Set is to gain the experience of building a custom view with multitouch gestures by modifying the code from Assignment II. The assignment requires the implementation of a game of Set with an improved user interface that includes dynamic card sizing, the ability to deal more cards, and a reshuffling feature.
