@@ -1,7 +1,7 @@
 # Assignment 5 - Image Gallery
 Table Views and Collection Views, Drag and Drop functionality, Multithreading, Scroll Views, Text Fields, Gesture Recognizers, Navigation Controllers, Segues, Split view controllers
 
-## Overview 
+## Objective 
 The assignment is to create an iPad application centered on a Collection View that allows users to create, edit and delete "Image Galleries" made up of images dragged in via Drag and Drop. The app must meet certain requirements, such as multithreading, allowing users to rearrange items via Drag and Drop, and implementing swipe to delete and undelete Image Galleries. It must also have a Split View Controller with a Table View that lets users choose an Image Gallery by name, and a pinch gesture on the Collection View that scales the width of the cells. Additionally, when a user taps on a cell in the Collection View, they should be able to zoom in and out to examine the image in detail in a scroll view that fills the entire MVC.
 
 ## Required Tasks (short)
