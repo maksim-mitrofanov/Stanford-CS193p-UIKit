@@ -1,4 +1,4 @@
-# Assignment 4 Readme
+# Assignment 4 - Animated Set
 UIViewPropertyAnimator, UIDynamicAnimator, Timer, Gesture recognizers
 
 ## Objective 
