@@ -11,5 +11,7 @@ Allow users to add emojis to the top collection view
 <br>
 
 ## Demo
-https://user-images.githubusercontent.com/87092187/223402929-4e97c8df-296a-4891-951a-c4da67349b44.mov
+https://user-images.githubusercontent.com/87092187/226142664-d7305caa-b24a-4a3e-9ba4-9b52513c1e61.mp4
+
+
 
