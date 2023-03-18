@@ -12,3 +12,8 @@ The assignment is to add animation to the Set Game and combine it with previous 
 - Automatically deal 3 more cards whenever a match is revealed
 - Add a theme-choosing MVC to the Concentration game
 - Combine the Set and Concentration games into a single application using a tab bar controller
+
+## Demo
+
+https://user-images.githubusercontent.com/87092187/226117400-40e54c0b-9ce6-421b-aad6-01ab33c419bb.mp4
+
