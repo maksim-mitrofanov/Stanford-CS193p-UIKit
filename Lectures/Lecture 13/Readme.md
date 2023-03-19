@@ -1,4 +1,5 @@
 #  CS193p-UIKit-Lecture 13
+TextField,TextFieldDelegate, Reusable Cells,
 
 ## Lecture Topic
 Persistence and Documents (sildes)
@@ -6,7 +7,8 @@ Persistence and Documents (sildes)
 <br>
 
 ## Objective 
-Allow users to add emojis to the top collection view
+Allow users to add emojis to the top collection view using a reusable cell that contains a textField.
+Use
 
 <br>
 
