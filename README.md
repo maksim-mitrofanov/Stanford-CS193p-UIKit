@@ -1,6 +1,6 @@
 
 
-# CS193p-UIKit
+# Stanford-CS193p-UIKit
 <p align="center">
   <img src="https://miro.medium.com/max/1200/1*UlybzoOkP5X87QLW7e7Hwg.png" title="hover text">
 </p>
