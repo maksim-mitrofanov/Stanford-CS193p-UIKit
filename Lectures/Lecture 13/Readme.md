@@ -1,5 +1,5 @@
 #  CS193p-UIKit-Lecture 13
-TextField,TextFieldDelegate, Reusable Cells,
+TextField,TextField Delegate, Reusable Cells
 
 ## Lecture Topic
 Persistence and Documents (sildes)
@@ -8,7 +8,8 @@ Persistence and Documents (sildes)
 
 ## Objective 
 Allow users to add emojis to the top collection view using a reusable cell that contains a textField.
-Use
+The text field should limit users to add only a single character. (use shouldChangeCharactersIn method on TextFieldDelegate)
+The text field should collapse itself when user presses return on keyboard. (use textFieldDidEndEditing method on TextFieldDelegate)
 
 <br>
 
