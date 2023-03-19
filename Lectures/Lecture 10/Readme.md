@@ -13,13 +13,14 @@ Update the AutoLayout, so the UI adopts to orientation changes.
 
 ## Demo
 
-Portrait
+### Portrait
 
 https://user-images.githubusercontent.com/87092187/226161867-28ae4f73-658a-4306-a262-e48a707e7cdf.mp4
 
 
+<br>
 
-Landscape
+### Landscape
 
 https://user-images.githubusercontent.com/87092187/226161869-dcc3a919-1ea4-4ec9-9972-ddef0fe5ca6f.mp4
 
