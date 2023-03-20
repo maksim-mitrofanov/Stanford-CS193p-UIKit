@@ -15,6 +15,7 @@
 		4C139E7A29AF7BAF0039A224 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C139E7829AF7BAF0039A224 /* LaunchScreen.storyboard */; };
 		4C139E8529AF7D950039A224 /* EmojiArtViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C139E8429AF7D950039A224 /* EmojiArtViewController.swift */; };
 		4C139E8829AF7DAE0039A224 /* EmojiArtView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C139E8729AF7DAE0039A224 /* EmojiArtView.swift */; };
+		4C3D796429C7CCA8009BFEEB /* EmojiArt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3D796329C7CCA8009BFEEB /* EmojiArt.swift */; };
 		4C8E40FD29B0C6D6006C56DD /* ImageFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C8E40FC29B0C6D6006C56DD /* ImageFetcher.swift */; };
 		4CCC4FEE29B0EB75006A74AD /* DocumentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCC4FED29B0EB75006A74AD /* DocumentTableViewController.swift */; };
 		4CCC4FF129B0F179006A74AD /* UniqueWithRespectTo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCC4FF029B0F179006A74AD /* UniqueWithRespectTo.swift */; };
@@ -33,6 +34,7 @@
 		4C139E7B29AF7BAF0039A224 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4C139E8429AF7D950039A224 /* EmojiArtViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiArtViewController.swift; sourceTree = "<group>"; };
 		4C139E8729AF7DAE0039A224 /* EmojiArtView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiArtView.swift; sourceTree = "<group>"; };
+		4C3D796329C7CCA8009BFEEB /* EmojiArt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiArt.swift; sourceTree = "<group>"; };
 		4C8E40FC29B0C6D6006C56DD /* ImageFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFetcher.swift; sourceTree = "<group>"; };
 		4CCC4FED29B0EB75006A74AD /* DocumentTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentTableViewController.swift; sourceTree = "<group>"; };
 		4CCC4FF029B0F179006A74AD /* UniqueWithRespectTo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniqueWithRespectTo.swift; sourceTree = "<group>"; };
@@ -72,11 +74,12 @@
 			children = (
 				4C139E7329AF7BAE0039A224 /* Main.storyboard */,
 				4C139E7629AF7BAF0039A224 /* Assets.xcassets */,
-				4C139E7B29AF7BAF0039A224 /* Info.plist */,
 				4C139E8629AF7D9C0039A224 /* Views */,
 				4C139E8229AF7C0E0039A224 /* View Controllers */,
+				4C3D796229C7CC9D009BFEEB /* Model */,
 				4C8E40FB29B0C6C6006C56DD /* Utilities */,
 				4CCC4FEF29B0F15E006A74AD /* Extensions */,
+				4C139E7B29AF7BAF0039A224 /* Info.plist */,
 				4C139E8129AF7BF80039A224 /* Supporting Files */,
 			);
 			path = EmojiArt;
@@ -109,6 +112,14 @@
 				4C1266B929B73FA30005B6A9 /* TextFieldCollectionViewCell.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		4C3D796229C7CC9D009BFEEB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4C3D796329C7CCA8009BFEEB /* EmojiArt.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		4C8E40FB29B0C6C6006C56DD /* Utilities */ = {
@@ -200,6 +211,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4CCC4FEE29B0EB75006A74AD /* DocumentTableViewController.swift in Sources */,
+				4C3D796429C7CCA8009BFEEB /* EmojiArt.swift in Sources */,
 				4CCC4FF129B0F179006A74AD /* UniqueWithRespectTo.swift in Sources */,
 				4CD3B48629B382E2009D2EF0 /* Gesture Recognizer.swift in Sources */,
 				4C139E6E29AF7BAE0039A224 /* AppDelegate.swift in Sources */,
@@ -363,6 +375,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportsDocumentBrowser = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -392,6 +405,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportsDocumentBrowser = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

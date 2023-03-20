@@ -84,9 +84,12 @@ extension EmojiArtView
         switch recognizer.state {
         case .changed, .ended:
             if let label = selectedSubview as? UILabel {
-                label.attributedText = label.attributedText?.withFontScaled(by: recognizer.scale)
-                label.stretchToFit()
-                recognizer.scale = 1.0
+                let newValue = label.attributedText?.withFontScaled(by: recognizer.scale)
+                if newValue?.font?.pointSize ?? 0 > 10 && newValue?.font?.pointSize ?? 0 < 400 {
+                    label.attributedText = label.attributedText?.withFontScaled(by: recognizer.scale)
+                    label.stretchToFit()
+                    recognizer.scale = 1.0
+                }
             }
         default:
             break
@@ -95,7 +98,7 @@ extension EmojiArtView
     
     @objc func selectAndSendSubviewToBack(by recognizer: UITapGestureRecognizer) {
         if recognizer.state == .ended {
-            if let view = recognizer.view, let index = subviews.index(of: view) {
+            if let view = recognizer.view, let index = subviews.firstIndex(of: view) {
                 selectedSubview = view
                 exchangeSubview(at: 0, withSubviewAt: index)
             }

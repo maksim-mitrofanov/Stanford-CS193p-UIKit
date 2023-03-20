@@ -31,7 +31,7 @@ class EmojiArtView: UIView {
 
 extension EmojiArtView: UIDropInteractionDelegate {
     func dropInteraction(_ interaction: UIDropInteraction, canHandle session: UIDropSession) -> Bool {
-        session.canLoadObjects(ofClass: String.self) || session.canLoadObjects(ofClass: UIImage.self)
+        session.canLoadObjects(ofClass: String.self) && !session.canLoadObjects(ofClass: NSURL.self)
     }
     
     func dropInteraction(_ interaction: UIDropInteraction, sessionDidUpdate session: UIDropSession) -> UIDropProposal {
@@ -39,31 +39,32 @@ extension EmojiArtView: UIDropInteractionDelegate {
     }
     
     func dropInteraction(_ interaction: UIDropInteraction, performDrop session: UIDropSession) {
-        if session.canLoadObjects(ofClass: UIImage.self) {
-            session.loadObjects(ofClass: UIImage.self) { itemProviders in
-                DispatchQueue.main.async { [weak self] in
-                    self?.imageToDisplay = itemProviders.first as? UIImage
-                }
-            }
-        }
-         
-        else if session.canLoadObjects(ofClass: String.self) {
-            session.loadObjects(ofClass: String.self) { itemProviders in
+        if session.canLoadObjects(ofClass: String.self) {
+            let _ = session.loadObjects(ofClass: String.self) { itemProviders in
                 let dropPoint = session.location(in: self)
                 
                 for string in itemProviders {
-                    self.addLabel(with: string, at: dropPoint)
+                    DispatchQueue.main.async { [weak self] in
+                        self?.addLabel(with: string, at: dropPoint)
+                    }
                 }
             }
         }
     }
     
-    func addLabel(with value: String, at position: CGPoint) {
+    func addLabel(with value: String, size: CGFloat? = nil, at position: CGPoint) {
         let label = UILabel()
         label.backgroundColor = .clear
+        label.center = position
+        
+        if let fontSize = size {
+            label.font = UIFont.systemFont(ofSize: fontSize)
+        } else {
+            label.font = UIFont.systemFont(ofSize: 200)
+        }
+            
         label.text = value
         label.sizeToFit()
-        label.center = position
         addEmojiArtGestureRecognizers(to: label)
         addSubview(label)
     }

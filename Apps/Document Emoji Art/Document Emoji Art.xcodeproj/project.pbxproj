@@ -1,0 +1,462 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4C3D797729C84C39009BFEEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3D797629C84C39009BFEEB /* AppDelegate.swift */; };
+		4C3D797929C84C39009BFEEB /* DocumentBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3D797829C84C39009BFEEB /* DocumentBrowserViewController.swift */; };
+		4C3D797D29C84C39009BFEEB /* EmojiArtDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3D797C29C84C39009BFEEB /* EmojiArtDocument.swift */; };
+		4C3D798029C84C39009BFEEB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C3D797E29C84C39009BFEEB /* Main.storyboard */; };
+		4C3D798229C84C3A009BFEEB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C3D798129C84C3A009BFEEB /* Assets.xcassets */; };
+		4C3D798529C84C3A009BFEEB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C3D798329C84C3A009BFEEB /* LaunchScreen.storyboard */; };
+		4C3D799129C84DC1009BFEEB /* EmojiArtView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3D798E29C84DC1009BFEEB /* EmojiArtView.swift */; };
+		4C3D799229C84DC1009BFEEB /* TextFieldCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3D798F29C84DC1009BFEEB /* TextFieldCollectionViewCell.swift */; };
+		4C3D799329C84DC1009BFEEB /* EmojiCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3D799029C84DC1009BFEEB /* EmojiCollectionViewCell.swift */; };
+		4C3D799729C84DC7009BFEEB /* EmojiArtViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3D799529C84DC7009BFEEB /* EmojiArtViewController.swift */; };
+		4C3D799829C84DC7009BFEEB /* DocumentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3D799629C84DC7009BFEEB /* DocumentTableViewController.swift */; };
+		4C3D799B29C84DCC009BFEEB /* EmojiArt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3D799A29C84DCC009BFEEB /* EmojiArt.swift */; };
+		4C3D799F29C84DD5009BFEEB /* Gesture Recognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3D799D29C84DD5009BFEEB /* Gesture Recognizer.swift */; };
+		4C3D79A029C84DD5009BFEEB /* ImageFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3D799E29C84DD5009BFEEB /* ImageFetcher.swift */; };
+		4C3D79A329C84DD9009BFEEB /* UniqueWithRespectTo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3D79A229C84DD9009BFEEB /* UniqueWithRespectTo.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		4C3D797329C84C39009BFEEB /* Document Emoji Art.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Document Emoji Art.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4C3D797629C84C39009BFEEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		4C3D797829C84C39009BFEEB /* DocumentBrowserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentBrowserViewController.swift; sourceTree = "<group>"; };
+		4C3D797C29C84C39009BFEEB /* EmojiArtDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiArtDocument.swift; sourceTree = "<group>"; };
+		4C3D797F29C84C39009BFEEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4C3D798129C84C3A009BFEEB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4C3D798429C84C3A009BFEEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		4C3D798629C84C3A009BFEEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4C3D798E29C84DC1009BFEEB /* EmojiArtView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmojiArtView.swift; sourceTree = "<group>"; };
+		4C3D798F29C84DC1009BFEEB /* TextFieldCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldCollectionViewCell.swift; sourceTree = "<group>"; };
+		4C3D799029C84DC1009BFEEB /* EmojiCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmojiCollectionViewCell.swift; sourceTree = "<group>"; };
+		4C3D799529C84DC7009BFEEB /* EmojiArtViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmojiArtViewController.swift; sourceTree = "<group>"; };
+		4C3D799629C84DC7009BFEEB /* DocumentTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentTableViewController.swift; sourceTree = "<group>"; };
+		4C3D799A29C84DCC009BFEEB /* EmojiArt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmojiArt.swift; sourceTree = "<group>"; };
+		4C3D799D29C84DD5009BFEEB /* Gesture Recognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Gesture Recognizer.swift"; sourceTree = "<group>"; };
+		4C3D799E29C84DD5009BFEEB /* ImageFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageFetcher.swift; sourceTree = "<group>"; };
+		4C3D79A229C84DD9009BFEEB /* UniqueWithRespectTo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UniqueWithRespectTo.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4C3D797029C84C39009BFEEB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4C3D796A29C84C39009BFEEB = {
+			isa = PBXGroup;
+			children = (
+				4C3D797529C84C39009BFEEB /* Document Emoji Art */,
+				4C3D797429C84C39009BFEEB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4C3D797429C84C39009BFEEB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4C3D797329C84C39009BFEEB /* Document Emoji Art.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4C3D797529C84C39009BFEEB /* Document Emoji Art */ = {
+			isa = PBXGroup;
+			children = (
+				4C3D797E29C84C39009BFEEB /* Main.storyboard */,
+				4C3D798D29C84DC1009BFEEB /* Views */,
+				4C3D799429C84DC7009BFEEB /* View Controllers */,
+				4C3D799929C84DCC009BFEEB /* Model */,
+				4C3D79A429C84F99009BFEEB /* Document */,
+				4C3D799C29C84DD5009BFEEB /* Utilities */,
+				4C3D798C29C84C69009BFEEB /* Supporting Files */,
+				4C3D79A129C84DD9009BFEEB /* Extensions */,
+				4C3D798129C84C3A009BFEEB /* Assets.xcassets */,
+				4C3D798629C84C3A009BFEEB /* Info.plist */,
+			);
+			path = "Document Emoji Art";
+			sourceTree = "<group>";
+		};
+		4C3D798C29C84C69009BFEEB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4C3D797629C84C39009BFEEB /* AppDelegate.swift */,
+				4C3D798329C84C3A009BFEEB /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4C3D798D29C84DC1009BFEEB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4C3D798E29C84DC1009BFEEB /* EmojiArtView.swift */,
+				4C3D798F29C84DC1009BFEEB /* TextFieldCollectionViewCell.swift */,
+				4C3D799029C84DC1009BFEEB /* EmojiCollectionViewCell.swift */,
+			);
+			name = Views;
+			path = ../../EmojiArt/EmojiArt/Views;
+			sourceTree = "<group>";
+		};
+		4C3D799429C84DC7009BFEEB /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				4C3D799529C84DC7009BFEEB /* EmojiArtViewController.swift */,
+				4C3D797829C84C39009BFEEB /* DocumentBrowserViewController.swift */,
+				4C3D799629C84DC7009BFEEB /* DocumentTableViewController.swift */,
+			);
+			name = "View Controllers";
+			path = "../../EmojiArt/EmojiArt/View Controllers";
+			sourceTree = "<group>";
+		};
+		4C3D799929C84DCC009BFEEB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4C3D799A29C84DCC009BFEEB /* EmojiArt.swift */,
+			);
+			name = Model;
+			path = ../../EmojiArt/EmojiArt/Model;
+			sourceTree = "<group>";
+		};
+		4C3D799C29C84DD5009BFEEB /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				4C3D799D29C84DD5009BFEEB /* Gesture Recognizer.swift */,
+				4C3D799E29C84DD5009BFEEB /* ImageFetcher.swift */,
+			);
+			name = Utilities;
+			path = ../../EmojiArt/EmojiArt/Utilities;
+			sourceTree = "<group>";
+		};
+		4C3D79A129C84DD9009BFEEB /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				4C3D79A229C84DD9009BFEEB /* UniqueWithRespectTo.swift */,
+			);
+			name = Extensions;
+			path = ../../EmojiArt/EmojiArt/Extensions;
+			sourceTree = "<group>";
+		};
+		4C3D79A429C84F99009BFEEB /* Document */ = {
+			isa = PBXGroup;
+			children = (
+				4C3D797C29C84C39009BFEEB /* EmojiArtDocument.swift */,
+			);
+			path = Document;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4C3D797229C84C39009BFEEB /* Document Emoji Art */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4C3D798929C84C3A009BFEEB /* Build configuration list for PBXNativeTarget "Document Emoji Art" */;
+			buildPhases = (
+				4C3D796F29C84C39009BFEEB /* Sources */,
+				4C3D797029C84C39009BFEEB /* Frameworks */,
+				4C3D797129C84C39009BFEEB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Document Emoji Art";
+			productName = "Document Emoji Art";
+			productReference = 4C3D797329C84C39009BFEEB /* Document Emoji Art.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4C3D796B29C84C39009BFEEB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					4C3D797229C84C39009BFEEB = {
+						CreatedOnToolsVersion = 14.2;
+					};
+				};
+			};
+			buildConfigurationList = 4C3D796E29C84C39009BFEEB /* Build configuration list for PBXProject "Document Emoji Art" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4C3D796A29C84C39009BFEEB;
+			productRefGroup = 4C3D797429C84C39009BFEEB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4C3D797229C84C39009BFEEB /* Document Emoji Art */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4C3D797129C84C39009BFEEB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4C3D798529C84C3A009BFEEB /* LaunchScreen.storyboard in Resources */,
+				4C3D798229C84C3A009BFEEB /* Assets.xcassets in Resources */,
+				4C3D798029C84C39009BFEEB /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4C3D796F29C84C39009BFEEB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4C3D799B29C84DCC009BFEEB /* EmojiArt.swift in Sources */,
+				4C3D797D29C84C39009BFEEB /* EmojiArtDocument.swift in Sources */,
+				4C3D799329C84DC1009BFEEB /* EmojiCollectionViewCell.swift in Sources */,
+				4C3D799729C84DC7009BFEEB /* EmojiArtViewController.swift in Sources */,
+				4C3D79A329C84DD9009BFEEB /* UniqueWithRespectTo.swift in Sources */,
+				4C3D797929C84C39009BFEEB /* DocumentBrowserViewController.swift in Sources */,
+				4C3D797729C84C39009BFEEB /* AppDelegate.swift in Sources */,
+				4C3D799F29C84DD5009BFEEB /* Gesture Recognizer.swift in Sources */,
+				4C3D799229C84DC1009BFEEB /* TextFieldCollectionViewCell.swift in Sources */,
+				4C3D799829C84DC7009BFEEB /* DocumentTableViewController.swift in Sources */,
+				4C3D79A029C84DD5009BFEEB /* ImageFetcher.swift in Sources */,
+				4C3D799129C84DC1009BFEEB /* EmojiArtView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		4C3D797E29C84C39009BFEEB /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4C3D797F29C84C39009BFEEB /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		4C3D798329C84C3A009BFEEB /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4C3D798429C84C3A009BFEEB /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4C3D798729C84C3A009BFEEB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		4C3D798829C84C3A009BFEEB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4C3D798A29C84C3A009BFEEB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Q3P95MDH6Q;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Document Emoji Art/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportsDocumentBrowser = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "none.Document-Emoji-Art";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4C3D798B29C84C3A009BFEEB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Q3P95MDH6Q;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Document Emoji Art/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportsDocumentBrowser = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "none.Document-Emoji-Art";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4C3D796E29C84C39009BFEEB /* Build configuration list for PBXProject "Document Emoji Art" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4C3D798729C84C3A009BFEEB /* Debug */,
+				4C3D798829C84C3A009BFEEB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4C3D798929C84C3A009BFEEB /* Build configuration list for PBXNativeTarget "Document Emoji Art" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4C3D798A29C84C3A009BFEEB /* Debug */,
+				4C3D798B29C84C3A009BFEEB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4C3D796B29C84C39009BFEEB /* Project object */;
+}
