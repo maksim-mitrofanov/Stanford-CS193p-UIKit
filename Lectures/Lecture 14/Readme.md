@@ -1,13 +1,14 @@
-#  CS193p-UIKit-Lecture 11
+#  CS193p-UIKit-Lecture 14
 
 ## Lecture Topic
-Drag and Drop, Table View, Collection View
+Persistence and Documents Demo
 
 ## Objective 
-1. Crate a new app called EmojiArt.
-2. Support drag and drop of image files, the dropped image should be used as a background for the canvas.
-3. Crate a Tab View (using splitView). The Tab View should have a "+" button to add a new tab.
+1. Create a new app called Document EmojiArt that is based on the EmojiArt app, that was created in the previous lecture.
+2. The Document EmojiArt app should extend the functionality of the EmojiArt (allow users to draw, add background image, use collection view etc).
+3. Make EmojiArt data model codable, so it can be saved and retrieved, when the app is relaunched.
+4. Embed EmojiArt into a DocumentBrowserVC, to provide a new UI for users to create new EmojiArt documents.
 
 ## Demo
-https://user-images.githubusercontent.com/87092187/222472028-e910e18f-f5e1-4f30-a6eb-b8790fff27bd.mov
+
 
