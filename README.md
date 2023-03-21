@@ -23,7 +23,7 @@
 | Lecture 11  | Drag and Drop, Table View, Collection View            | [Link](https://github.com/maksim-mitrofanov/CS193p-UIKit/blob/main/Lectures/Lecture%2011/Lecture%2011%20Slides.pdf)      | [Lecture code](https://github.com/maksim-mitrofanov/Stanford-CS193p-UIKit/blob/main/Lectures/Lecture%2011/Readme.md)     | ✅       |
 | Lecture 12  | TextField, Drap and Drop, Collection View             | [Link](https://github.com/maksim-mitrofanov/CS193p-UIKit/blob/main/Lectures/Lecture%2012/Lecture%2012%20Slides.pdf)      | [Lecture code](https://github.com/maksim-mitrofanov/Stanford-CS193p-UIKit/blob/main/Lectures/Lecture%2012/Readme.md)     | ✅       |
 | Lecture 13  | Persistence and Documents                             | [Link](https://github.com/maksim-mitrofanov/CS193p-UIKit/blob/main/Lectures/Lecture%2013/Lecture%2013%20Slides.pdf)      | [Lecture code](https://github.com/maksim-mitrofanov/Stanford-CS193p-UIKit/blob/main/Lectures/Lecture%2013/Readme.md)     | ✅       |
-| Lecture 14  | Persistence and Documents Demo                        | [Link](https://github.com/maksim-mitrofanov/CS193p-UIKit/blob/main/Lectures/Lecture%2014/Lecture%2014%20Slides.pdf)      | [Lecture code](https://github.com/maksim-mitrofanov/Stanford-CS193p-UIKit/blob/main/Lectures/Lecture%2014/Readme.md)   |  |
+| Lecture 14  | Persistence and Documents Demo                        | [Link](https://github.com/maksim-mitrofanov/CS193p-UIKit/blob/main/Lectures/Lecture%2014/Lecture%2014%20Slides.pdf)      | [Lecture code](https://github.com/maksim-mitrofanov/Stanford-CS193p-UIKit/blob/main/Lectures/Lecture%2014/Readme.md)   | ✅ |
 <br>
 
 ## Programming Assignments
