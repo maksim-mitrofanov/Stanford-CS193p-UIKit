@@ -10,5 +10,7 @@ Persistence and Documents Demo
 4. Embed EmojiArt into a DocumentBrowserVC, to provide a new UI for users to create new EmojiArt documents.
 
 ## Demo
+https://user-images.githubusercontent.com/87092187/226674376-d51cc8c2-9c03-45b2-96d6-1e407f61e304.mp4
+
 
 
