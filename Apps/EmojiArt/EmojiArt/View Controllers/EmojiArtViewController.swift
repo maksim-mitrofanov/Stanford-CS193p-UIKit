@@ -72,14 +72,11 @@ class EmojiArtViewController: UIViewController {
         }
         
         set {
-            print("Did set document")
             let emojis = emojiArtView.subviews.compactMap { $0 as? UILabel }
             emojis.forEach { $0.removeFromSuperview() }
             
-            
-
             if let document = newValue {
-                if !document.url.isEmpty  {
+                if document.url.count != 0  {
                     print("Fetching image")
                     fetchImageFromDocumentURL(document: document)
                     setLabels(from: document)
@@ -87,9 +84,6 @@ class EmojiArtViewController: UIViewController {
                     print("Setting default background")
                     setDefaultBackground()
                 }
-            }
-            else {
-                setDefaultBackground()
             }
         }
     }
@@ -100,6 +94,7 @@ class EmojiArtViewController: UIViewController {
         super.viewDidLoad()
         setDropInteraction()
         activityIndicator.startAnimating()
+        setDefaultBackground()
         
         if let documentsURL = try?
             FileManager.default.url(for:  .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true) {
