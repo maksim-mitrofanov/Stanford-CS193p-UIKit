@@ -11,31 +11,70 @@ private let cellReuseIdentifier = "GalleryCell"
 
 class GalleryCollectionViewController: UICollectionViewController {
     
-    private var dataModel = ImageGalleryModel.animals
+    private var dataModel = ImageGalleryModel(name: "Template", imageURLs: ImageGalleryModel.shortURLs)
+    private var cellsAcross: CGFloat { return 3 }
 
-    override func viewDidLoad() {
-        setup()
+
+    
+    @IBAction func done(_ sender: UIBarButtonItem) {
+        saveDataModel()
+        dismiss(animated: true)
     }
     
-    private func setup() {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
         collectionView.dragDelegate = self
         collectionView.dropDelegate = self
-        setNavBarTitle()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        loadDataModel()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        saveDataModel()
+    }
+}
 
-    
-    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let cell = collectionView.cellForItem(at: indexPath) as? GalleryCollectionViewCell else { return }
-        guard let _ = cell.imageView.image else { return }
-        performSegue(withIdentifier: "PreviewSelectedImage", sender: collectionView.cellForItem(at: indexPath))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// MARK: - Persistence
+
+extension GalleryCollectionViewController {
+    private var fileURL: URL {
+        guard let documentsDirectory = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true) else { fatalError() }
+        
+        let filePath = documentsDirectory.appendingPathComponent("Untitled.json")
+        return filePath
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "PreviewSelectedImage" {
-            guard let destinationVC = segue.destination as? PresenterViewController else { return }
-            guard let sender = sender as? GalleryCollectionViewCell else { return }
-            guard let image = sender.imageView.image else { return }
-            destinationVC.setup(with: image)
+    private func saveDataModel() {
+        FileManager.default.createFile(atPath: fileURL.path, contents: dataModel.json)
+    }
+    
+    private func loadDataModel() {
+        let fileExists = FileManager.default.fileExists(atPath: fileURL.path)
+        
+        if fileExists {
+            guard let contentsData = FileManager.default.contents(atPath: fileURL.path) else { return }
+            guard let galleryData = ImageGalleryModel(json: contentsData) else { return }
+            dataModel = galleryData
         }
     }
 }
@@ -48,14 +87,17 @@ class GalleryCollectionViewController: UICollectionViewController {
 
 
 
-// MARK: - Appearance
+// MARK: - Navigation
 
 extension GalleryCollectionViewController {
-    private func setNavBarTitle() {
-        navigationItem.title = dataModel.name
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "PreviewSelectedImage" {
+            guard let destinationVC = segue.destination as? PresenterViewController else { return }
+            guard let sender = sender as? GalleryCollectionViewCell else { return }
+            guard let image = sender.imageView.image else { return }
+            destinationVC.setup(with: image)
+        }
     }
-    
-    private var cellsAcross: CGFloat { return 3 }
 }
 
 
@@ -86,6 +128,12 @@ extension GalleryCollectionViewController {
         imageCell.setup(with: imageURL)
         
         return imageCell
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let cell = collectionView.cellForItem(at: indexPath) as? GalleryCollectionViewCell else { return }
+        guard let _ = cell.imageView.image else { return }
+        performSegue(withIdentifier: "PreviewSelectedImage", sender: collectionView.cellForItem(at: indexPath))
     }
 }
 

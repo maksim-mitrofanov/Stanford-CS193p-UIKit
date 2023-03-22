@@ -12,34 +12,28 @@ class DocumentBrowserViewController: UIDocumentBrowserViewController, UIDocument
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         delegate = self
-        
         allowsDocumentCreation = true
         allowsPickingMultipleItems = false
         
-        // Update the style of the UIDocumentBrowserViewController
-        // browserUserInterfaceStyle = .dark
-        // view.tintColor = .white
+        template = try? FileManager.default.url(
+            for:  .applicationSupportDirectory,
+            in: .userDomainMask,
+            appropriateFor: nil,
+            create: true).appendingPathComponent("Untitled.json")
         
-        // Specify the allowed content types of your application via the Info.plist.
-        
-        // Do any additional setup after loading the view.
+        if template != nil {
+            allowsDocumentCreation = FileManager.default.createFile(atPath: template!.path, contents: Data())
+        }
     }
     
+    var template: URL?
     
     // MARK: UIDocumentBrowserViewControllerDelegate
     
     func documentBrowser(_ controller: UIDocumentBrowserViewController, didRequestDocumentCreationWithHandler importHandler: @escaping (URL?, UIDocumentBrowserViewController.ImportMode) -> Void) {
-        let newDocumentURL: URL? = nil
         
-        // Set the URL for the new document here. Optionally, you can present a template chooser before calling the importHandler.
-        // Make sure the importHandler is always called, even if the user cancels the creation request.
-        if newDocumentURL != nil {
-            importHandler(newDocumentURL, .move)
-        } else {
-            importHandler(nil, .none)
-        }
+        importHandler(template, .copy)
     }
     
     func documentBrowser(_ controller: UIDocumentBrowserViewController, didPickDocumentsAt documentURLs: [URL]) {
@@ -62,8 +56,15 @@ class DocumentBrowserViewController: UIDocumentBrowserViewController, UIDocument
     // MARK: Document Presentation
     
     func presentDocument(at documentURL: URL) {
-        
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let documentVC = storyBoard.instantiateViewController(withIdentifier: "DocumentMVC")
+        
+//        if let galleryVC = documentVC.contents as? GalleryCollectionViewController {
+//            galleryVC.document = GalleryDocument(fileURL: documentURL)
+//        }
+        
+        documentVC.modalPresentationStyle = .fullScreen
+        present(documentVC, animated: true)
     }
 }
 

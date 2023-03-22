@@ -7,11 +7,19 @@
 
 import Foundation
 
-struct ImageGalleryModel: Codable {
+struct ImageGalleryModel: Codable, Equatable {
     var name: String
     var imageURLs: [URL]
+    
+    var json: Data? { try? JSONEncoder().encode(self)}
 }
 
+extension ImageGalleryModel {
+    init?(json: Data) {
+        guard let newValue = try? JSONDecoder().decode(ImageGalleryModel.self, from: json) else { return nil }
+        self = newValue
+    }
+}
 
 
 

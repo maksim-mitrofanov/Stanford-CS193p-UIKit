@@ -28,12 +28,12 @@
         <!--Presenter View Controller-->
         <scene sceneID="hHu-YK-Xyj">
             <objects>
-                <viewController id="AZf-Td-fjp" customClass="PresenterViewController" customModule="Image_Gallery" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="AZf-Td-fjp" customClass="PresenterViewController" customModule="Persistent_Image_Gallery" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mFg-A2-Olv">
                         <rect key="frame" x="0.0" y="0.0" width="744" height="1113"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="u3B-md-H14">
+                            <scrollView verifyAmbiguity="off" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="u3B-md-H14">
                                 <rect key="frame" x="286" y="308" width="240" height="128"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <viewLayoutGuide key="contentLayoutGuide" id="7j7-Qz-as0"/>
@@ -60,7 +60,7 @@
         <!--Gallery Collection View Controller-->
         <scene sceneID="wGO-BQ-Rko">
             <objects>
-                <collectionViewController id="aT9-Rt-daf" customClass="GalleryCollectionViewController" customModule="Image_Gallery" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController id="aT9-Rt-daf" customClass="GalleryCollectionViewController" customModule="Persistent_Image_Gallery" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="lfM-Ua-7Hp">
                         <rect key="frame" x="0.0" y="0.0" width="744" height="1133"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -72,7 +72,7 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="GalleryCell" id="gDJ-P8-E5w" customClass="GalleryCollectionViewCell" customModule="Image_Gallery" customModuleProvider="target">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="GalleryCell" id="gDJ-P8-E5w" customClass="GalleryCollectionViewCell" customModule="Persistent_Image_Gallery" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="lAP-9T-i4S">
@@ -123,7 +123,13 @@
                             <outlet property="delegate" destination="aT9-Rt-daf" id="S5A-6b-F9K"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="RXb-bB-Xow"/>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="RXb-bB-Xow">
+                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="u0B-e9-132">
+                            <connections>
+                                <action selector="done:" destination="aT9-Rt-daf" id="05f-dz-U7U"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <segue destination="AZf-Td-fjp" kind="showDetail" identifier="PreviewSelectedImage" id="fvd-cV-FzY"/>
                     </connections>
@@ -135,7 +141,7 @@
         <!--Navigation Controller-->
         <scene sceneID="Cz1-W0-gsI">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4pz-aM-mvd" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="DocumentMVC" automaticallyAdjustsScrollViewInsets="NO" id="4pz-aM-mvd" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="N9a-Kg-QNe">
                         <rect key="frame" x="0.0" y="24" width="744" height="50"/>

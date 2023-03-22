@@ -69,7 +69,6 @@
 			isa = PBXGroup;
 			children = (
 				4C9EB24E29CAFB4B00D878E8 /* Main.storyboard */,
-				4C9EB25129CAFB4C00D878E8 /* Assets.xcassets */,
 				4C9EB24829CAFB4B00D878E8 /* DocumentBrowserViewController.swift */,
 				4C9EB24C29CAFB4B00D878E8 /* GalleryDocument.swift */,
 				4C9EB26629CB250300D878E8 /* Views */,
@@ -77,6 +76,7 @@
 				4C9EB26229CB250300D878E8 /* Models */,
 				4C9EB26429CB250300D878E8 /* Utilities */,
 				4C9EB25C29CB246600D878E8 /* Supporting Files */,
+				4C9EB25129CAFB4C00D878E8 /* Assets.xcassets */,
 				4C9EB25629CAFB4C00D878E8 /* Info.plist */,
 			);
 			path = "Persistent Image Gallery";
