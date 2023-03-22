@@ -52,6 +52,9 @@ class EmojiArtViewController: UIViewController {
     @IBAction func done(_ sender: UIBarButtonItem) {
         saveEmojiArt()
         document?.close()
+        if let observer = documentObserver {
+            NotificationCenter.default.removeObserver(observer)
+        }
         dismiss(animated: true)
     }
     // MARK: - Properties
@@ -88,12 +91,11 @@ class EmojiArtViewController: UIViewController {
         }
     }
 
-    // MARK: - UIViewController Lifecycle methods
+    // MARK: -Lifecycle methods
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setDropInteraction()
-        activityIndicator.startAnimating()
         setDefaultBackground()
         
         if let documentsURL = try?
@@ -103,8 +105,18 @@ class EmojiArtViewController: UIViewController {
         }
     }
     
+    private var documentObserver: NSObjectProtocol?
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        documentObserver = NotificationCenter.default.addObserver(
+            forName: NSNotification.Name("UIDocumentStateChanged"),
+            object: document,
+            queue: OperationQueue.main,
+            using: { notification in
+                print("Document state changed to: \(self.document!.documentState)")
+            })
+        
         loadEmojiArt()
     }
     
@@ -163,6 +175,19 @@ extension EmojiArtViewController {
         }
     }
     
+    enum AlertType {
+        case lowResolutionImage
+    }
+    
+    private func presentCustomAlert(with alertType: AlertType) {
+        let alert = UIAlertController(title: "Loading the Dropped Image Failed", message: "The resolution of image that was dropped is not big enough. Try to drop an image that has a bigger resolution.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default))
+        
+        present(alert, animated: true)
+        activityIndicator.stopAnimating()
+        setDefaultBackground()
+    }
+    
     // MARK: - FetchingImages
     private func fetchImageFromDocumentURL(document: EmojiArt) {
         print("Called")
@@ -214,15 +239,26 @@ extension EmojiArtViewController: UIDropInteractionDelegate {
             }
         }
         
-        session.loadObjects(ofClass: UIImage.self) { imageProviders in
-            if let loadedImage = imageProviders.first as? UIImage {
-                self.imageFetcher.backup = loadedImage
-            }
-        }
-        
         session.loadObjects (ofClass: NSURL.self) { urlProviders in
             if let loadedURL = urlProviders.first as? URL {
-                self.imageFetcher.fetch(loadedURL)
+                
+                //Check image size
+                DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+                    if let imageData = try? Data(contentsOf: loadedURL), let fetchedImage = UIImage(data: imageData) {
+                        
+                        if fetchedImage.size.height < 1200 || fetchedImage.size.width < 1000 {
+                            DispatchQueue.main.async {
+                                self?.presentCustomAlert(with: .lowResolutionImage)
+                            }
+                        }
+                        
+                        else {
+                            DispatchQueue.main.async {
+                                self?.imageFetcher.fetch(loadedURL)
+                            }
+                        }
+                    }
+                }
             }
         }
     }
