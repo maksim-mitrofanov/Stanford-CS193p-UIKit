@@ -11,35 +11,18 @@ private let cellReuseIdentifier = "GalleryCell"
 
 class GalleryCollectionViewController: UICollectionViewController {
     
-    private(set) var dataModel = ImageGalleryModel(name: "Empty", imageCount: 20)
-    private var cellsAcross: CGFloat = 3
-    private var zoomFactor: Int = 0
+    private var dataModel = ImageGalleryModel.animals
 
     override func viewDidLoad() {
+        setup()
+    }
+    
+    private func setup() {
         collectionView.dragDelegate = self
         collectionView.dropDelegate = self
+        setNavBarTitle()
     }
 
-    // MARK: UICollectionViewDataSource
-
-    override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
-
-
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return dataModel.imageCount
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellReuseIdentifier, for: indexPath)
-        guard let imageCell = cell as? GalleryCollectionViewCell else { fatalError() }
-        guard let imageURL = URL(string: dataModel.imageURLs[indexPath.row]) else { fatalError() }
-        
-        imageCell.setup(with: imageURL)
-        
-        return imageCell
-    }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let cell = collectionView.cellForItem(at: indexPath) as? GalleryCollectionViewCell else { return }
@@ -56,6 +39,65 @@ class GalleryCollectionViewController: UICollectionViewController {
         }
     }
 }
+
+
+
+
+
+
+
+
+
+// MARK: - Appearance
+
+extension GalleryCollectionViewController {
+    private func setNavBarTitle() {
+        navigationItem.title = dataModel.name
+    }
+    
+    private var cellsAcross: CGFloat { return 3 }
+}
+
+
+
+
+
+
+
+
+
+// MARK: - Data Source
+
+extension GalleryCollectionViewController {
+    override func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+
+
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return dataModel.imageURLs.count
+    }
+
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellReuseIdentifier, for: indexPath)
+        guard let imageCell = cell as? GalleryCollectionViewCell else { fatalError() }
+        let imageURL = dataModel.imageURLs[indexPath.row]
+        
+        imageCell.setup(with: imageURL)
+        
+        return imageCell
+    }
+}
+
+
+
+
+
+
+
+
+
+// MARK: - Flow Delegate
 
 extension GalleryCollectionViewController: UICollectionViewDelegateFlowLayout {
     private var cellSpacing: CGFloat {
@@ -83,6 +125,16 @@ extension GalleryCollectionViewController {
     }
 }
 
+
+
+
+
+
+
+
+
+// MARK: - Drag Delegate
+
 extension GalleryCollectionViewController: UICollectionViewDragDelegate {
     func collectionView(_ collectionView: UICollectionView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
         session.localContext = collectionView
@@ -103,6 +155,16 @@ extension GalleryCollectionViewController: UICollectionViewDragDelegate {
     }
 }
 
+
+
+
+
+
+
+
+
+// MARK: - Drop Delegate
+
 extension GalleryCollectionViewController: UICollectionViewDropDelegate {
     func collectionView(_ collectionView: UICollectionView, performDropWith coordinator: UICollectionViewDropCoordinator) {
         //Can drop only inside collection view
@@ -118,17 +180,27 @@ extension GalleryCollectionViewController: UICollectionViewDropDelegate {
                 sourceIndexPath: sourceIndexPath,
                 destinationIndexPath: destinationIndexPath
             )
-            coordinator.drop(firstDragItem.dragItem, toItemAt: destinationIndexPath)
+            
+            collectionView.performBatchUpdates {
+                coordinator.drop(firstDragItem.dragItem, toItemAt: destinationIndexPath)
+                collectionView.reloadItems(at: [destinationIndexPath])
+            }
         }
         
         //Outside of app drop
-        firstDragItem.dragItem.itemProvider.loadObject(ofClass: NSURL.self, completionHandler: { provider, error in
-            DispatchQueue.main.async { [weak self] in
+        else {
+            firstDragItem.dragItem.itemProvider.loadObject(ofClass: NSURL.self, completionHandler: { provider, error in
                 guard let url = provider as? NSURL else { return }
-                self?.dataModel.acceptExternalDrop(of: url as URL, to: destinationIndexPath)
-                collectionView.reloadItems(at: [destinationIndexPath])
-            }
-        })
+                
+                DispatchQueue.main.async { [weak self] in
+                    collectionView.performBatchUpdates {
+                        self?.dataModel.acceptExternalDrop(of: url as URL, to: destinationIndexPath)
+                        self?.collectionView.insertItems(at: [destinationIndexPath])
+                        self?.collectionView.reloadItems(at: [destinationIndexPath])
+                    }
+                }
+            })
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, canHandle session: UIDropSession) -> Bool {
