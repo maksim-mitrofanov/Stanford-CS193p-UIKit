@@ -15,7 +15,7 @@
 		4C9EB25529CAFB4C00D878E8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C9EB25329CAFB4C00D878E8 /* LaunchScreen.storyboard */; };
 		4C9EB26929CB250300D878E8 /* PresenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9EB25E29CB250300D878E8 /* PresenterViewController.swift */; };
 		4C9EB26B29CB250300D878E8 /* GalleryCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9EB26029CB250300D878E8 /* GalleryCollectionViewController.swift */; };
-		4C9EB26D29CB250300D878E8 /* ImageGalleryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9EB26329CB250300D878E8 /* ImageGalleryModel.swift */; };
+		4C9EB26D29CB250300D878E8 /* GalleryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9EB26329CB250300D878E8 /* GalleryModel.swift */; };
 		4C9EB26E29CB250300D878E8 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9EB26529CB250300D878E8 /* Utilities.swift */; };
 		4C9EB26F29CB250300D878E8 /* ImagePreviewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9EB26729CB250300D878E8 /* ImagePreviewer.swift */; };
 		4C9EB27029CB250300D878E8 /* GalleryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9EB26829CB250300D878E8 /* GalleryCollectionViewCell.swift */; };
@@ -32,7 +32,7 @@
 		4C9EB25629CAFB4C00D878E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4C9EB25E29CB250300D878E8 /* PresenterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresenterViewController.swift; sourceTree = "<group>"; };
 		4C9EB26029CB250300D878E8 /* GalleryCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryCollectionViewController.swift; sourceTree = "<group>"; };
-		4C9EB26329CB250300D878E8 /* ImageGalleryModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageGalleryModel.swift; sourceTree = "<group>"; };
+		4C9EB26329CB250300D878E8 /* GalleryModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryModel.swift; sourceTree = "<group>"; };
 		4C9EB26529CB250300D878E8 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		4C9EB26729CB250300D878E8 /* ImagePreviewer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePreviewer.swift; sourceTree = "<group>"; };
 		4C9EB26829CB250300D878E8 /* GalleryCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -70,7 +70,6 @@
 			children = (
 				4C9EB24E29CAFB4B00D878E8 /* Main.storyboard */,
 				4C9EB24829CAFB4B00D878E8 /* DocumentBrowserViewController.swift */,
-				4C9EB24C29CAFB4B00D878E8 /* GalleryDocument.swift */,
 				4C9EB26629CB250300D878E8 /* Views */,
 				4C9EB25D29CB250300D878E8 /* Controllers */,
 				4C9EB26229CB250300D878E8 /* Models */,
@@ -103,7 +102,8 @@
 		4C9EB26229CB250300D878E8 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				4C9EB26329CB250300D878E8 /* ImageGalleryModel.swift */,
+				4C9EB24C29CAFB4B00D878E8 /* GalleryDocument.swift */,
+				4C9EB26329CB250300D878E8 /* GalleryModel.swift */,
 			);
 			name = Models;
 			path = "../../Image Gallery/Image Gallery/Models";
@@ -206,7 +206,7 @@
 				4C9EB26E29CB250300D878E8 /* Utilities.swift in Sources */,
 				4C9EB26F29CB250300D878E8 /* ImagePreviewer.swift in Sources */,
 				4C9EB27029CB250300D878E8 /* GalleryCollectionViewCell.swift in Sources */,
-				4C9EB26D29CB250300D878E8 /* ImageGalleryModel.swift in Sources */,
+				4C9EB26D29CB250300D878E8 /* GalleryModel.swift in Sources */,
 				4C9EB26929CB250300D878E8 /* PresenterViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

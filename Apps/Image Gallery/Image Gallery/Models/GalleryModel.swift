@@ -1,5 +1,5 @@
 //
-//  ImageGalleryModel.swift
+//  GalleryModel.swift
 //  Image Gallery
 //
 //  Created by Максим Митрофанов on 13.03.2023.
@@ -7,16 +7,16 @@
 
 import Foundation
 
-struct ImageGalleryModel: Codable, Equatable {
+struct GalleryModel: Codable, Equatable {
     var name: String
     var imageURLs: [URL]
     
     var json: Data? { try? JSONEncoder().encode(self)}
 }
 
-extension ImageGalleryModel {
+extension GalleryModel {
     init?(json: Data) {
-        guard let newValue = try? JSONDecoder().decode(ImageGalleryModel.self, from: json) else { return nil }
+        guard let newValue = try? JSONDecoder().decode(GalleryModel.self, from: json) else { return nil }
         self = newValue
     }
 }
@@ -30,7 +30,7 @@ extension ImageGalleryModel {
 
 // MARK: - Mutating Methods
 
-extension ImageGalleryModel {
+extension GalleryModel {
     mutating func addNewImage(with url: URL, at indexPath: IndexPath) {
         imageURLs.insert(url, at: indexPath.item)
     }
@@ -55,7 +55,7 @@ extension ImageGalleryModel {
 
 // MARK: - Template
 
-extension ImageGalleryModel {
+extension GalleryModel {
     static let animalURLs = [
         URL(string: "https://adamwillows.com/publications/two-perspectives-animal-morality/monkey-grooming-helping-1x1.webp"),
         URL(string:         "https://i.natgeofe.com/n/42dfedf7-cc27-4ffd-9a1f-4e3da0743209/nationalgeographic_1777610_square.jpg"),
@@ -74,5 +74,5 @@ extension ImageGalleryModel {
     
     
     
-    static let animals = ImageGalleryModel(name: "National Geographic 🌏", imageURLs: shortURLs)
+    static let animals = GalleryModel(name: "National Geographic 🌏", imageURLs: shortURLs)
 }

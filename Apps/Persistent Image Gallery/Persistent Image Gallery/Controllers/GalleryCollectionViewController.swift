@@ -11,7 +11,12 @@ private let cellReuseIdentifier = "GalleryCell"
 
 class GalleryCollectionViewController: UICollectionViewController {
     
-    private var dataModel = ImageGalleryModel(name: "Template", imageURLs: ImageGalleryModel.shortURLs)
+    var document: GalleryDocument?
+    private var currentDataModel: GalleryModel? {
+        didSet {
+            collectionView.reloadData()
+        }
+    }
     private var cellsAcross: CGFloat { return 3 }
 
 
@@ -26,10 +31,7 @@ class GalleryCollectionViewController: UICollectionViewController {
         super.viewDidLoad()
         collectionView.dragDelegate = self
         collectionView.dropDelegate = self
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+        navigationItem.title = currentDataModel?.name
         loadDataModel()
     }
     
@@ -65,16 +67,26 @@ extension GalleryCollectionViewController {
     }
     
     private func saveDataModel() {
-        FileManager.default.createFile(atPath: fileURL.path, contents: dataModel.json)
+        document?.selectedGallery = currentDataModel
+        document?.updateChangeCount(.done)
+        document?.close()
     }
     
     private func loadDataModel() {
-        let fileExists = FileManager.default.fileExists(atPath: fileURL.path)
-        
-        if fileExists {
-            guard let contentsData = FileManager.default.contents(atPath: fileURL.path) else { return }
-            guard let galleryData = ImageGalleryModel(json: contentsData) else { return }
-            dataModel = galleryData
+        document?.open(completionHandler: openDocumentHandler(_:))
+    }
+    
+    private func openDocumentHandler(_ success: Bool) {
+        print("Did open document")
+        if success {
+            if let model = self.document?.selectedGallery, model.imageURLs.count > 0 {
+                if model.imageURLs.count > 0 {
+                    self.currentDataModel = model
+                }
+            }
+            else {
+                self.currentDataModel = GalleryModel(name: "Template", imageURLs: GalleryModel.shortURLs)
+            }
         }
     }
 }
@@ -117,13 +129,13 @@ extension GalleryCollectionViewController {
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return dataModel.imageURLs.count
+        return currentDataModel?.imageURLs.count ?? 0
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellReuseIdentifier, for: indexPath)
         guard let imageCell = cell as? GalleryCollectionViewCell else { fatalError() }
-        let imageURL = dataModel.imageURLs[indexPath.row]
+        guard let imageURL = currentDataModel?.imageURLs[indexPath.row] else { fatalError() }
         
         imageCell.setup(with: imageURL)
         
@@ -167,8 +179,8 @@ extension GalleryCollectionViewController: UICollectionViewDelegateFlowLayout {
 }
 
 extension GalleryCollectionViewController {
-    func setupWith(model: ImageGalleryModel) {
-        dataModel = model
+    func setupWith(model: GalleryModel) {
+        currentDataModel = model
         collectionView.reloadData()
     }
 }
@@ -242,7 +254,7 @@ extension GalleryCollectionViewController: UICollectionViewDropDelegate {
                 
                 DispatchQueue.main.async { [weak self] in
                     collectionView.performBatchUpdates {
-                        self?.dataModel.acceptExternalDrop(of: url as URL, to: destinationIndexPath)
+                        self?.currentDataModel?.acceptExternalDrop(of: url as URL, to: destinationIndexPath)
                         self?.collectionView.insertItems(at: [destinationIndexPath])
                         self?.collectionView.reloadItems(at: [destinationIndexPath])
                     }
@@ -265,7 +277,7 @@ extension GalleryCollectionViewController: UICollectionViewDropDelegate {
         guard let imageNSURL = item.localObject as? NSURL else { return }
         
         collectionView.performBatchUpdates {
-            dataModel.acceptLocalDrop(of: imageNSURL as URL, from: sourceIndexPath, to: destinationIndexPath)
+            currentDataModel?.acceptLocalDrop(of: imageNSURL as URL, from: sourceIndexPath, to: destinationIndexPath)
             collectionView.deleteItems(at: [sourceIndexPath])
             collectionView.insertItems(at: [destinationIndexPath])
         }

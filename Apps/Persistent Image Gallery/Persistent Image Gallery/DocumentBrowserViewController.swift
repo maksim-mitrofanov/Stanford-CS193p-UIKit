@@ -59,9 +59,11 @@ class DocumentBrowserViewController: UIDocumentBrowserViewController, UIDocument
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         let documentVC = storyBoard.instantiateViewController(withIdentifier: "DocumentMVC")
         
-//        if let galleryVC = documentVC.contents as? GalleryCollectionViewController {
-//            galleryVC.document = GalleryDocument(fileURL: documentURL)
-//        }
+        if let galleryVC = documentVC.contents as? GalleryCollectionViewController {
+            galleryVC.document = GalleryDocument(fileURL: documentURL)
+        } else {
+            print("Could not get galleryVC")
+        }
         
         documentVC.modalPresentationStyle = .fullScreen
         present(documentVC, animated: true)
