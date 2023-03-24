@@ -15,6 +15,7 @@ class GalleryCollectionViewController: UICollectionViewController {
     private var currentDataModel: GalleryModel? {
         didSet {
             collectionView.reloadData()
+            navigationItem.title = currentDataModel?.name
         }
     }
     private var cellsAcross: CGFloat { return 3 }
@@ -85,7 +86,7 @@ extension GalleryCollectionViewController {
                 }
             }
             else {
-                self.currentDataModel = GalleryModel(name: "Template", imageURLs: GalleryModel.shortURLs)
+                self.currentDataModel = GalleryModel.animals
             }
         }
     }
