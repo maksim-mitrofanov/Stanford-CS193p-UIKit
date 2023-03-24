@@ -10,7 +10,7 @@ import UIKit
 class GalleryCollectionViewCell: UICollectionViewCell {
     @IBOutlet private(set) weak var imageView: UIImageView!
     
-    var imageURL: URL? {
+    private(set) var imageURL: URL? {
         didSet {
             if imageURL != nil {
                 updateDisplayedImage(url: imageURL!)
@@ -24,7 +24,6 @@ class GalleryCollectionViewCell: UICollectionViewCell {
     
     private func updateDisplayedImage(url: URL) {
         if let cachedData = GalleryModel.loadFromCache(url: url) {
-            print("Did find cache")
             imageView.image = UIImage(data: cachedData)
         }
         
@@ -34,7 +33,6 @@ class GalleryCollectionViewCell: UICollectionViewCell {
                     guard let urlContents = try? Data(contentsOf: imageURL) else { return }
                     guard let fetchedImage = UIImage(data: urlContents) else { return }
                     GalleryModel.saveToCache(url: url, with: urlContents)
-                    print("Saving to cache.")
                     
                     DispatchQueue.main.async { [weak self] in
                         self?.imageView.image = fetchedImage
