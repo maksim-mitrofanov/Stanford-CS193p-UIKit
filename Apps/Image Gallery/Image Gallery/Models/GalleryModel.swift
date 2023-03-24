@@ -10,8 +10,24 @@ import Foundation
 struct GalleryModel: Codable, Equatable {
     var name: String
     var imageURLs: [URL]
-    
     var json: Data? { try? JSONEncoder().encode(self)}
+    
+    //Caching
+    private static var cache = URLCache.shared
+    
+    static func loadFromCache(url: URL) -> Data? {
+        guard let cachedResponse = cache.cachedResponse(for: URLRequest(url: url)) else { return nil }
+        print("Did find cached response")
+        return cachedResponse.data
+    }
+    
+    static func saveToCache(url: URL, with data: Data) {
+        guard let response = HTTPURLResponse(url: url, statusCode: 200, httpVersion: nil, headerFields: nil)
+        else { return }
+        
+        let cachedResponse = CachedURLResponse(response: response, data: data)
+        cache.storeCachedResponse(cachedResponse, for: URLRequest(url: url))
+    }
 }
 
 extension GalleryModel {
