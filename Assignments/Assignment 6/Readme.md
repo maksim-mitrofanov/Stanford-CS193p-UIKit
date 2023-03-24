@@ -9,7 +9,7 @@ The objective of the Assignment VI is to create a brand new app called "Persiste
 2. Use UIDocumentBrowserViewController to manipulate Image Gallery documents by allowing users to name them, open them, create them, move them around, etc.
 3. Using Codable to represent the documents in either JSON or Property List format.
 4. Cache images in all Image Galleries locally using URLCache up to a reasonable limit of file system usage.
-5. 
+5. All images **must be stored in cache**. 
 
 ## Demo
 
