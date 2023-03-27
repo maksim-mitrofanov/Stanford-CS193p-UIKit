@@ -25,6 +25,7 @@
 | Lecture 13  | Persistence and Documents                             | [Link](https://github.com/maksim-mitrofanov/CS193p-UIKit/blob/main/Lectures/Lecture%2013/Lecture%2013%20Slides.pdf)      | [Lecture code](https://github.com/maksim-mitrofanov/Stanford-CS193p-UIKit/blob/main/Lectures/Lecture%2013/Readme.md)     | ✅       |
 | Lecture 14  | Persistence and Documents Demo                        | [Link](https://github.com/maksim-mitrofanov/CS193p-UIKit/blob/main/Lectures/Lecture%2014/Lecture%2014%20Slides.pdf)      | [Lecture code](https://github.com/maksim-mitrofanov/Stanford-CS193p-UIKit/blob/main/Lectures/Lecture%2014/Readme.md)     | ✅ |
 | Lecture 15  | Alerts, Notifications, Application Lifecycle          | [Link](https://github.com/maksim-mitrofanov/CS193p-UIKit/blob/main/Lectures/Lecture%2015/Lecture%2015%20Slides.pdf)      | [Lecture code](https://github.com/maksim-mitrofanov/Stanford-CS193p-UIKit/blob/main/Lectures/Lecture%2015/Readme.md)     | ✅ |
+| Lecture 16  | More Segues                                           | [Link](https://github.com/maksim-mitrofanov/CS193p-UIKit/blob/main/Lectures/Lecture%2016/Lecture%2016%20Slides.pdf)      | [Lecture code](https://github.com/maksim-mitrofanov/Stanford-CS193p-UIKit/blob/main/Lectures/Lecture%2016/Readme.md)     |  |
 <br>
 
 ## Programming Assignments
