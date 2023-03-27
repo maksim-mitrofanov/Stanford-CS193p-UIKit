@@ -1,12 +1,16 @@
-#  CS193p-UIKit-Lecture 11
+#  CS193p-UIKit-Lecture 16
 
 ## Lecture Topic
-Drag and Drop, Table View, Collection View
+Modal Segue, Pop Over Segue, Unwind Segue
 
 ## Objective 
-1. Crate a new app called EmojiArt.
-2. Support drag and drop of image files, the dropped image should be used as a background for the canvas.
-3. Crate a Tab View (using splitView). The Tab View should have a "+" button to add a new tab.
+- Present the details screen modally
+- Use DateFormatter to display creation date appropriately 
+- Present the details screen as a popover (set preferred size in didLayoutSubviews)
+- Use sizeThatFits(UILayoutFittingCompressedSize)
+- Make sure the iPhone is also using a popover
+- Use adaptive presentation style .none in PopOverDeleagate
+- Add an unwind segue to the app
 
 ## Demo
 https://user-images.githubusercontent.com/87092187/222472028-e910e18f-f5e1-4f30-a6eb-b8790fff27bd.mov
