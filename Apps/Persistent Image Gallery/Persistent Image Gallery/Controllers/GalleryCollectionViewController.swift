@@ -21,13 +21,20 @@ class GalleryCollectionViewController: UICollectionViewController {
     private var cellsAcross: CGFloat { return 3 }
 
 
-    
+    // MARK: - IBActions
     @IBAction func done(_ sender: UIBarButtonItem) {
         saveDataModel()
         dismiss(animated: true)
     }
     
+    @IBAction func showMoreInfo(_ sender: Any) {
+        
+    }
     
+    @IBAction func showDetails(_ sender: Any) {
+    }
+    
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.dragDelegate = self
@@ -78,7 +85,6 @@ extension GalleryCollectionViewController {
     }
     
     private func openDocumentHandler(_ success: Bool) {
-        print("Did open document")
         if success {
             if let model = self.document?.selectedGallery, model.imageURLs.count > 0 {
                 if model.imageURLs.count > 0 {
@@ -109,6 +115,16 @@ extension GalleryCollectionViewController {
             guard let sender = sender as? GalleryCollectionViewCell else { return }
             guard let image = sender.imageView.image else { return }
             destinationVC.setup(with: image)
+        }
+        
+        else if segue.identifier == "Present Info Popover" {
+            guard let destinationVC = segue.destination as? FileDetailsViewController else { return }
+            destinationVC.document = document
+        }
+        
+        else if segue.identifier == "Present Info Modally" {
+            guard let destinationVC = segue.destination as? FileDetailsViewController else { return }
+            destinationVC.document = document
         }
     }
 }

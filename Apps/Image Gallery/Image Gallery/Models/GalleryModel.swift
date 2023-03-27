@@ -17,7 +17,6 @@ struct GalleryModel: Codable, Equatable {
     
     static func loadFromCache(url: URL) -> Data? {
         guard let cachedResponse = cache.cachedResponse(for: URLRequest(url: url)) else { return nil }
-        print("Did find cached response")
         return cachedResponse.data
     }
     

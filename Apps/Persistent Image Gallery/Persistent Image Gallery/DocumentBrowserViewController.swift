@@ -61,8 +61,6 @@ class DocumentBrowserViewController: UIDocumentBrowserViewController, UIDocument
         
         if let galleryVC = documentVC.contents as? GalleryCollectionViewController {
             galleryVC.document = GalleryDocument(fileURL: documentURL)
-        } else {
-            print("Could not get galleryVC")
         }
         
         documentVC.modalPresentationStyle = .fullScreen

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C0A792E29D1F3C90004D267 /* FileDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0A792D29D1F3C90004D267 /* FileDetailsViewController.swift */; };
 		4C9EB24729CAFB4B00D878E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9EB24629CAFB4B00D878E8 /* AppDelegate.swift */; };
 		4C9EB24929CAFB4B00D878E8 /* DocumentBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9EB24829CAFB4B00D878E8 /* DocumentBrowserViewController.swift */; };
 		4C9EB24D29CAFB4B00D878E8 /* GalleryDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9EB24C29CAFB4B00D878E8 /* GalleryDocument.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4C0A792D29D1F3C90004D267 /* FileDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileDetailsViewController.swift; sourceTree = "<group>"; };
 		4C9EB24329CAFB4B00D878E8 /* Persistent Image Gallery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Persistent Image Gallery.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C9EB24629CAFB4B00D878E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4C9EB24829CAFB4B00D878E8 /* DocumentBrowserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentBrowserViewController.swift; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 			children = (
 				4C9EB25E29CB250300D878E8 /* PresenterViewController.swift */,
 				4C9EB26029CB250300D878E8 /* GalleryCollectionViewController.swift */,
+				4C0A792D29D1F3C90004D267 /* FileDetailsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -206,6 +209,7 @@
 				4C9EB26E29CB250300D878E8 /* Utilities.swift in Sources */,
 				4C9EB26F29CB250300D878E8 /* ImagePreviewer.swift in Sources */,
 				4C9EB27029CB250300D878E8 /* GalleryCollectionViewCell.swift in Sources */,
+				4C0A792E29D1F3C90004D267 /* FileDetailsViewController.swift in Sources */,
 				4C9EB26D29CB250300D878E8 /* GalleryModel.swift in Sources */,
 				4C9EB26929CB250300D878E8 /* PresenterViewController.swift in Sources */,
 			);

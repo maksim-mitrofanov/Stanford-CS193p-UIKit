@@ -5,6 +5,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -55,7 +56,85 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wy1-KW-q5I" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2568.5483870967741" y="679.69991173874666"/>
+            <point key="canvasLocation" x="1745" y="1354"/>
+        </scene>
+        <!--File Details View Controller-->
+        <scene sceneID="j1E-4A-AfJ">
+            <objects>
+                <viewController id="Qpj-3F-yiy" customClass="FileDetailsViewController" customModule="Persistent_Image_Gallery" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vl5-Qf-Uuj">
+                        <rect key="frame" x="0.0" y="0.0" width="744" height="1113"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="5ar-Ns-K3J">
+                                <rect key="frame" x="234" y="512.5" width="276" height="88"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="mHc-Hp-zCp">
+                                        <rect key="frame" x="0.0" y="0.0" width="134" height="88"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Size: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4cJ-fy-bnY">
+                                                <rect key="frame" x="0.0" y="0.0" width="134" height="24"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last modified: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gIn-VV-LN9">
+                                                <rect key="frame" x="0.0" y="32" width="134" height="24"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Creation Date: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qqb-M8-WC4">
+                                                <rect key="frame" x="0.0" y="64" width="134" height="24"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="7Oo-8H-RBD">
+                                        <rect key="frame" x="142" y="0.0" width="134" height="88"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 bytes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jyp-D5-kTG">
+                                                <rect key="frame" x="0.0" y="0.0" width="65" height="24"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="01/01/23" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zeT-GU-Lxo">
+                                                <rect key="frame" x="0.0" y="32" width="76" height="24"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="01/01/23" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vbm-iE-Xj8">
+                                                <rect key="frame" x="0.0" y="64" width="76" height="24"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="lwb-Ov-yfc"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="5ar-Ns-K3J" firstAttribute="centerY" secondItem="vl5-Qf-Uuj" secondAttribute="centerY" id="9lz-ff-NBX"/>
+                            <constraint firstItem="5ar-Ns-K3J" firstAttribute="centerX" secondItem="vl5-Qf-Uuj" secondAttribute="centerX" id="s7a-Zn-iGL"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="fileCreationDateLabel" destination="Vbm-iE-Xj8" id="NUc-PD-CjE"/>
+                        <outlet property="fileEditedDateLabel" destination="zeT-GU-Lxo" id="N4Q-ES-n2l"/>
+                        <outlet property="fileSizeLabel" destination="jyp-D5-kTG" id="uz0-AU-nOU"/>
+                        <outlet property="topStackView" destination="5ar-Ns-K3J" id="hP9-Oy-Jif"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lzw-8p-BNB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2665" y="546"/>
         </scene>
         <!--Gallery Collection View Controller-->
         <scene sceneID="wGO-BQ-Rko">
@@ -129,6 +208,22 @@
                                 <action selector="done:" destination="aT9-Rt-daf" id="05f-dz-U7U"/>
                             </connections>
                         </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="organize" id="iXr-16-x5M">
+                                <connections>
+                                    <action selector="showDetails:" destination="aT9-Rt-daf" id="GhJ-35-5Xh"/>
+                                    <segue destination="Qpj-3F-yiy" kind="presentation" identifier="Present Info Modally" id="7we-Ck-ksq"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Info" style="plain" id="4E3-ze-DWd">
+                                <connections>
+                                    <action selector="showMoreInfo:" destination="aT9-Rt-daf" id="kTa-N1-mbO"/>
+                                    <segue destination="Qpj-3F-yiy" kind="popoverPresentation" identifier="Present Info Popover" popoverAnchorBarButtonItem="4E3-ze-DWd" id="GMS-Rr-uca">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <segue destination="AZf-Td-fjp" kind="showDetail" identifier="PreviewSelectedImage" id="fvd-cV-FzY"/>
@@ -157,6 +252,9 @@
             <point key="canvasLocation" x="972.58064516129036" y="545.71932921447478"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="7we-Ck-ksq"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
