@@ -8,10 +8,10 @@ Modal Segue, Pop Over Segue, Unwind Segue
 - Use DateFormatter to display creation date appropriately 
 - Present the details screen as a popover (set preferred size in didLayoutSubviews)
 - Use sizeThatFits(UILayoutFittingCompressedSize)
-- Make sure the iPhone is also using a popover
-- Use adaptive presentation style .none in PopOverDeleagate
-- Add an unwind segue to the app
+
 
 ## Demo
-https://user-images.githubusercontent.com/87092187/222472028-e910e18f-f5e1-4f30-a6eb-b8790fff27bd.mov
+
+https://user-images.githubusercontent.com/87092187/228030361-2c840b2f-b2aa-42d9-9acd-a70709fab698.mp4
+
 
